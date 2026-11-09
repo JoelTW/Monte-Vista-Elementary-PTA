@@ -25,7 +25,9 @@ The PTA writes a calendar document each year. `scripts/doc_to_ics.py` turns its 
 1. In the Google Doc: File > Download > Plain text (.txt). Delete the Spanish half, or leave it (the script stops at a line starting "Calendario").
 2. Run: `python scripts/doc_to_ics.py calendar.txt --year 2026 -o pta-calendar.ics` (the year the school year *starts*).
 3. Google Calendar > Settings > Import & export > Import, choose the file and the "Monte Vista PTA Events" calendar.
-4. **Check the result.** Times without AM/PM are guessed (1 to 6 = PM, 7 to 11 = AM). Items marked TBD, and "4/13 or 4/14" style dates, come in as *tentative* and show a "to be confirmed" label on the site. Fix dates in Google Calendar as they firm up.
+4. **Read the "Please check" list the script prints.** It names every line it had to guess about or could not use: a line that lost its date (it uses the date of the line above), indented sub-items (named after the event above, for example "Penguin Patch in MPR: Set Up"), and lines it did not understand (left out, so add those by hand).
+5. **Check the result.** Times without AM/PM are guessed (1 to 6 = PM, 7 to 11 = AM; a trailing p as in "4:00p" is believed). Items marked TBD, and "4/13 or 4/14" style dates, come in as *tentative* and show a "to be confirmed" label on the site. Dates may be written "10/13: ...", "10/13 ..." or "10/13- ...". Fix dates in Google Calendar as they firm up.
+6. **The doc itself** is linked from the Events page. The link and its wording are settings (`calendar > doc_url` and `doc_label` in `_data/site.yml`); change them each school year, or clear the link to hide it.
 
 ## Day-to-day
 - **Add an event:** create it in Google Calendar with a title, date, time and location. Put a short sentence on the first line of the description (it becomes the one-line blurb on the cards) and a link anywhere in it if you want a "More information" link.

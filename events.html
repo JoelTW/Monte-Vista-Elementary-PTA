@@ -9,6 +9,7 @@ permalink: /events/
 <h2>{{ t.calendar_heading }}</h2>
 <p class="note">{{ t.note }}</p>
 {% include calendar-grid.html %}
+{% if cal.doc_url and cal.doc_url != "" %}<p>&#128196; <a href="{{ cal.doc_url }}" target="_blank" rel="noopener noreferrer">{{ cal.doc_label | default: 'Full year calendar (Google Doc)' }}</a> <span class="note">(opens in a new tab)</span></p>{% endif %}
 {% if cal.ical_url and cal.ical_url != "" %}
 {% assign webcal = cal.ical_url | replace: "https://", "webcal://" %}
 <p><a class="btn btn-soft btn-sm" href="{{ webcal }}">Subscribe in your phone's calendar</a> <a class="btn btn-soft btn-sm" href="https://calendar.google.com/calendar/r?cid={{ webcal | uri_escape }}">Add to Google Calendar</a></p>

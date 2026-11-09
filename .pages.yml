@@ -159,6 +159,8 @@ content:
         fields:
           - {name: ical_url, label: Public iCal address of the PTA's Google Calendar (leave empty for sample events), type: string}
           - {name: months_ahead, label: How many months ahead to show, type: number}
+          - {name: doc_url, label: Link to the yearly calendar Google Doc (clear to hide), type: string}
+          - {name: doc_label, label: Text of that link, type: string}
       - name: social
         label: Follow along (Facebook and Instagram)
         type: object
