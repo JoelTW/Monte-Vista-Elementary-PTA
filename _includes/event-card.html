@@ -1,9 +1,10 @@
 {% comment %}
 COMPONENT: horizontal event card. Pass event=<one item from site.data.calendar>.
+Click opens the details pop-up (assets/js/event-dialog.js); without JavaScript it links to the Events page.
 Everything is escaped, because calendar entries are typed by other people.
 {% endcomment %}
 {% assign ev = include.event %}
-<a class="hcard" href="{{ '/events/' | relative_url }}"><div class="thumb {{ ev.thumb | default: 't1' }}" role="img" aria-label="Icon for {{ ev.title | escape }}">{{ ev.emoji | default: "🎉" }}</div>
+<a class="hcard" href="{{ '/events/' | relative_url }}" data-event-id="{{ ev.id | escape }}"><div class="thumb {{ ev.thumb | default: 't1' }}" role="img" aria-label="Icon for {{ ev.title | escape }}">{{ ev.emoji | default: "🎉" }}</div>
 <div class="hbody"><div class="date" aria-hidden="true">{{ ev.date | date: "%b" | upcase }}<b>{{ ev.date | date: "%-d" }}</b></div><div><h3>{{ ev.title | escape }}</h3><span class="sr">{{ ev.date | date: "%A, %B %-d" }}{% if ev.end_date != "" %} to {{ ev.end_date | date: "%A, %B %-d" }}{% endif %}.</span>
 <p class="meta">{% if ev.end_date != "" %}&#128197; {{ ev.date | date: "%b %-d" }} &ndash; {{ ev.end_date | date: "%b %-d" }}<br>{% endif %}&#128339; {{ ev.time | escape }}{% if ev.place != "" %}<br>&#128205; {{ ev.place | escape }}{% endif %}</p>
 {% if ev.tentative %}<p><span class="tag">Date or time to be confirmed</span></p>{% endif %}

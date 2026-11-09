@@ -19,7 +19,7 @@ import os
 import re
 import sys
 import urllib.request
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -86,6 +86,11 @@ def _time_label(start, end):
     return "%s-%s" % (a, b)
 
 
+def _utc(dt):
+    """Clock time in the form calendar apps take in an add-to-calendar link: 20261114T010000Z."""
+    return dt.astimezone(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+
+
 def _icon(title, icons):
     low = title.lower()
     for rule in icons or []:
@@ -113,12 +118,13 @@ def build_events(ics_bytes, today, months_ahead=12, icons=None, tz_name=TZ):
             last = (end - timedelta(days=1)) if end else start                  # all-day DTEND is the day AFTER the last day
             last = max(last, start)
             d0, d1, label, s_iso = start, last, "All day", start.isoformat()
-            time_start = None
+            utc_start = utc_end = ""
         else:
             s = start.astimezone(tz) if start.tzinfo else start.replace(tzinfo=tz)
             e = (end.astimezone(tz) if end.tzinfo else end.replace(tzinfo=tz)) if isinstance(end, datetime) else None
             d0, d1 = s.date(), (e.date() if e else s.date())
-            label, s_iso, time_start = _time_label(s, e), s.strftime("%Y-%m-%dT%H:%M"), s
+            label, s_iso = _time_label(s, e), s.strftime("%Y-%m-%dT%H:%M")
+            utc_start, utc_end = _utc(s), _utc(e if e and e > s else s + timedelta(hours=1))   # no end time: assume one hour
         title = re.sub(r"\s+", " ", str(ev.get("SUMMARY", "")).strip()) or "(untitled event)"
         desc, url = _clean_text(str(ev.get("DESCRIPTION", "")))
         location = re.sub(r"\s+", " ", str(ev.get("LOCATION", "")).replace("\\,", ",")).strip()
@@ -130,7 +136,7 @@ def build_events(ics_bytes, today, months_ahead=12, icons=None, tz_name=TZ):
         out.append({
             "id": hashlib.sha1(("%s|%s" % (uid, s_iso)).encode()).hexdigest()[:10],
             "title": title, "date": d0.isoformat(), "end_date": d1.isoformat() if d1 > d0 else "",
-            "time": label, "all_day": all_day, "place": place, "location": location,
+            "time": label, "all_day": all_day, "start_utc": utc_start, "end_utc": utc_end, "place": place, "location": location,
             "blurb": blurb, "description": desc, "url": url, "emoji": emoji, "thumb": thumb,
             "tentative": str(ev.get("STATUS", "")).upper() == "TENTATIVE" or bool(re.search(r"\bTBD\b", title, re.I)),
             "_sort": (d0.isoformat(), 0 if all_day else 1, s_iso),

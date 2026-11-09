@@ -34,6 +34,21 @@ def test_utc_timed_event_is_shown_in_pacific_time():
     assert e["date"] == "2026-11-13" and e["time"] == "5:00-8:00 PM" and e["all_day"] is False and e["end_date"] == ""
 
 
+def test_timed_event_carries_utc_start_and_end_for_add_to_calendar_links():
+    e = one("UID:a\nSUMMARY:Fall Festival\nDTSTART;TZID=America/Los_Angeles:20261113T170000\nDTEND;TZID=America/Los_Angeles:20261113T200000")
+    assert e["start_utc"] == "20261114T010000Z" and e["end_utc"] == "20261114T040000Z"   # PST is UTC-8
+
+
+def test_timed_event_without_an_end_is_given_one_hour_for_add_to_calendar_links():
+    e = one("UID:a\nSUMMARY:Meeting\nDTSTART;TZID=America/Los_Angeles:20261124T160000")
+    assert e["start_utc"] == "20261125T000000Z" and e["end_utc"] == "20261125T010000Z"
+
+
+def test_all_day_event_has_no_utc_times():
+    e = one("UID:a\nSUMMARY:Flag Friday\nDTSTART;VALUE=DATE:20261120\nDTEND;VALUE=DATE:20261121")
+    assert e["start_utc"] == "" and e["end_utc"] == ""
+
+
 def test_time_range_across_noon_shows_both_periods():
     e = one("UID:a\nSUMMARY:Lunch\nDTSTART;TZID=America/Los_Angeles:20261120T113000\nDTEND;TZID=America/Los_Angeles:20261120T130000")
     assert e["time"] == "11:30 AM-1:00 PM"

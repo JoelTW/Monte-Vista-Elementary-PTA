@@ -5,37 +5,16 @@
   if (!root) return;
   const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  const dlg = document.getElementById('cal-dialog');
-  const dlgTitle = document.getElementById('cal-dialog-title');
-  const dlgBody = document.getElementById('cal-dialog-body');
   const pad = n => String(n).padStart(2, '0');
   const iso = (y, m, d) => y + '-' + pad(m + 1) + '-' + pad(d);          // m is 0-11
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
   let events = [], year, month, minKey, maxKey, grid, title, prev, next;
 
   const onDay = day => events.filter(e => e.date <= day && day <= (e.end_date || e.date));
-  const nice = day => { const [y, m, d] = day.split('-').map(Number); return DAYS[new Date(y, m - 1, d).getDay()] + ', ' + MONTHS[m - 1] + ' ' + d; };
+  const nice = day => window.mvEvents.nice(day);
   const key = (y, m) => y * 12 + m;
 
-  function openDay(day) {
-    dlgTitle.textContent = nice(day);
-    dlgBody.replaceChildren();
-    onDay(day).forEach(e => {
-      const box = el('div', 'cal-event');
-      box.append(el('h3', null, (e.emoji ? e.emoji + ' ' : '') + e.title));
-      const when = e.end_date ? nice(e.date) + ' to ' + nice(e.end_date) : e.time;
-      box.append(el('p', 'meta', when + (e.end_date && e.time && !e.all_day ? ', ' + e.time : '') + (e.place ? ' · ' + e.place : '')));
-      if (e.tentative) box.append(el('p', null, 'The date or time is still to be confirmed.'));
-      (e.description || '').split('\n').filter(Boolean).forEach(line => box.append(el('p', null, line)));
-      if (/^https?:\/\//i.test(e.url || '')) {
-        const a = el('a', null, 'More information');
-        a.href = e.url; a.target = '_blank'; a.rel = 'noopener noreferrer';
-        box.append(el('p')); box.lastChild.append(a);
-      }
-      dlgBody.append(box);
-    });
-    dlg.showModal();
-  }
+  const openDay = day => window.mvEvents.open(nice(day), onDay(day));
 
   function draw() {
     title.textContent = MONTHS[month] + ' ' + year;

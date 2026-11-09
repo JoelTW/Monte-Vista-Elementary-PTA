@@ -190,6 +190,12 @@ h3.month{margin:24px 0 10px;text-transform:uppercase;color:var(--blue);font-size
 .cal-event{border-top:1px solid #dde6f5;padding-top:6px;margin-top:10px}
 .cal-event:first-child{border-top:0;margin-top:0}
 .cal-event h3{margin:.2em 0}
+.add-cal{margin-top:14px;padding:14px 16px;background:var(--sky);border-radius:12px}
+.add-cal h4{margin:0 0 8px;color:var(--deep);font-size:1rem}
+.add-cal-row{display:flex;flex-wrap:wrap;gap:8px;margin:0}
+.add-cal .meta{margin:8px 0 0}
+.add-cal .btn-soft{background:#fff;box-shadow:0 1px 4px rgba(16,47,99,.2)}
+.add-cal .btn-soft:hover{background:var(--butter)}
 
 /* About page: event chips and the team */
 .chips{list-style:none;margin:0 0 16px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
