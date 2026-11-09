@@ -70,8 +70,8 @@ a{color:var(--blue)}
 .card .thumb{height:140px;display:flex;align-items:center;justify-content:center;font-size:4rem}
 .t1{background:linear-gradient(135deg,#ffd9a8,#ffb97a)}.t2{background:linear-gradient(135deg,#ffe0e0,#ffb3b3)}.t3{background:linear-gradient(135deg,#cfe3ff,#8fb8f0)}.t4{background:linear-gradient(135deg,#d4f1dc,#9edbb0)}
 .event-body{display:flex;gap:12px}
-.date{background:var(--pink);color:#d23b4f;border-radius:12px;text-align:center;padding:6px 10px;min-width:58px;font-weight:800;line-height:1.1;font-size:.8rem;align-self:flex-start}
-.date b{display:block;font-family:"Nunito Sans";font-size:1.7rem;color:#d23b4f}
+.date{background:var(--pink);color:#c02a40;border-radius:12px;text-align:center;padding:6px 10px;min-width:58px;font-weight:800;line-height:1.1;font-size:.8rem;align-self:flex-start}
+.date b{display:block;font-family:"Nunito Sans";font-size:1.7rem;color:#c02a40}
 .event-body h3{margin:0;overflow-wrap:anywhere}.event-body p{margin:.1em 0;font-size:.92rem}
 .card .btns{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
 .card .btns .btn{flex:1;text-align:center}
