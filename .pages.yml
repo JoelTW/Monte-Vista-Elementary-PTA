@@ -129,6 +129,10 @@ content:
         type: object
         fields:
           - {name: join_text, label: Join text, type: text}
+          - {name: poster_heading, label: Poster section heading, type: string}
+          - {name: poster_text, label: Poster section text, type: text}
+          - {name: poster_print_tip, label: Printing tip, type: string}
+          - {name: poster_alt, label: Description of the poster for screen readers, type: text}
           - {name: volunteer_text, label: Volunteer text, type: text}
           - {name: yearbook_text, label: Yearbook text, type: text}
       - name: give

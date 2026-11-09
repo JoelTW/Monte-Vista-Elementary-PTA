@@ -8,7 +8,14 @@ permalink: /get-involved/
 <h2>{{ t.join_heading }}</h2><p>{{ t.join_text }}</p>
 <p><a class="btn btn-gold" href="{{ site.data.site.links.join }}">Join the PTA</a></p></div>
 <div class="card"><div class="pad"><h3>Scan to join</h3><img src="{{ '/assets/qr/join.png' | relative_url }}" width="220" alt="QR code to join the Monte Vista PTA"></div></div></div></section>
-<section class="section sky" id="volunteer"><div class="wrap two"><div>
+<section class="section sky" id="poster"><div class="wrap two">
+<div class="poster-box"><a href="{{ '/assets/images/join-poster.jpg' | relative_url }}" target="_blank" rel="noopener"><img class="poster-img" src="{{ '/assets/images/join-poster.jpg' | relative_url }}" width="543" height="724" loading="lazy" alt="{{ t.poster_alt | escape }}"></a></div>
+<div><h2>{{ t.poster_heading }}</h2><p>{{ t.poster_text }}</p>
+<p><a class="btn btn-gold" href="{{ '/assets/downloads/join-poster-print.jpg' | relative_url }}" download="Monte-Vista-PTA-join-poster.jpg">Download the print-quality poster</a></p>
+<p><a class="btn btn-soft" href="{{ '/assets/images/join-poster.jpg' | relative_url }}" target="_blank" rel="noopener">View it full size</a></p>
+<p class="note">{{ t.poster_print_tip }}</p></div>
+</div></section>
+<section class="section" id="volunteer"><div class="wrap two"><div>
 <h2>{{ t.volunteer_heading }}</h2><p>{{ t.volunteer_text }}</p>
 {% include volunteer-form.html %}</div>
 <div id="yearbook"><h2>{{ t.yearbook_heading }}</h2><p>{{ t.yearbook_text }}</p><p><a class="btn btn-gold" href="{{ '/yearbook/' | relative_url }}">See the Yearbook page</a></p></div></div></section>

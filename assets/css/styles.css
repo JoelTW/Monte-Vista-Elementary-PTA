@@ -218,3 +218,7 @@ h3.month{margin:24px 0 10px;text-transform:uppercase;color:var(--blue);font-size
 .steps{margin:0 0 16px;padding-left:1.3em}.steps li{margin:.4em 0;padding-left:.2em}
 .steps li::marker{color:var(--blue);font-weight:800}
 .tips{margin:0;padding-left:1.2em}.tips li{margin:.45em 0}
+
+/* poster on Get Involved */
+.poster-box{text-align:center}
+.poster-img{display:block;max-width:100%;width:380px;height:auto;margin:0 auto;border-radius:16px;box-shadow:0 8px 24px rgba(16,47,99,.3)}

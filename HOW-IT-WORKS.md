@@ -74,6 +74,9 @@ GitHub Pages has no server, so a form service receives the messages and emails t
 
 Until an address is entered, each form tells the visitor it is not connected yet and shows the PTA email.
 
+## The Join the PTA poster
+The Get Involved page shows the poster (`assets/images/join-poster.jpg`) with a download for a print-quality copy (`assets/downloads/join-poster-print.jpg`). The QR code on it points to the Totem join page. To change the poster, replace those two files; the wording around them is in the editor under Page text > Get Involved. The poster artwork is only 1086 x 1448 pixels, so a print looks soft; a larger original from the designer would print better. If the Join link ever changes, the QR code on the poster has to be remade (ask whoever maintains the site, who keeps the poster originals outside this repository).
+
 ## What this proof of concept does NOT include yet
 - The forms are built and tested against a fake form server, but not yet connected to a real service (see Forms above).
 - The Google Calendar embed is a placeholder (paste the embed code in the CMS, or `_data/pages.yml`).
