@@ -37,8 +37,16 @@ The PTA writes a calendar document each year. `scripts/doc_to_ics.py` turns its 
 - **Cancelled:** delete the event, or set its status to cancelled.
 - **Emoji and card colour** come from words in the title. See `_data/event_icons.yml` to add or change them.
 
-## Event details and "Add to my calendar"
-Clicking an event card (home page or Events page) or a day on the month calendar opens a pop-up with the event's details and three ways to add it to a visitor's own calendar: Google Calendar, Outlook.com, and a downloadable `.ics` file (Apple Calendar and most other apps). The pop-up is `_includes/event-dialog.html` plus `assets/js/event-dialog.js`. Without JavaScript a card simply links to the Events page.
+## Event details, categories and "Add to calendar"
+Clicking an event card (home page or Events page) or a day on the month calendar opens a pop-up with a category tag, the title, date, time, place, description, a small picture, and a gold **Add to calendar** button. The button opens three choices: Google Calendar, Outlook.com, and a downloadable `.ics` file (Apple Calendar and most other apps). The pop-up is `_includes/event-dialog.html` plus `assets/js/event-dialog.js`. Without JavaScript a card simply links to the Events page.
+
+**Descriptions.** Type them in the Description box of the Google Calendar event. Plain text, one paragraph per line. A web address in it becomes the "More information" link. Events with no description still work, they just show less.
+
+**Categories.** Every event gets a tag (Meeting, Fundraiser, Celebration, Family, Community, School, or "PTA Event" when nothing fits) and the matching picture. The rules are in `_data/event_categories.yml` (editable in the CMS under "Event categories"): the first category whose words appear in the event title wins, so the order matters. To override one event, type a line such as `Category: Fundraiser` in its Google Calendar description. That line is not shown to visitors. Keep each category's `slug` as it is: it picks the picture in `assets/images/events/`.
+
+**Pictures and icons.** The seven pictures in `assets/images/events/` are simple drawings made for this site. Replace a file with another picture of the same name to change one. The brand icons in `assets/images/icons/` come from the Simple Icons set (CC0, public domain).
+
+**Good to know**
 - Timed events need `start_utc` and `end_utc` in the event data (`sync_calendar.py` writes them). An event with no end time is added as one hour long.
 - Events whose date or time is still "to be confirmed" say so inside the visitor's calendar entry too.
 - The "Outlook.com" link is built from Microsoft's published address format but has not been tried against a real Outlook account. The Google link and `.ics` file were checked.

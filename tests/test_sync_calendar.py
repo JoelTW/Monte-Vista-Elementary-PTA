@@ -135,6 +135,63 @@ def test_keywords_pick_an_emoji_and_unknown_titles_still_get_one():
     assert other["emoji"] and other["thumb"] in ("t1", "t2", "t3", "t4")
 
 
+CATS = [
+    {"name": "Meeting", "slug": "meeting", "words": ["pta meeting"]},
+    {"name": "Fundraiser", "slug": "fundraiser", "words": ["fundraiser", "book fair"]},
+    {"name": "School", "slug": "school", "words": ["no school"]},
+]
+
+
+def cat(title, description="", **kw):
+    desc = ("\nDESCRIPTION:" + description) if description else ""
+    e = one("UID:a\nSUMMARY:%s\nDTSTART;VALUE=DATE:20261120%s" % (title, desc), categories=CATS, **kw)
+    return e["category"], e["category_slug"]
+
+
+def test_title_keywords_choose_the_category_and_the_first_matching_rule_wins():
+    assert cat("PTA Meeting on Zoom") == ("Meeting", "meeting")
+    assert cat("Winter Book Fair") == ("Fundraiser", "fundraiser")
+    assert cat("PTA Meeting Fundraiser Planning") == ("Meeting", "meeting")
+
+
+def test_event_with_no_matching_words_gets_the_general_category():
+    assert cat("Something new") == ("PTA Event", "event")
+
+
+def test_category_line_in_the_description_overrides_the_keywords_and_is_not_shown():
+    e = one("UID:a\nSUMMARY:PTA Meeting\nDTSTART;VALUE=DATE:20261120\nDESCRIPTION:Category: fundraiser\\nBring ideas", categories=CATS)
+    assert (e["category"], e["category_slug"]) == ("Fundraiser", "fundraiser")
+    assert e["description"] == "Bring ideas" and e["blurb"] == "Bring ideas"
+
+
+def test_unknown_category_in_the_description_is_ignored_but_still_not_shown():
+    e = one("UID:a\nSUMMARY:PTA Meeting\nDTSTART;VALUE=DATE:20261120\nDESCRIPTION:Category: Spaceships", categories=CATS)
+    assert e["category_slug"] == "meeting" and "Category" not in e["description"]
+
+
+def test_category_can_be_named_by_its_slug_in_any_case():
+    assert cat("Plain", "CATEGORY:  School")[1] == "school"
+
+
+def test_the_shipped_category_rules_sort_the_real_pta_calendar_titles_sensibly():
+    rules = sc.load_categories(ROOT / "_data" / "event_categories.yml")
+    assert len(rules) == 6
+    expected = {
+        "PTA Meeting on Zoom": "meeting", "Catalog Fundraiser": "fundraiser", "Sees Candy Fundraiser": "fundraiser",
+        "Book Fair": "fundraiser", "Fall Festival": "celebration", "Halloween Parade": "celebration",
+        "Talent Show Day & Night Performance in MPR": "celebration", "TK Promotion": "celebration",
+        "TK/K Park Meet Up": "family", "Campout": "family", "Back to School Night": "family", "Family Valentine's Dance": "family",
+        "PTA Family Lunch": "family", "PTA Dine Out - Burger Bench": "community", "Site Beautification": "community",
+        "Open House & Leadership Day": "community", "Staff Appreciation Week": "community", "Great Kindness Challenge": "community",
+        "No School - Labor Day": "school", "Minimum Day": "school", "Flag Friday": "school", "Friday Flag": "school", "Winter Break": "school",
+        "Parent Teacher Conference Week (Minimum Days)": "school", "Red Ribbon Week": "school", "Read Across America Week": "school",
+        "Students return from Winter Break": "school", "Something unusual": "event",
+    }
+    for title, slug in expected.items():
+        e = one("UID:a\nSUMMARY:%s\nDTSTART;VALUE=DATE:20261120" % title, categories=rules)
+        assert e["category_slug"] == slug, (title, e["category_slug"])
+
+
 def test_missing_title_gets_a_placeholder_and_markup_is_kept_as_text_for_the_page_to_escape():
     assert one("UID:a\nDTSTART;VALUE=DATE:20261120")["title"] == "(untitled event)"
     assert one("UID:b\nSUMMARY:<b>Hi</b> & friends\nDTSTART;VALUE=DATE:20261120")["title"] == "<b>Hi</b> & friends"

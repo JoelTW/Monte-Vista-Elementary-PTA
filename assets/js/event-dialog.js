@@ -5,7 +5,6 @@
   if (!dlg) return;
   const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  const title = document.getElementById('event-dialog-title');
   const body = document.getElementById('event-dialog-body');
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
   const nice = day => { const [y, m, d] = day.split('-').map(Number); return DAYS[new Date(y, m - 1, d).getDay()] + ', ' + MONTHS[m - 1] + ' ' + d; };
@@ -77,31 +76,63 @@
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
 
+  // The gold "Add to calendar" button opens a small list of choices.
+  let menuCount = 0;
   function addToCalendar(e) {
     const s = span(e);
     if (!s) return null;
-    const box = el('div', 'add-cal');
-    box.append(el('h4', null, 'Add to my calendar'));
-    const row = el('p', 'add-cal-row');
-    [['Google Calendar', googleLink(e, s)], ['Outlook.com', outlookLink(e, s)]].forEach(([label, href]) => {
-      const a = el('a', 'btn btn-soft btn-sm', label);
+    const wrap = el('div', 'add-cal');
+    const id = 'add-menu-' + (++menuCount);
+    const btn = el('button', 'btn btn-gold', 'Add to calendar');
+    btn.type = 'button'; btn.setAttribute('aria-expanded', 'false'); btn.setAttribute('aria-controls', id);
+    btn.append(el('span', 'caret', ' \u25BE'));
+    const menu = el('div', 'add-menu'); menu.id = id; menu.hidden = true;
+    const option = (tag, label, icon) => {
+      const o = el(tag, 'add-opt');
+      const img = el('img'); img.src = dlg.dataset.icons + icon; img.alt = ''; img.width = 20; img.height = 20;
+      o.append(img, el('span', null, label));
+      return o;
+    };
+    [['Google Calendar', 'google-calendar.svg', googleLink(e, s)], ['Outlook.com', 'outlook.svg', outlookLink(e, s)]].forEach(([label, icon, href]) => {
+      const a = option('a', label, icon);
       a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer';
-      row.append(a);
+      a.append(el('span', 'sr', ' (opens in a new tab)'));
+      menu.append(a);
     });
-    const file = el('button', 'btn btn-soft btn-sm', 'Apple / other (.ics file)'); file.type = 'button';
+    const file = option('button', 'Apple / .ics file', 'apple.svg'); file.type = 'button';
     file.addEventListener('click', () => download(e, s));
-    row.append(file);
-    box.append(row);
-    if (e.tentative) box.append(el('p', 'meta', 'The date or time is not final yet, so check back here before the event.'));
-    return box;
+    menu.append(file);
+    btn.addEventListener('click', () => {
+      menu.hidden = !menu.hidden;
+      btn.setAttribute('aria-expanded', String(!menu.hidden));
+      if (!menu.hidden) menu.scrollIntoView({ block: 'nearest' });
+    });
+    wrap.append(btn, menu);
+    if (e.tentative) wrap.append(el('p', 'meta', 'The date or time is not final yet, so check back here before the event.'));
+    return wrap;
   }
 
   // ---- the pop-up ----
-  function eventBox(e) {
-    const box = el('div', 'cal-event');
-    box.append(el('h3', null, (e.emoji ? e.emoji + ' ' : '') + e.title));
-    const when = e.end_date ? nice(e.date) + ' to ' + nice(e.end_date) : e.time;
-    box.append(el('p', 'meta', when + (e.end_date && e.time && !e.all_day ? ', ' + e.time : '') + (e.place ? ' · ' + e.place : '')));
+  const row = (icon, text) => { const li = el('li'); li.append(el('span', 'ev-ico', icon), el('span', null, text)); li.firstChild.setAttribute('aria-hidden', 'true'); return li; };
+  const year = day => day.slice(0, 4);
+
+  // One event. With `single` its title is the pop-up's heading; in a list of several it is a smaller heading.
+  function eventBox(e, single) {
+    const box = el('div', 'cal-event' + (single ? ' ev-single' : ''));
+    box.append(el('p', 'ev-tag', e.category || 'PTA Event'));
+    const h = el(single ? 'h2' : 'h3', null, e.title);
+    if (single) h.id = 'event-dialog-title';
+    box.append(h);
+    const art = el('img', 'ev-art' + (single ? '' : ' sm'));
+    art.src = dlg.dataset.art + (e.category_slug || 'event') + '.svg'; art.alt = ''; art.width = 140; art.height = 140;
+    art.addEventListener('error', () => art.remove());
+    box.append(art);
+    const last = e.end_date || e.date;
+    const rows = el('ul', 'ev-rows');
+    rows.append(row('\uD83D\uDCC5', (e.end_date ? nice(e.date) + ' to ' + nice(e.end_date) : nice(e.date)) + ', ' + year(last)));
+    if (e.time) rows.append(row('\uD83D\uDD58', e.time));
+    if (e.place) rows.append(row('\uD83D\uDCCD', e.place));
+    box.append(rows);
     if (e.tentative) box.append(el('p', null, 'The date or time is still to be confirmed.'));
     (e.description || '').split('\n').filter(Boolean).forEach(line => box.append(el('p', null, line)));
     if (/^https?:\/\//i.test(e.url || '')) {
@@ -114,9 +145,14 @@
     return box;
   }
 
+  // heading is the date; it is only shown when a day has several events (one event shows its own title).
   function open(heading, list) {
-    title.textContent = heading;
-    body.replaceChildren(...list.map(eventBox));
+    if (list.length === 1) {
+      body.replaceChildren(eventBox(list[0], true));
+    } else {
+      const h = el('h2', null, heading); h.id = 'event-dialog-title';
+      body.replaceChildren(h, ...list.map(e => eventBox(e, false)));
+    }
     dlg.showModal();
   }
   window.mvEvents = { open, nice };

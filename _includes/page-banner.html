@@ -1,0 +1,13 @@
+{% comment %}
+COMPONENT: big page banner with the bobcat logo (used by the Events page). Pass banner=<object with title_before, title_highlight, title_after, text>.
+Wording lives in _data/pages.yml. The highlighted part of the title gets the gold underline.
+{% endcomment %}
+{% assign bn = include.banner %}
+<div class="page-banner">
+<svg class="banner-waves" viewBox="0 0 520 200" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0h430c-60 40-40 90-130 110S110 150 0 200z" fill="#E8F1FC"/><path d="M0 0h330c-50 30-30 70-110 90S80 120 0 160z" fill="#174A98"/><path d="M0 0h250c-40 22-24 52-84 66S50 90 0 120z" fill="#F4BD32"/></svg>
+<svg class="banner-paws" viewBox="0 0 120 120" aria-hidden="true" fill="#9CC2F2"><ellipse cx="60" cy="80" rx="26" ry="22"/><ellipse cx="22" cy="52" rx="10" ry="14" transform="rotate(-24 22 52)"/><ellipse cx="44" cy="30" rx="10" ry="15" transform="rotate(-8 44 30)"/><ellipse cx="76" cy="30" rx="10" ry="15" transform="rotate(8 76 30)"/><ellipse cx="98" cy="52" rx="10" ry="14" transform="rotate(24 98 52)"/></svg>
+<div class="wrap banner-in">
+<img class="banner-logo" src="{{ '/assets/images/logo.png' | relative_url }}" alt="" width="170" height="170">
+<div><h1>{{ bn.title_before | escape }} <span class="hl">{{ bn.title_highlight | escape }}</span>{{ bn.title_after | escape }}</h1>
+<p>{{ bn.text | escape }}</p></div>
+</div></div>

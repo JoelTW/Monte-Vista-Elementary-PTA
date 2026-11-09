@@ -31,6 +31,8 @@ ROOT = Path(__file__).resolve().parent.parent
 TZ = "America/Los_Angeles"
 THUMBS = ["t1", "t2", "t3", "t4"]
 DEFAULT_EMOJI = "🎉"
+GENERAL_CATEGORY = ("PTA Event", "event")        # used when no category rule matches
+CATEGORY_LINE = re.compile(r"^\s*category\s*:\s*(.+?)\s*$", re.I | re.M)
 
 
 def load_source(src):
@@ -99,7 +101,36 @@ def _icon(title, icons):
     return DEFAULT_EMOJI, THUMBS[int(hashlib.sha1(title.encode()).hexdigest(), 16) % len(THUMBS)]
 
 
-def build_events(ics_bytes, today, months_ahead=12, icons=None, tz_name=TZ):
+def load_categories(path):
+    """The category rules from _data/event_categories.yml (a list under "categories:"); empty if the file is missing."""
+    path = Path(path)
+    data = yaml.safe_load(path.read_text()) if path.exists() else None
+    return (data.get("categories") if isinstance(data, dict) else data) or []
+
+
+def _category(title, description, categories):
+    """Return (name, slug, description without the Category line).
+
+    A line "Category: Fundraiser" in the event's description wins when it names a known category (by name or slug).
+    Otherwise the first category whose words appear in the title is used, else the general one.
+    """
+    found = CATEGORY_LINE.search(description)
+    description = CATEGORY_LINE.sub("", description).strip() if found else description
+    description = re.sub(r"\n\s*\n+", "\n", description)
+    rules = categories or []
+    if found:
+        wanted = found.group(1).strip().lower()
+        for rule in rules:
+            if wanted in (str(rule.get("name", "")).lower(), str(rule.get("slug", "")).lower()):
+                return rule["name"], rule["slug"], description
+    low = title.lower()
+    for rule in rules:
+        if any(w.lower() in low for w in rule.get("words", [])):
+            return rule["name"], rule["slug"], description
+    return GENERAL_CATEGORY + (description,)
+
+
+def build_events(ics_bytes, today, months_ahead=12, icons=None, tz_name=TZ, categories=None):
     """Return the events from the start of this month to months_ahead later, one dict per occurrence."""
     if b"BEGIN:VCALENDAR" not in ics_bytes[:2000] and b"BEGIN:VCALENDAR" not in ics_bytes:
         raise ValueError("That is not a calendar file (no BEGIN:VCALENDAR). Is the calendar address public?")
@@ -127,6 +158,7 @@ def build_events(ics_bytes, today, months_ahead=12, icons=None, tz_name=TZ):
             utc_start, utc_end = _utc(s), _utc(e if e and e > s else s + timedelta(hours=1))   # no end time: assume one hour
         title = re.sub(r"\s+", " ", str(ev.get("SUMMARY", "")).strip()) or "(untitled event)"
         desc, url = _clean_text(str(ev.get("DESCRIPTION", "")))
+        category, category_slug, desc = _category(title, desc, categories)
         location = re.sub(r"\s+", " ", str(ev.get("LOCATION", "")).replace("\\,", ",")).strip()
         place = location.split(",")[0].strip() if location.count(",") >= 2 else location
         first_line = next((ln.strip() for ln in desc.splitlines() if ln.strip() and not re.match(r"^https?://\S+$", ln.strip())), "")
@@ -137,7 +169,7 @@ def build_events(ics_bytes, today, months_ahead=12, icons=None, tz_name=TZ):
             "id": hashlib.sha1(("%s|%s" % (uid, s_iso)).encode()).hexdigest()[:10],
             "title": title, "date": d0.isoformat(), "end_date": d1.isoformat() if d1 > d0 else "",
             "time": label, "all_day": all_day, "start_utc": utc_start, "end_utc": utc_end, "place": place, "location": location,
-            "blurb": blurb, "description": desc, "url": url, "emoji": emoji, "thumb": thumb,
+            "category": category, "category_slug": category_slug, "blurb": blurb, "description": desc, "url": url, "emoji": emoji, "thumb": thumb,
             "tentative": str(ev.get("STATUS", "")).upper() == "TENTATIVE" or bool(re.search(r"\bTBD\b", title, re.I)),
             "_sort": (d0.isoformat(), 0 if all_day else 1, s_iso),
         })
@@ -168,8 +200,10 @@ def main(argv=None):
     today = date.fromisoformat(args.today) if args.today else datetime.now(ZoneInfo(TZ)).date()
     icons_path = root / "_data" / "event_icons.yml"
     icons = yaml.safe_load(icons_path.read_text()) if icons_path.exists() else []
+    cats_path = root / "_data" / "event_categories.yml"
+    categories = load_categories(cats_path)
     try:
-        events = build_events(load_source(src), today, int(cfg.get("months_ahead") or 12), icons)
+        events = build_events(load_source(src), today, int(cfg.get("months_ahead") or 12), icons, categories=categories)
     except Exception as exc:
         print("Calendar sync FAILED (the site keeps its last good data): %s" % exc, file=sys.stderr)
         return 1

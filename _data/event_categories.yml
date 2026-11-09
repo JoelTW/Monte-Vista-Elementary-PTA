@@ -1,0 +1,24 @@
+# The tag on each event pop-up ("Fundraiser", "School", ...) and the picture that goes with it.
+# An event gets the first category whose words appear in its title (not case sensitive), so the ORDER matters.
+# Events that match nothing are tagged "PTA Event".
+# To override one event, type a line like "Category: Fundraiser" in its Google Calendar description.
+# The name can be changed freely. The slug picks the picture (assets/images/events/<slug>.svg), so leave it alone.
+categories:
+  - name: Meeting
+    slug: meeting
+    words: ["pta meeting", "meeting", "assembly", "presentation"]
+  - name: Fundraiser
+    slug: fundraiser
+    words: ["fundraiser", "catalog", "candy", "book fair", "jog-a-thon", "jog a thon", "penguin patch", "sponsor"]
+  - name: Celebration
+    slug: celebration
+    words: ["festival", "halloween", "parade", "talent show", "school play", "arts under the stars", "promotion", "clap out", "kickball", "field day", "boo-hoo", "party", "tree lighting", "winter craft night", "makers market"]
+  - name: Family
+    slug: family
+    words: ["family", "meet up", "meet & greet", "campout", "camp out", "dance", "movie night", "back to school night", "craft night"]
+  - name: Community
+    slug: community
+    words: ["dine out", "dine-out", "dine in", "beautification", "open house", "leadership day", "appreciation", "kindness"]
+  - name: School
+    slug: school
+    words: ["no school", "minimum day", "break", "conference", "first day", "students return", "last day", "flag friday", "friday flag", "red ribbon", "read across", "study trip", "order delivery", "school"]

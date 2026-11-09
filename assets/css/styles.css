@@ -190,12 +190,6 @@ h3.month{margin:24px 0 10px;text-transform:uppercase;color:var(--blue);font-size
 .cal-event{border-top:1px solid #dde6f5;padding-top:6px;margin-top:10px}
 .cal-event:first-child{border-top:0;margin-top:0}
 .cal-event h3{margin:.2em 0}
-.add-cal{margin-top:14px;padding:14px 16px;background:var(--sky);border-radius:12px}
-.add-cal h4{margin:0 0 8px;color:var(--deep);font-size:1rem}
-.add-cal-row{display:flex;flex-wrap:wrap;gap:8px;margin:0}
-.add-cal .meta{margin:8px 0 0}
-.add-cal .btn-soft{background:#fff;box-shadow:0 1px 4px rgba(16,47,99,.2)}
-.add-cal .btn-soft:hover{background:var(--butter)}
 
 /* About page: event chips and the team */
 .chips{list-style:none;margin:0 0 16px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
@@ -228,3 +222,33 @@ h3.month{margin:24px 0 10px;text-transform:uppercase;color:var(--blue);font-size
 /* poster on Get Involved */
 .poster-box{text-align:center}
 .poster-img{display:block;max-width:100%;width:380px;height:auto;margin:0 auto;border-radius:16px;box-shadow:0 8px 24px rgba(16,47,99,.3)}
+
+/* event pop-up */
+.dlg-foot{margin:18px 0 0}
+.ev-tag{display:inline-block;margin:0 0 10px;padding:.3em .85em;border-radius:999px;background:var(--gold);color:var(--deep);font:800 .75rem "Nunito Sans",sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.ev-single h2{font-size:clamp(1.7rem,5vw,2.5rem);margin:0 0 .5em;padding-right:44px}
+.cal-event h3{padding-right:0}
+.ev-art{float:right;width:130px;height:130px;margin:0 0 6px 14px}
+.ev-art.sm{width:76px;height:76px}
+@media(max-width:560px){.ev-art{width:92px;height:92px}}
+.ev-rows{list-style:none;margin:0 0 12px;padding:0}
+.ev-rows li{display:flex;gap:10px;margin:.3em 0;font-weight:600;color:var(--deep)}
+.ev-ico{flex:none;width:1.4em;text-align:center}
+.add-cal{clear:both;margin-top:16px}
+.add-cal .caret{font-size:.9em}
+.add-menu{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;padding:12px;background:var(--sky);border-radius:14px}
+.add-menu[hidden]{display:none}
+.add-opt{display:inline-flex;align-items:center;gap:8px;padding:.55rem .95rem;border:0;border-radius:10px;background:#fff;box-shadow:0 1px 4px rgba(16,47,99,.22);color:var(--deep);font:800 .95rem "Nunito Sans",sans-serif;text-decoration:none;cursor:pointer}
+.add-opt:hover{background:var(--butter)}
+.add-opt img{width:20px;height:20px;flex:none}
+
+/* events banner */
+.page-banner{position:relative;overflow:hidden;background:linear-gradient(180deg,#fffdf6,var(--cream));border-bottom:8px solid var(--gold)}
+.page-banner .banner-waves{position:absolute;left:0;top:0;width:min(52%,520px);height:100%;pointer-events:none}
+.page-banner .banner-paws{position:absolute;right:2%;top:12%;width:clamp(70px,12vw,150px);pointer-events:none}
+.banner-in{position:relative;display:flex;align-items:center;gap:clamp(14px,3vw,34px);padding-block:clamp(22px,4vw,44px)}
+.banner-logo{flex:none;width:clamp(84px,15vw,170px);height:auto;border-radius:50%;border:5px solid #fff;box-shadow:0 6px 18px rgba(16,47,99,.3)}
+.page-banner h1{font-size:clamp(1.9rem,5.4vw,3.6rem);margin:0 0 .25em}
+.page-banner h1 .hl{background:linear-gradient(transparent 80%,var(--gold) 80% 92%,transparent 92%);padding:0 .08em}
+.page-banner p{margin:0;font-size:clamp(1rem,2vw,1.25rem);font-weight:600;color:var(--blue);max-width:46ch}
+@media(max-width:560px){.page-banner .banner-paws{display:none}.page-banner .banner-waves{width:30%;opacity:.55}.banner-in{align-items:flex-start}}

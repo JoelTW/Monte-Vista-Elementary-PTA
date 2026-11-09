@@ -51,6 +51,11 @@ yearbook:
   order_heading: Ordering a yearbook
   order_text: ""     # price, order deadline and how to order. Leave empty to hide this section until the details are known.
 events:
+  banner:
+    title_before: What's happening at
+    title_highlight: Monte Vista
+    title_after: "?"
+    text: PTA events, school programs, and important dates for our Bobcat community.
   note: Event dates and times are subject to change. Click a day to see its events.
   volunteer_line: "Want to help at an event?"
   volunteer_link_text: "Sign up to volunteer"

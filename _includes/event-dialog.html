@@ -1,12 +1,11 @@
 {% comment %}
-COMPONENT: the pop-up that shows an event's details with "Add to my calendar" links.
+COMPONENT: the pop-up that shows an event's details with an "Add to calendar" button.
 Included once on every page (in the layout). Filled in by assets/js/event-dialog.js when someone clicks an
-event card or a day on the month calendar.
+event card or a day on the month calendar. Pictures: assets/images/events/<category slug>.svg.
 {% endcomment %}
-<dialog id="event-dialog" class="dlg" aria-labelledby="event-dialog-title" data-src="{{ '/assets/data/events.json' | relative_url }}" data-events-url="{{ '/events/' | absolute_url }}">
+<dialog id="event-dialog" class="dlg" aria-labelledby="event-dialog-title" data-src="{{ '/assets/data/events.json' | relative_url }}" data-events-url="{{ '/events/' | absolute_url }}" data-art="{{ '/assets/images/events/' | relative_url }}" data-icons="{{ '/assets/images/icons/' | relative_url }}">
 <div class="dlg-body">
 <button class="dlg-close" type="button" data-dialog-close aria-label="Close">&times;</button>
-<h2 id="event-dialog-title"></h2>
 <div id="event-dialog-body"></div>
-<p><button class="btn btn-gold btn-sm" type="button" data-dialog-close>Close</button></p>
+<p class="dlg-foot"><button class="btn btn-soft btn-sm" type="button" data-dialog-close>Close</button></p>
 </div></dialog>

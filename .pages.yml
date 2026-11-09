@@ -119,6 +119,14 @@ content:
         label: Events page
         type: object
         fields:
+          - name: banner
+            label: Big banner at the top
+            type: object
+            fields:
+              - {name: title_before, label: Headline, type: string}
+              - {name: title_highlight, label: Headline words with the gold underline, type: string}
+              - {name: title_after, label: Headline ending (such as a question mark), type: string}
+              - {name: text, label: Sentence under the headline, type: text}
           - {name: note, label: Note under the list, type: string}
           - {name: volunteer_line, label: Volunteer line (before the link), type: string}
           - {name: volunteer_link_text, label: Volunteer link text, type: string}
@@ -149,6 +157,20 @@ content:
         fields:
           - {name: board_text, label: Board names, type: text}
           - {name: news_text, label: Newsletter text, type: text}
+
+  - name: event_categories
+    label: Event categories (the tag and picture on each event pop-up)
+    type: file
+    path: _data/event_categories.yml
+    fields:
+      - name: categories
+        label: Categories (an event gets the FIRST one whose words appear in its title, so the order matters)
+        type: object
+        list: true
+        fields:
+          - {name: name, label: Name shown on the tag, type: string}
+          - {name: slug, label: Picture name (leave as is), type: string}
+          - {name: words, label: Words in an event title that put it in this category, type: string, list: true}
 
   - name: team
     label: Get to know your PTA (board and chairs)
