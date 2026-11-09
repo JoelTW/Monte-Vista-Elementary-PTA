@@ -15,8 +15,6 @@
     - {label: Join the PTA, url: /get-involved/}
     - {label: Volunteer, url: "/get-involved/#volunteer"}
     - {label: Yearbook, url: /yearbook/}
-- label: Give
-  url: /give/
 - label: Support PTA
   url: /give/
   children:
