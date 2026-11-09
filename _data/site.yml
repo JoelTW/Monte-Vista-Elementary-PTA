@@ -18,7 +18,7 @@ forms:                    # paste a Formspree (or similar) address to make forms
   contact: "#"
   newsletter: "#"
 calendar:
-  ical_url: ""        # the public iCal address of the PTA's Google Calendar (see docs/events-and-calendar.md). Empty = sample events.
+  ical_url: "https://calendar.google.com/calendar/ical/f41cad339f6a5b6ef6f65aeb88b8b1feb92a4866186549cae4272a072e2f55e6%40group.calendar.google.com/public/basic.ics"        # the public iCal address of the PTA's Google Calendar (see docs/events-and-calendar.md). Empty = sample events.
   months_ahead: 12
 social:
   heading: Follow along

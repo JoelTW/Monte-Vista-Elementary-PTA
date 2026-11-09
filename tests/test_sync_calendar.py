@@ -152,3 +152,13 @@ def test_load_source_reads_a_local_file(tmp_path):
     f = tmp_path / "x.ics"
     f.write_bytes(ics("UID:a\nSUMMARY:Hi\nDTSTART;VALUE=DATE:20261120"))
     assert b"BEGIN:VCALENDAR" in sc.load_source(str(f))
+
+
+def test_data_file_loads_the_way_jekyll_loads_it(tmp_path):
+    """Jekyll 3 reads _data/*.json with a YAML parser, which rejects \\ud83c-style emoji escapes."""
+    import yaml
+    events = build('UID:a\nSUMMARY:Fall "Festival" \\\\ \U0001F383 & more\nDTSTART;VALUE=DATE:20261120\nDESCRIPTION:Line one\\nLine two')
+    out = tmp_path / "calendar.json"
+    sc.write_outputs(events, out)
+    assert "\\ud83c" not in out.read_text().lower()
+    assert yaml.safe_load(out.read_text()) == events

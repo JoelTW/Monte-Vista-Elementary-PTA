@@ -1,7 +1,8 @@
 {% comment %}
 COMPONENT: list of upcoming events, read from the calendar (_data/calendar.json, made by scripts/sync_calendar.py).
 Shows events that have not finished yet, soonest first.
-Options: limit=3 (max to show), grouped=true (month headings).
+Options: limit=3 (max to show), grouped=true (month headings),
+note="text" (shown under the list only when more events exist than the limit allows).
 {% endcomment %}
 {% assign today = site.time | date: "%Y-%m-%d" %}
 {% assign shown = 0 %}
@@ -15,4 +16,5 @@ Options: limit=3 (max to show), grouped=true (month headings).
     {% assign shown = shown | plus: 1 %}
   {% endif %}
 {% endfor %}
+{% if include.note and include.limit and shown >= include.limit %}{% assign more = 0 %}{% for e in site.data.calendar %}{% assign ld = e.end_date | default: e.date %}{% if ld >= today %}{% assign more = more | plus: 1 %}{% endif %}{% endfor %}{% if more > shown %}<p class="note">{{ include.note }}</p>{% endif %}{% endif %}
 {% if shown == 0 %}<p>New events coming soon! Check back, or follow us on social media.</p>{% endif %}

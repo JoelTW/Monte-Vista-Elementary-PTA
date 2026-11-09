@@ -16,8 +16,7 @@ permalink: /events/
 </div></section>
 <section class="section sky"><div class="wrap upcoming">
 <h2>Upcoming events</h2>
-{% include upcoming-events.html grouped=true limit=12 %}
-<p class="note">Showing the next 12 events. Use the calendar above to see further ahead.</p>
+{% include upcoming-events.html grouped=true limit=12 note="Showing the next 12 events. Use the calendar above to see further ahead." %}
 <p>{{ t.volunteer_line }} <a href="{{ '/get-involved/#volunteer' | relative_url }}">{{ t.volunteer_link_text }}</a>.</p>
 </div></section>
 <section class="section" id="reflections"><div class="wrap"><h2>{{ t.reflections_heading }}</h2><p>{{ t.reflections_text }}</p>
