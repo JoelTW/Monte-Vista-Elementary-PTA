@@ -6,7 +6,7 @@ permalink: /events/
 {% assign t = site.data.pages.events %}
 <section class="section"><div class="wrap two"><div>
 {% include upcoming-events.html grouped=true %}
-<p>{{ t.volunteer_line | markdownify | remove: "<p>" | remove: "</p>" }}</p>
+<p>{{ t.volunteer_line }} <a href="{{ '/get-involved/#volunteer' | relative_url }}">{{ t.volunteer_link_text }}</a>.</p>
 <p class="note">{{ t.note }}</p></div>
 <div><h2>{{ t.calendar_heading }}</h2>
 {% if t.calendar_embed and t.calendar_embed != "" %}{{ t.calendar_embed }}{% else %}<div class="ph" role="img" aria-label="Placeholder for embedded Google Calendar" style="min-height:320px">Google Calendar embed goes here</div>{% endif %}</div></div></section>

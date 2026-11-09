@@ -38,8 +38,9 @@ You need Ruby. This project pins Jekyll 3.10, the same version GitHub Pages runs
 ```
 cd jekyll-site
 BUNDLE_PATH=vendor/bundle bundle install     # first time only
-BUNDLE_PATH=vendor/bundle bundle exec jekyll serve
+BUNDLE_PATH=vendor/bundle bundle exec jekyll serve --baseurl ""
 ```
+(`--baseurl ""` makes the local copy work at the top of the address. `baseurl` in `_config.yml` is the repository name while the site lives at github.io, and must be set back to `""` when the custom domain is switched on.)
 Then open http://127.0.0.1:4000. To only build: `bundle exec jekyll build` (output goes in `_site/`, which isn't committed).
 
 ## Publishing with GitHub Pages

@@ -106,6 +106,8 @@ content:
         type: object
         fields:
           - {name: note, label: Note under the list, type: string}
+          - {name: volunteer_line, label: Volunteer line (before the link), type: string}
+          - {name: volunteer_link_text, label: Volunteer link text, type: string}
           - {name: calendar_embed, label: Google Calendar embed code, type: text}
           - {name: reflections_heading, label: Reflections heading, type: string}
           - {name: reflections_text, label: Reflections text, type: text}

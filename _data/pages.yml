@@ -1,6 +1,7 @@
 events:
   note: Event dates and times are subject to change. Check the school newsletter for the latest.
-  volunteer_line: "Want to help at an event? [Sign up to volunteer](/get-involved/#volunteer)."
+  volunteer_line: "Want to help at an event?"
+  volunteer_link_text: "Sign up to volunteer"
   calendar_heading: Calendar
   calendar_embed: ""     # paste the Google Calendar iframe here; leave empty to show a placeholder
   reflections_heading: National PTA Reflections Art Competition

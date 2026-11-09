@@ -1,7 +1,7 @@
 title: Monte Vista PTA
 description: Monte Vista Elementary PTA, Vista, CA. Where Leaders Grow.
-url: ""          # set to https://www.montevistapta.org when deploying
-baseurl: ""      # leave empty for a custom domain; /repo-name for a project site without one
+url: "https://joeltw.github.io"   # becomes https://www.montevistapta.org after the domain move
+baseurl: "/Monte-Vista-Elementary-PTA"   # the repo name while on github.io; set to "" once a custom domain is used
 timezone: America/Los_Angeles
 future: true     # so events dated in the future are not hidden (see _events/)
 markdown: kramdown
