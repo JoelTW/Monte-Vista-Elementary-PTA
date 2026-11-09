@@ -1,5 +1,6 @@
 name: Monte Vista PTA
 tagline: Where Leaders Grow
+description: "Monte Vista Elementary PTA in Vista, CA. Events, ways to volunteer and give, and news for our Bobcat families."   # shown in search results; a page can set its own with description: in its front matter
 hide_from_search_engines: true   # TURN OFF (set to false) when the site goes live on montevistapta.org
 draft_banner: "Design Draft Website: Not open to the public and missing information"   # delete the text to hide the banner
 email: PTA@montevistapta.org
