@@ -49,6 +49,9 @@ Then open http://127.0.0.1:4000. To only build: `bundle exec jekyll build` (outp
 3. For the custom domain `www.montevistapta.org`, add it under Settings > Pages and point DNS at GitHub as GitHub's instructions say. Set `url:` in `_config.yml` to the real address.
 4. **Past events and rebuilds:** with "deploy from a branch", the site only rebuilds when something is pushed, so an event that has passed stays visible until the next change. To rebuild nightly, use the Actions workflow in `docs/deploy-workflow.example.yml` (untested example).
 
+## Facebook and Instagram ("Follow along")
+The site shows a QR code and a button for each page, with no scripts from Facebook or Instagram. The links are in `_data/site.yml` under `links`. The QR images in `assets/qr/` are made from those links by `scripts/make_qr.py`, so **if a link changes, the QR image has to be regenerated** (with the logo in the middle). Facebook's own embed shows only the page name for our page and Instagram has no free feed embed, so there is no automatic post feed. If someone with access to the accounts is found, a widget service could add one later.
+
 ## What this proof of concept does NOT include yet
 - Forms don't send anywhere (set up Formspree or similar and paste its address into `_data/site.yml`).
 - The Google Calendar embed is a placeholder (paste the embed code in the CMS, or `_data/pages.yml`).

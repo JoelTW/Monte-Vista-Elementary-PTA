@@ -1,6 +1,26 @@
-{% comment %} COMPONENT: president message card. Text comes from _data/home.yml > president. {% endcomment %}
+{% comment %}
+COMPONENT: President's message card. A short preview shows on the page; "Read more" opens the full
+message (and photo) in a pop-up. Everything comes from _data/home.yml > president.
+Preview length: preview_words. Put [[photo]] on its own line in the message to place the photo there. The pop-up is a native <dialog> (Esc closes it; keyboard focus stays inside).
+{% endcomment %}
 {% assign pres = site.data.home.president %}
+{% assign has_photo = false %}{% if pres.photo and pres.photo != "" %}{% assign has_photo = true %}{% endif %}
 <section class="pres" id="about">
-<div class="avatar" role="img" aria-label="Photo of the PTA President"{% if pres.photo and pres.photo != "" %} style="background:url('{{ pres.photo | relative_url }}') center/cover"{% endif %}>{% unless pres.photo and pres.photo != "" %}{{ pres.avatar }}{% endunless %}</div>
-<div><h2>{{ pres.heading }}</h2>{{ pres.message | markdownify }}<p><b>&mdash; {{ site.data.site.president }}, PTA President</b></p></div>
+<div class="avatar" role="img" aria-label="{{ pres.photo_alt | default: 'Photo of the PTA President' | escape }}"{% if has_photo %} style="background:url('{{ pres.photo | relative_url }}') center 35%/cover"{% endif %}>{% unless has_photo %}{{ pres.avatar }}{% endunless %}</div>
+<div><h2>{{ pres.heading }}</h2>
+<p>{{ pres.message | remove: '[[photo]]' | markdownify | replace: '</p>', ' </p>' | replace: '</li>', ' </li>' | strip_html | strip_newlines | truncatewords: pres.preview_words | default: 45 }}</p>
+<p><button class="btn btn-blue btn-sm" type="button" data-dialog-open="president-dialog">Read the full message</button></p></div>
 <p class="script" aria-hidden="true">{{ pres.tagline }}</p></section>
+<dialog id="president-dialog" class="dlg" aria-labelledby="president-dialog-title">
+<div class="dlg-body">
+<button class="dlg-close" type="button" data-dialog-close aria-label="Close">&times;</button>
+<h2 id="president-dialog-title">{{ pres.heading }}</h2>
+{% capture photo_html %}<img class="dlg-photo" src="{{ pres.photo | relative_url }}" alt="{{ pres.photo_alt | escape }}" width="251" height="190">{% endcapture %}
+{% assign msg_html = pres.message | markdownify %}
+{% if has_photo %}
+  {% if pres.message contains '[[photo]]' %}{% assign msg_html = msg_html | replace: '<p>[[photo]]</p>', photo_html %}
+  {% else %}{% assign msg_html = photo_html | append: msg_html %}{% endif %}
+{% else %}{% assign msg_html = msg_html | replace: '<p>[[photo]]</p>', '' %}{% endif %}
+{{ msg_html }}
+<p><button class="btn btn-gold btn-sm" type="button" data-dialog-close>Close</button></p>
+</div></dialog>

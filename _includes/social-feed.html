@@ -1,0 +1,16 @@
+{% comment %}
+COMPONENT: "Follow along": a QR code and a link for each social page. No scripts load from Facebook or Instagram.
+Links come from _data/site.yml > links. The QR images are files in assets/qr (made by scripts/make_qr.py);
+if a link changes, the matching QR image must be regenerated.
+{% endcomment %}
+{% assign soc = site.data.site.social %}
+<section class="section"><div class="wrap">
+<h2>{{ soc.heading }}</h2><p>{{ soc.intro }}</p>
+<div class="feeds">
+  <div class="feed"><h3>Facebook</h3>
+    <img src="{{ '/assets/qr/facebook.png' | relative_url }}" width="180" height="180" alt="QR code for our Facebook page" loading="lazy">
+    <p><a class="btn btn-blue btn-sm" href="{{ site.data.site.links.facebook }}">Open our Facebook page &rarr;</a></p></div>
+  <div class="feed"><h3>Instagram</h3>
+    <img src="{{ '/assets/qr/instagram.png' | relative_url }}" width="180" height="180" alt="QR code for our Instagram page" loading="lazy">
+    <p><a class="btn btn-blue btn-sm" href="{{ site.data.site.links.instagram }}">Open our Instagram page &rarr;</a></p></div>
+</div></div></section>

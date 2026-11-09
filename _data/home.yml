@@ -9,9 +9,43 @@ hero:
   photo_alt: Monte Vista students and staff in blue shirts gathered on the blacktop, waving
 president:
   heading: Message from the President
-  avatar: "🙂"
-  photo: ""
-  message: "Welcome to the Monte Vista PTA! We are a community of families, teachers and staff working together to support every student. (Placeholder: replace with the President's real message.)"
+  avatar: "🙂"                              # shown when there is no photo
+  photo: /assets/images/president.jpg
+  photo_alt: Jennifer Neville smiling in a selfie with two children and another adult outdoors
+  preview_words: 45                         # how much of the message shows before "Read more"
+  # Put [[photo]] on its own line in the message where the photo should appear. Without it, the photo goes at the top.
+  message: |
+    Welcome back, Bobcat families – and a very BIG welcome to all of our new Bobcats!
+
+    [[photo]]
+
+    My name is Jennifer Neville, and I’m honored to serve as your new PTA President this year. I’m a proud Monte Vista mom with two kids – my daughter Kinsley is in 3rd grade here, and my son Sawyer, a former Bobcat, is now a 7th grader at VIDA. Like many of you, I juggle being a full-time working parent, and I know firsthand how important it is that we support one another to make our school community the best it can be.
+
+    This year, our PTA Board is ready and excited to bring fun events, enrichment programs, and meaningful fundraisers to Monte Vista.
+
+    Together, we’ll create opportunities that not only bring joy to our kids but also directly support their learning and our teachers.
+
+    I want to invite you to join our PTA. Membership is easy through Totem, and joining does not mean you’re signing up to volunteer (unless you’d like to). What it does mean is that you’ll have a voice and a vote in the decisions that shape our PTA’s impact on the school.
+
+    Your support helps fund things like:
+
+    * School-wide programs/events
+    * School Upgrades
+    * Class Field Trips
+    * Reflections Arts Programs
+    * Hospitality and community events
+    * … and so much more.
+
+    To stay connected, visit MonteVistaPTA.org and follow us on Instagram @MonteVistaElementaryPTA.
+
+    Thank you for being here, for supporting our kids, and for being part of what makes Monte Vista such a special place. I can’t wait to see what we accomplish together this year.
+
+    If you ever have questions, ideas, or just want to connect, please reach out to me anytime at [pta@montevistapta.org](mailto:pta@montevistapta.org).
+
+    Let’s make it a great year, Bobcats!
+
+    Cheers,<br>
+    Jennifer Neville
   tagline: "Where leaders grow, together."
 events_heading: What's Happening at Monte Vista
 cards:

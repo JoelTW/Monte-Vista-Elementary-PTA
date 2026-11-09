@@ -56,9 +56,11 @@ content:
         type: object
         fields:
           - {name: heading, label: Heading, type: string}
-          - {name: message, label: Message, type: text}
+          - {name: message, label: Full message, type: text, description: "Blank line between paragraphs; start a line with * for a bullet; put [[photo]] on its own line where the photo should go"}
+          - {name: preview_words, label: Words shown before Read more, type: number}
           - {name: tagline, label: Handwritten tagline, type: string}
           - {name: photo, label: Photo, type: image}
+          - {name: photo_alt, label: Photo description (for screen readers), type: string}
       - name: cards
         label: Action cards
         type: object
@@ -143,6 +145,12 @@ content:
       - {name: email, label: PTA email, type: string}
       - {name: address, label: Address, type: string}
       - {name: president, label: President's name, type: string}
+      - name: social
+        label: Follow along (Facebook and Instagram)
+        type: object
+        fields:
+          - {name: heading, label: Heading, type: string}
+          - {name: intro, label: Sentence under the heading, type: text}
       - name: links
         label: Links
         type: object

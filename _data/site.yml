@@ -3,7 +3,7 @@ tagline: Where Leaders Grow
 draft_banner: "Design draft: placeholder events, no real photos"   # delete the text to hide the banner
 email: PTA@montevistapta.org
 address: "1720 Monte Vista Drive, Vista, CA 92084"
-president: Jenn Neville
+president: Jennifer Neville
 nonprofit_note: "Monte Vista PTA is a 501(c)(3) nonprofit; donations are tax-deductible to the extent allowed by law."
 links:
   join: https://jointotem.com/ca/vista/monte-vista-pta
@@ -16,3 +16,6 @@ forms:                    # paste a Formspree (or similar) address to make forms
   volunteer: "#"
   contact: "#"
   newsletter: "#"
+social:
+  heading: Follow along
+  intro: Scan a code with your phone camera, or tap the button, to see our latest posts.

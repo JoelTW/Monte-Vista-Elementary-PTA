@@ -11,5 +11,6 @@ title: Home
 <div class="diff-items">{% for f in home.difference.items %}{% include feature-item.html item=f %}{% endfor %}</div></div></section>
 <section class="section"><div class="wrap"><div class="head-row"><h2>{{ home.moments_heading }}</h2><a href="{{ '/contact/#news' | relative_url }}">View photo gallery &rarr;</a></div>
 <div class="moments">{% for m in home.moments %}<div class="{{ m.tint }}" role="img" aria-label="{{ m.alt | escape }}"{% if m.image and m.image != "" %} style="background:url('{{ m.image | relative_url }}') center/cover"{% endif %}>{% unless m.image and m.image != "" %}{{ m.emoji }}{% endunless %}</div>{% endfor %}</div></div></section>
+{% include social-feed.html %}
 <section class="section sky"><div class="wrap"><h2>{{ home.sponsors_heading }}</h2>
 <div class="sponsors">{% for s in home.sponsors %}{% if s.logo and s.logo != "" %}<a class="ph" href="{{ s.url }}"><img src="{{ s.logo | relative_url }}" alt="{{ s.name | escape }}" style="max-height:60px"></a>{% else %}<div class="ph">{{ s.name }}</div>{% endif %}{% endfor %}</div></div></section>
