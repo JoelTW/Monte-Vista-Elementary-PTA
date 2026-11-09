@@ -1,0 +1,38 @@
+---
+layout: page
+title: Yearbook
+permalink: /yearbook/
+---
+{% assign t = site.data.pages.yearbook %}
+{% assign mail = site.data.site.yearbook_email %}
+{% capture photo_body %}Event:
+Date:
+Photographer (for credit):
+{% endcapture %}
+{% capture photo_link %}mailto:{{ mail }}?subject={{ "Yearbook photos" | uri_escape }}&body={{ photo_body | uri_escape }}{% endcapture %}
+{% capture team_link %}mailto:{{ mail }}?subject={{ "I would like to help with the yearbook" | uri_escape }}{% endcapture %}
+<section class="section"><div class="wrap two">
+<div><h2>{{ t.tagline }}</h2>
+<p>{{ t.intro }}</p>
+<h3>{{ t.looking_for_heading }}</h3>
+<ul class="chips">{% for e in t.looking_for %}<li>{{ e | escape }}</li>{% endfor %}</ul>
+<p><a class="btn btn-gold" href="{{ photo_link }}">Email your photos</a> <a class="btn btn-soft" href="#help">Join the yearbook team</a></p></div>
+<div class="ph" role="img" aria-label="Placeholder for a photo of a yearbook page" style="min-height:260px">Photo: a yearbook page (placeholder)</div>
+</div></section>
+<section class="section sky" id="send"><div class="wrap two">
+<div><h2>{{ t.send_heading }}</h2>
+<ol class="steps">{% for s in t.steps %}<li>{{ s | escape }}</li>{% endfor %}</ol>
+<p><a class="btn btn-blue" href="{{ photo_link }}">Email your photos</a></p>
+<p class="note">Or write to <a href="mailto:{{ mail }}">{{ mail }}</a>.</p></div>
+<div class="card"><div class="pad"><h3>{{ t.tips_heading }}</h3><ul class="tips">{% for tip in t.tips %}<li>{{ tip | escape }}</li>{% endfor %}</ul></div></div>
+</div></section>
+<section class="section" id="help"><div class="wrap">
+<h2>{{ t.help_heading }}</h2>
+<p>{{ t.help_intro }}</p>
+<div class="cta4">{% for r in t.roles %}<div class="cta c-{{ r.color | default: 'sky' }}" style="cursor:default"><span class="ic" aria-hidden="true">{{ r.icon }}</span><h3>{{ r.title | escape }}</h3><p>{{ r.text | escape }}</p></div>{% endfor %}</div>
+<p style="margin-top:20px">{{ t.join_text }}</p>
+<p><a class="btn btn-gold" href="{{ team_link }}">Email the yearbook team</a> <a class="btn btn-blue" href="{{ '/get-involved/#volunteer' | relative_url }}">Use the volunteer form</a></p>
+<p class="note">{{ mail }}</p></div></section>
+{% if t.order_text and t.order_text != "" %}
+<section class="section sky"><div class="wrap"><h2>{{ t.order_heading }}</h2><p>{{ t.order_text }}</p></div></section>
+{% endif %}

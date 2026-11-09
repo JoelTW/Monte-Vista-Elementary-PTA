@@ -3,6 +3,7 @@ tagline: Where Leaders Grow
 hide_from_search_engines: true   # TURN OFF (set to false) when the site goes live on montevistapta.org
 draft_banner: "Design Draft Website: Not open to the public and missing information"   # delete the text to hide the banner
 email: PTA@montevistapta.org
+yearbook_email: yearbook@montevistapta.org
 address: "1720 Monte Vista Drive, Vista, CA 92084"
 president: Jennifer Neville
 nonprofit_note: "Monte Vista PTA is a 501(c)(3) nonprofit; donations are tax-deductible to the extent allowed by law."

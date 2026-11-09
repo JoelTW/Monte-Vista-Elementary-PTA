@@ -14,6 +14,7 @@ A small static website built with Jekyll. There is no database and no server: ev
 | Events | the PTA's Google Calendar (see `docs/events-and-calendar.md`) | (not in the editor; the calendar is the source) |
 | Home page words, action cards, sponsors, President's message | `_data/home.yml` | Home page text |
 | Text on About, Events, Get Involved, Give, Contact | `_data/pages.yml` | Page text |
+| Yearbook page (photo steps, tips, ways to help, ordering details) and the yearbook email | `_data/pages.yml` (yearbook) and `_data/site.yml` (yearbook_email) | Page text, Site settings |
 | "Get to know your PTA" (board and chairs: names, photos, roles) | `_data/team.yml` | Get to know your PTA |
 | Email, address, Join / Donate / Spirit Wear / social links | `_data/site.yml` | Site settings |
 | Menu items | `_data/nav.yml` | (file only) |

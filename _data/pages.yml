@@ -15,6 +15,41 @@ about:
   team_heading: Get to know your PTA
   open_heading: Want to be part of it?
   open_text: Joining is easy, and it does not mean you are signing up to volunteer (unless you would like to). Members have a voice and a vote in how the PTA supports our school.
+yearbook:
+  heading: Yearbook
+  tagline: Capture the Memories!
+  intro: "We are collecting photos from school events throughout the year to help create a fun and memorable Monte Vits yearbook, and we need your help! If you snapped pictures at events like Fall Festival, Talent Show, or Camp Out, or at any other school function, please send them our way and be part of preserving this year's special moments."
+  looking_for_heading: Photos we would love
+  looking_for:
+    - Fall Festival
+    - Talent Show
+    - Camp Out
+    - Book Fair
+    - Halloween Parade
+    - Field Day
+    - Promotions
+    - Everyday school moments
+  send_heading: Send us your photos
+  steps:
+    - Pick your best shots from the event.
+    - "Email them to the yearbook team. The button below starts the email for you."
+    - Tell us the event and the date so we can place them in the book.
+  tips_heading: Tips for great yearbook photos
+  tips:
+    - Send the original, full-size photos, not screenshots or tiny copies.
+    - Tell us the event, the date, and who took the photo.
+    - Group shots, action shots and candid moments all work well.
+    - Only send photos you took or have permission to share.
+    - "Too many photos for one email? Send a few emails, or share a link from Google Photos, Google Drive or iCloud."
+  help_heading: Help us create the yearbook!
+  help_intro: "Love photos, story telling, or design? We need you! We are looking for volunteers to help gather pictures, design pages, and bring our Monte Vista memories to life. No experience needed, just creativity and a willingness to pitch in. Whether you can help a little or a lot, we would love to have you on the team."
+  roles:
+    - {icon: "📸", title: Photo collectors, text: Gather pictures from school events and from families, and keep them organized., color: sky}
+    - {icon: "🎨", title: Page designers, text: Lay out pages and make them look great. No design experience needed., color: pink}
+    - {icon: "✍️", title: Storytellers, text: Write captions and short stories that capture what made the year special., color: butter}
+  join_text: Interested? Email us, or use the volunteer form and choose Yearbook.
+  order_heading: Ordering a yearbook
+  order_text: ""     # price, order deadline and how to order. Leave empty to hide this section until the details are known.
 events:
   note: Event dates and times are subject to change. Click a day to see its events.
   volunteer_line: "Want to help at an event?"
@@ -28,7 +63,7 @@ get_involved:
   volunteer_heading: Volunteer
   volunteer_text: We're always looking for helping hands. No experience needed!
   yearbook_heading: Yearbook
-  yearbook_text: "Capture the memories! Email your best photos from Fall Festival, Talent Show, Camp Out and other events to the PTA email below. Want to help design pages? No experience needed, just creativity."
+  yearbook_text: "We are collecting photos from school events all year for the Monte Vits yearbook, and we need volunteers to help make it. Send photos or join the team on the Yearbook page."
 give:
   donate_heading: Support Monte Vista
   donate_text: "We are a 501(c)(3) nonprofit, so donations are tax-deductible. Your gift funds events, classroom support and campus improvements."

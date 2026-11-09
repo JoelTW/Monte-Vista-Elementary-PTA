@@ -86,6 +86,35 @@ content:
           - {name: team_heading, label: Team section heading, type: string}
           - {name: open_heading, label: Bottom section heading, type: string}
           - {name: open_text, label: Bottom section text, type: text}
+      - name: yearbook
+        label: Yearbook page
+        type: object
+        fields:
+          - {name: tagline, label: Heading, type: string}
+          - {name: intro, label: Introduction, type: text}
+          - {name: looking_for, label: Events we want photos from, type: string, list: true}
+          - {name: send_heading, label: Send-photos heading, type: string}
+          - {name: steps, label: Steps for sending photos, type: string, list: true}
+          - {name: tips_heading, label: Tips heading, type: string}
+          - {name: tips, label: Photo tips, type: string, list: true}
+          - {name: help_heading, label: Volunteer heading, type: string}
+          - {name: help_intro, label: Volunteer introduction, type: text}
+          - name: roles
+            label: Ways to help
+            type: object
+            list: true
+            fields:
+              - {name: icon, label: Emoji, type: string}
+              - {name: title, label: Title, type: string}
+              - {name: text, label: Description, type: text}
+              - name: color
+                label: Colour
+                type: select
+                options:
+                  values: [pink, sky, butter, mint]
+          - {name: join_text, label: Sentence before the email buttons, type: text}
+          - {name: order_heading, label: Ordering heading, type: string}
+          - {name: order_text, label: Ordering details (price, deadline, how to order). Leave empty to hide., type: text}
       - name: events
         label: Events page
         type: object
@@ -160,6 +189,7 @@ content:
           - {name: contact, label: Different address for the contact form (optional), type: string}
           - {name: newsletter, label: Different address for the newsletter form (optional), type: string}
       - {name: email, label: PTA email, type: string}
+      - {name: yearbook_email, label: Yearbook email, type: string}
       - {name: address, label: Address, type: string}
       - {name: president, label: President's name, type: string}
       - name: calendar
