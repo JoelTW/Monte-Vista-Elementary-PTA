@@ -2,7 +2,7 @@
 <a class="skip" href="#main">Skip to main content</a>
 {% if s.draft_banner and s.draft_banner != "" %}<div class="draft-banner">{{ s.draft_banner }}</div>{% endif %}
 <header class="site-header"><div class="wrap">
-<a class="brand" href="{{ '/' | relative_url }}"><img src="{{ '/assets/logo.svg' | relative_url }}" alt="{{ s.name }} bobcat paw logo (placeholder)"><span>{{ s.name | upcase }}<small>{{ s.tagline }}</small></span></a>
+<a class="brand" href="{{ '/' | relative_url }}"><img src="{{ '/assets/images/logo-header.png' | relative_url }}" width="50" height="50" alt="Monte Vista Bobcats logo"><span>{{ s.name | upcase }}<small>{{ s.tagline }}</small></span></a>
 <nav class="nav" id="nav" aria-label="Main"><ul>
 {% for item in site.data.nav %}
   {% if item.children %}
