@@ -2,6 +2,13 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{% if page.title and page.title != "Home" %}{{ page.title }} | {% endif %}{{ site.data.site.name }}</title>
 <meta name="description" content="{{ page.description | default: site.data.site.description | escape }}">
+{% assign share_desc = page.description | default: site.data.site.description %}
+<meta property="og:type" content="website"><meta property="og:site_name" content="{{ site.data.site.name | escape }}">
+<meta property="og:title" content="{% if page.title and page.title != "Home" %}{{ page.title | escape }} | {% endif %}{{ site.data.site.name | escape }}">
+<meta property="og:description" content="{{ share_desc | escape }}"><meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:image" content="{{ '/assets/images/social-share.png' | absolute_url }}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Monte Vista Bobcats logo with the words Monte Vista PTA, Where Leaders Grow">
+<meta name="twitter:card" content="summary_large_image">
 {% if page.noindex or site.data.site.hide_from_search_engines %}<meta name="robots" content="noindex, nofollow">{% endif %}
 <link rel="icon" href="{{ '/assets/images/favicon.ico' | relative_url }}" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon-32.png' | relative_url }}">
