@@ -1,0 +1,28 @@
+events:
+  note: Event dates and times are subject to change. Check the school newsletter for the latest.
+  volunteer_line: "Want to help at an event? [Sign up to volunteer](/get-involved/#volunteer)."
+  calendar_heading: Calendar
+  calendar_embed: ""     # paste the Google Calendar iframe here; leave empty to show a placeholder
+  reflections_heading: National PTA Reflections Art Competition
+  reflections_text: "Students create original art, photography, music, writing and film around a yearly theme. (Placeholder: add the theme, grade categories, submission deadline and rules here as real text.)"
+get_involved:
+  join_heading: Join the PTA
+  join_text: Your membership supports every Monte Vista student. It takes about two minutes.
+  volunteer_heading: Volunteer
+  volunteer_text: We're always looking for helping hands. No experience needed!
+  yearbook_heading: Yearbook
+  yearbook_text: "Capture the memories! Email your best photos from Fall Festival, Talent Show, Camp Out and other events to the PTA email below. Want to help design pages? No experience needed, just creativity."
+give:
+  donate_heading: Support Monte Vista
+  donate_text: "We are a 501(c)(3) nonprofit, so donations are tax-deductible. Your gift funds events, classroom support and campus improvements."
+  mail_text: "Prefer to mail a check? Make it payable to \"Monte Vista PTA\" and send it to the address in the footer."
+  spirit_heading: Spirit Wear
+  spirit_text: "Show your Bobcat pride! Order from our SpiritHero store, or visit us at Back to School Night and Dine Outs. (Order deadline: placeholder.)"
+  sponsor_heading: Become a sponsor
+  sponsor_text: Local businesses help make our events possible. Interested in sponsoring? Email us using the address in the footer.
+contact:
+  heading: We'd love to hear from you
+  board_heading: PTA board
+  board_text: "Other officers: placeholder"
+  news_heading: News & Photos
+  news_text: Newsletter archive and photo gallery (placeholder). Sign up to get the newsletter in your inbox.

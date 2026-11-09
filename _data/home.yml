@@ -1,0 +1,40 @@
+hero:
+  line1: Where Leaders
+  line2: Grow Together.
+  lead: A community of families, teachers and staff working together to support every Monte Vista student.
+  primary_button: Join the PTA →
+  secondary_button: View Upcoming Events
+  photo: ""            # e.g. /assets/images/hero.png (a photo with the curved gold edge already cut in)
+  photo_alt: Smiling Monte Vista students
+president:
+  heading: Message from the President
+  avatar: "🙂"
+  photo: ""
+  message: "Welcome to the Monte Vista PTA! We are a community of families, teachers and staff working together to support every student. (Placeholder: replace with the President's real message.)"
+  tagline: "Where leaders grow, together."
+events_heading: What's Happening at Monte Vista
+cards:
+  - {color: pink,   icon: "👏", title: Volunteer, text: "Help for 30 minutes, an hour, or lead an event. No experience necessary!", url: "/get-involved/#volunteer", link_text: "See opportunities →"}
+  - {color: sky,    icon: "🧑‍🤝‍🧑", title: Join PTA, text: "Be part of a community that supports every Monte Vista student.", url: "https://jointotem.com/ca/vista/monte-vista-pta", link_text: "Join today →"}
+  - {color: butter, icon: "💛", title: Donate, text: "Help fund events, enrichment programs and campus improvements.", url: /give/, link_text: "Make a gift →"}
+  - {color: mint,   icon: "👕", title: Spirit Wear, text: "Show your Monte Vista pride!", url: "/give/#spirit", link_text: "Shop now →"}
+difference:
+  heading: Your PTA Makes a Difference
+  text: "Memberships, donations and volunteers help fund programs, events and improvements that enrich every student's experience at Monte Vista."
+  items:
+    - {icon: "📚", title: Classroom Support, text: Teacher Appreciation and classroom needs}
+    - {icon: "🎉", title: Enrichment & Events, text: "Talent Show, Book Fair, Movie Nights, Campout"}
+    - {icon: "🌟", title: Campus Improvements, text: Site beautification and more}
+moments_heading: Monte Vista Moments
+moments:
+  - {tint: t1, emoji: "📸", image: "", alt: Placeholder photo}
+  - {tint: t2, emoji: "🎉", image: "", alt: Placeholder photo}
+  - {tint: t3, emoji: "🐾", image: "", alt: Placeholder photo}
+  - {tint: t4, emoji: "⚽", image: "", alt: Placeholder photo}
+  - {tint: t1, emoji: "🎨", image: "", alt: Placeholder photo}
+sponsors_heading: Our sponsors
+sponsors:
+  - {name: Sponsor name, url: "", logo: ""}
+  - {name: Sponsor name, url: "", logo: ""}
+  - {name: Sponsor name, url: "", logo: ""}
+  - {name: Sponsor name, url: "", logo: ""}

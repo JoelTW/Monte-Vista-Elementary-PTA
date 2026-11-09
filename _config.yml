@@ -1,0 +1,22 @@
+title: Monte Vista PTA
+description: Monte Vista Elementary PTA, Vista, CA. Where Leaders Grow.
+url: ""          # set to https://www.montevistapta.org when deploying
+baseurl: ""      # leave empty for a custom domain; /repo-name for a project site without one
+timezone: America/Los_Angeles
+future: true     # so events dated in the future are not hidden (see _events/)
+markdown: kramdown
+collections:
+  events:
+    output: false
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md
+  - HOW-IT-WORKS.md
+  - docs

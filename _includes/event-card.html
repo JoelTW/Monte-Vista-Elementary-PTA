@@ -1,0 +1,8 @@
+{% comment %}
+COMPONENT: horizontal event card. Pass event=<an item from site.events>.
+Fields used: title, date, time, place, blurb, emoji, thumb (t1 to t4), image.
+{% endcomment %}
+{% assign ev = include.event %}
+<a class="hcard" href="{{ '/events/' | relative_url }}"><div class="thumb {{ ev.thumb | default: 't1' }}" role="img" aria-label="Photo for {{ ev.title | escape }}"{% if ev.image and ev.image != "" %} style="background-image:url('{{ ev.image | relative_url }}');background-size:cover;background-position:center"{% endif %}>{% unless ev.image and ev.image != "" %}{{ ev.emoji | default: "🎉" }}{% endunless %}</div>
+<div class="hbody"><div class="date" aria-hidden="true">{{ ev.date | date: "%b" | upcase }}<b>{{ ev.date | date: "%-d" }}</b></div><div><h3>{{ ev.title }}</h3><span class="sr">{{ ev.date | date: "%A, %B %-d" }}.</span>
+<p class="meta">&#128339; {{ ev.time }}<br>&#128205; {{ ev.place }}</p><p>{{ ev.blurb }}</p></div></div><span class="arrow" aria-hidden="true">&rarr;</span></a>

@@ -1,0 +1,14 @@
+---
+layout: page
+title: Get Involved
+permalink: /get-involved/
+---
+{% assign t = site.data.pages.get_involved %}
+<section class="section"><div class="wrap two"><div>
+<h2>{{ t.join_heading }}</h2><p>{{ t.join_text }}</p>
+<p><a class="btn btn-gold" href="{{ site.data.site.links.join }}">Join the PTA</a></p></div>
+<div class="card"><div class="pad"><h3>Scan to join</h3><img src="{{ '/assets/qr/join.png' | relative_url }}" width="220" alt="QR code to join the Monte Vista PTA"></div></div></div></section>
+<section class="section sky" id="volunteer"><div class="wrap two"><div>
+<h2>{{ t.volunteer_heading }}</h2><p>{{ t.volunteer_text }}</p>
+{% include volunteer-form.html %}</div>
+<div id="yearbook"><h2>{{ t.yearbook_heading }}</h2><p>{{ t.yearbook_text }}</p><p><a href="mailto:{{ site.data.site.email }}">{{ site.data.site.email }}</a></p></div></div></section>

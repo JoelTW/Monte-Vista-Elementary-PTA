@@ -1,0 +1,21 @@
+---
+layout: page
+title: Contact Us
+permalink: /contact/
+---
+{% assign t = site.data.pages.contact %}
+{% assign s = site.data.site %}
+<section class="section"><div class="wrap two"><div>
+<h2>{{ t.heading }}</h2>
+<form action="{{ s.forms.contact }}" method="post"><label for="cn">Name</label><input id="cn" name="name" required>
+<label for="ce">Email</label><input id="ce" name="email" type="email" required>
+<label for="cm">Message</label><textarea id="cm" name="message" required></textarea>
+<p><button class="btn btn-blue" type="submit">Send message</button></p></form></div>
+<div><h2>Reach us</h2><p>Email: <a href="mailto:{{ s.email }}">{{ s.email }}</a><br>{{ s.address }}</p>
+<p><a href="{{ s.links.school }}">Visit the Monte Vista Elementary school website</a></p>
+<h3>{{ t.board_heading }}</h3><p>President: {{ s.president }}<br>{{ t.board_text }}</p>
+<p><a href="{{ s.links.facebook }}">Facebook</a> &middot; <a href="{{ s.links.instagram }}">Instagram</a></p></div></div></section>
+<section class="section sky" id="news"><div class="wrap"><h2>{{ t.news_heading }}</h2><p>{{ t.news_text }}</p>
+<form action="{{ s.forms.newsletter }}" method="post"><label for="nl">Email</label><input id="nl" type="email" name="email">
+<p><button class="btn btn-blue" type="submit">Subscribe</button></p></form>
+<div class="grid3"><div class="ph">Photo album</div><div class="ph">Photo album</div><div class="ph">Photo album</div></div></div></section>

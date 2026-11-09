@@ -1,0 +1,9 @@
+{% comment %}
+COMPONENT: coloured action card. Either pass card=<data item> or pass the values directly:
+{% raw %}{% include cta-card.html color="pink" icon="👏" title="Volunteer" text="Help out!" url="/get-involved/" link_text="Sign up →" %}{% endraw %}
+color: pink, sky, butter or mint.
+{% endcomment %}
+{% assign card_data = include.card %}
+{% assign card_color = include.color | default: card_data.color | default: "sky" %}
+{% assign card_url = include.url | default: card_data.url %}
+<a class="cta c-{{ card_color }}" href="{% if card_url contains '://' %}{{ card_url }}{% else %}{{ card_url | relative_url }}{% endif %}"><span class="ic" aria-hidden="true">{{ include.icon | default: card_data.icon }}</span><h3>{{ include.title | default: card_data.title }}</h3><p>{{ include.text | default: card_data.text }}</p><b>{{ include.link_text | default: card_data.link_text }}</b></a>

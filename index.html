@@ -1,0 +1,15 @@
+---
+title: Home
+---
+{% assign home = site.data.home %}
+{% include hero.html %}
+<div class="wrap">{% include president-card.html %}</div>
+<section class="section"><div class="wrap"><div class="head-row"><h2>{{ home.events_heading }}</h2><a href="{{ '/events/' | relative_url }}">View full calendar &rarr;</a></div>
+<div class="hgrid">{% include upcoming-events.html limit=3 %}</div></div></section>
+<section class="section" style="padding-top:0"><div class="wrap"><div class="cta4">{% for c in home.cards %}{% include cta-card.html card=c %}{% endfor %}</div></div></section>
+<section class="section"><div class="wrap diff"><div><h2>{{ home.difference.heading }}</h2><p>{{ home.difference.text }}</p></div>
+<div class="diff-items">{% for f in home.difference.items %}{% include feature-item.html item=f %}{% endfor %}</div></div></section>
+<section class="section"><div class="wrap"><div class="head-row"><h2>{{ home.moments_heading }}</h2><a href="{{ '/contact/#news' | relative_url }}">View photo gallery &rarr;</a></div>
+<div class="moments">{% for m in home.moments %}<div class="{{ m.tint }}" role="img" aria-label="{{ m.alt | escape }}"{% if m.image and m.image != "" %} style="background:url('{{ m.image | relative_url }}') center/cover"{% endif %}>{% unless m.image and m.image != "" %}{{ m.emoji }}{% endunless %}</div>{% endfor %}</div></div></section>
+<section class="section sky"><div class="wrap"><h2>{{ home.sponsors_heading }}</h2>
+<div class="sponsors">{% for s in home.sponsors %}{% if s.logo and s.logo != "" %}<a class="ph" href="{{ s.url }}"><img src="{{ s.logo | relative_url }}" alt="{{ s.name | escape }}" style="max-height:60px"></a>{% else %}<div class="ph">{{ s.name }}</div>{% endif %}{% endfor %}</div></div></section>

@@ -1,0 +1,6 @@
+{% comment %} COMPONENT: president message card. Text comes from _data/home.yml > president. {% endcomment %}
+{% assign pres = site.data.home.president %}
+<section class="pres" id="about">
+<div class="avatar" role="img" aria-label="Photo of the PTA President"{% if pres.photo and pres.photo != "" %} style="background:url('{{ pres.photo | relative_url }}') center/cover"{% endif %}>{% unless pres.photo and pres.photo != "" %}{{ pres.avatar }}{% endunless %}</div>
+<div><h2>{{ pres.heading }}</h2>{{ pres.message | markdownify }}<p><b>&mdash; {{ site.data.site.president }}, PTA President</b></p></div>
+<p class="script" aria-hidden="true">{{ pres.tagline }}</p></section>

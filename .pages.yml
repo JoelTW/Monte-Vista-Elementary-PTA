@@ -1,0 +1,152 @@
+# Pages CMS configuration (https://pagescms.org). Field options follow the Pages CMS docs;
+# not yet tested against a real repository, so expect to tweak labels after the first login.
+media:
+  input: assets/images
+  output: /assets/images
+
+content:
+  - name: events
+    label: Events
+    type: collection
+    path: _events
+    filename: "{year}-{month}-{day}-{primary}.md"
+    format: yaml-frontmatter
+    view:
+      fields: [title, date, place]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - {name: title, label: Event name, type: string, required: true}
+      - {name: date, label: Date, type: date, required: true}
+      - {name: end_date, label: Last day (only for events that run several days), type: date}
+      - {name: time, label: Time, type: string, description: "For example 5:00-8:00 PM"}
+      - {name: place, label: Place, type: string}
+      - {name: blurb, label: One-line description, type: text}
+      - {name: emoji, label: Emoji for the card, type: string, description: "Shown when there is no photo"}
+      - name: thumb
+        label: Card colour
+        type: select
+        description: "t1 = orange, t2 = pink, t3 = blue, t4 = green"
+        options:
+          values: [t1, t2, t3, t4]
+      - {name: image, label: Photo (optional), type: image}
+
+  - name: home
+    label: Home page text
+    type: file
+    path: _data/home.yml
+    fields:
+      - name: hero
+        label: Top banner
+        type: object
+        fields:
+          - {name: line1, label: Headline line 1, type: string}
+          - {name: line2, label: Headline line 2 (gold), type: string}
+          - {name: lead, label: Sentence under the headline, type: text}
+          - {name: primary_button, label: Join button text, type: string}
+          - {name: secondary_button, label: Events button text, type: string}
+          - {name: photo, label: Photo (curved edge already in the image), type: image}
+          - {name: photo_alt, label: Photo description (for screen readers), type: string}
+      - name: president
+        label: President's message
+        type: object
+        fields:
+          - {name: heading, label: Heading, type: string}
+          - {name: message, label: Message, type: text}
+          - {name: tagline, label: Handwritten tagline, type: string}
+          - {name: photo, label: Photo, type: image}
+      - name: cards
+        label: Action cards
+        type: object
+        list: true
+        fields:
+          - name: color
+            label: Colour
+            type: select
+            options:
+              values: [pink, sky, butter, mint]
+          - {name: icon, label: Emoji, type: string}
+          - {name: title, label: Title, type: string}
+          - {name: text, label: Text, type: text}
+          - {name: url, label: Link (start with / for pages on this site), type: string}
+          - {name: link_text, label: Link text, type: string}
+      - name: difference
+        label: Your PTA Makes a Difference
+        type: object
+        fields:
+          - {name: heading, label: Heading, type: string}
+          - {name: text, label: Sentence, type: text}
+          - name: items
+            label: Three highlights
+            type: object
+            list: true
+            fields:
+              - {name: icon, label: Emoji, type: string}
+              - {name: title, label: Title, type: string}
+              - {name: text, label: Caption, type: string}
+      - name: sponsors
+        label: Sponsors
+        type: object
+        list: true
+        fields:
+          - {name: name, label: Business name, type: string}
+          - {name: url, label: Website, type: string}
+          - {name: logo, label: Logo, type: image}
+
+  - name: pages
+    label: Page text (Events, Get Involved, Give, Contact)
+    type: file
+    path: _data/pages.yml
+    fields:
+      - name: events
+        label: Events page
+        type: object
+        fields:
+          - {name: note, label: Note under the list, type: string}
+          - {name: calendar_embed, label: Google Calendar embed code, type: text}
+          - {name: reflections_heading, label: Reflections heading, type: string}
+          - {name: reflections_text, label: Reflections text, type: text}
+      - name: get_involved
+        label: Get Involved page
+        type: object
+        fields:
+          - {name: join_text, label: Join text, type: text}
+          - {name: volunteer_text, label: Volunteer text, type: text}
+          - {name: yearbook_text, label: Yearbook text, type: text}
+      - name: give
+        label: Give page
+        type: object
+        fields:
+          - {name: donate_text, label: Donate text, type: text}
+          - {name: mail_text, label: Mail-a-check text, type: text}
+          - {name: spirit_text, label: Spirit Wear text, type: text}
+          - {name: sponsor_text, label: Sponsor text, type: text}
+      - name: contact
+        label: Contact page
+        type: object
+        fields:
+          - {name: board_text, label: Board names, type: text}
+          - {name: news_text, label: Newsletter text, type: text}
+
+  - name: site
+    label: Site settings (email, address, links)
+    type: file
+    path: _data/site.yml
+    fields:
+      - {name: draft_banner, label: Draft banner text (clear it to hide), type: string}
+      - {name: email, label: PTA email, type: string}
+      - {name: address, label: Address, type: string}
+      - {name: president, label: President's name, type: string}
+      - name: links
+        label: Links
+        type: object
+        fields:
+          - {name: join, label: Join link, type: string}
+          - {name: donate, label: Donate link, type: string}
+          - {name: spirit, label: Spirit Wear link, type: string}
+          - {name: school, label: School website, type: string}
+          - {name: facebook, label: Facebook, type: string}
+          - {name: instagram, label: Instagram, type: string}

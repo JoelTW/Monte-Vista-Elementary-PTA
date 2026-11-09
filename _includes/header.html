@@ -1,0 +1,19 @@
+{% assign s = site.data.site %}
+<a class="skip" href="#main">Skip to main content</a>
+{% if s.draft_banner and s.draft_banner != "" %}<div class="draft-banner">{{ s.draft_banner }}</div>{% endif %}
+<header class="site-header"><div class="wrap">
+<a class="brand" href="{{ '/' | relative_url }}"><img src="{{ '/assets/logo.svg' | relative_url }}" alt="{{ s.name }} bobcat paw logo (placeholder)"><span>{{ s.name | upcase }}<small>{{ s.tagline }}</small></span></a>
+<nav class="nav" id="nav" aria-label="Main"><ul>
+{% for item in site.data.nav %}
+  {% if item.children %}
+  <li class="has-dd"><button class="dd-btn" aria-expanded="false">{{ item.label | escape }}</button><div class="dd">{% for c in item.children %}<a href="{{ c.url | relative_url }}">{{ c.label | escape }}</a>{% endfor %}</div></li>
+  {% else %}
+  {% assign item_path = item.url | split: "#" | first %}
+  <li><a href="{{ item.url | relative_url }}"{% if page.url == item_path %} aria-current="page"{% endif %}>{{ item.label | escape }}</a></li>
+  {% endif %}
+{% endfor %}
+</ul></nav>
+<button class="search-btn" aria-label="Search the site">&#128269;</button>
+<a class="btn btn-gold btn-sm" href="{{ s.links.join }}">Join PTA</a>
+<button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+</div></header>

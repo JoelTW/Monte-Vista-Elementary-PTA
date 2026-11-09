@@ -1,0 +1,7 @@
+{% comment %} COMPONENT: hero. Text comes from _data/home.yml > hero. {% endcomment %}
+{% assign hero_data = include.hero | default: site.data.home.hero %}
+<section class="hero"><div class="wrap"><div>
+<h1>{{ hero_data.line1 }}<em>{{ hero_data.line2 }}</em></h1>
+<p class="lead">{{ hero_data.lead }}</p>
+<div class="btns"><a class="btn btn-gold" href="{{ site.data.site.links.join }}">{{ hero_data.primary_button }}</a><a class="btn btn-outline" href="{{ '/events/' | relative_url }}">{{ hero_data.secondary_button }}</a></div></div></div>
+<div class="photo-wrap"><div class="photo" role="img" aria-label="{{ hero_data.photo_alt | escape }}"{% if hero_data.photo and hero_data.photo != "" %} style="background:url('{{ hero_data.photo | relative_url }}') center/cover"{% endif %}>{% unless hero_data.photo and hero_data.photo != "" %}Hero photo: smiling Monte Vista students<br>(placeholder, swap in a real photo){% endunless %}</div></div></section>

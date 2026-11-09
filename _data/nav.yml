@@ -1,0 +1,28 @@
+- label: Home
+  url: /
+- label: About
+  url: /#about
+  children:
+    - {label: Our PTA, url: "/#about"}
+    - {label: President's Message, url: "/#about"}
+    - {label: Board & Contact, url: /contact/}
+- label: Events
+  url: /events/
+- label: Get Involved
+  url: /get-involved/
+  children:
+    - {label: Join the PTA, url: /get-involved/}
+    - {label: Volunteer, url: "/get-involved/#volunteer"}
+    - {label: Yearbook, url: "/get-involved/#yearbook"}
+- label: Give
+  url: /give/
+- label: Support PTA
+  url: /give/
+  children:
+    - {label: Donate, url: /give/}
+    - {label: Spirit Wear, url: "/give/#spirit"}
+    - {label: Sponsor Us, url: "/give/#sponsor"}
+- label: News & Photos
+  url: "/contact/#news"
+- label: Contact
+  url: /contact/

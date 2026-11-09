@@ -1,0 +1,42 @@
+---
+layout: page
+title: Components
+permalink: /components/
+noindex: true
+---
+<section class="section"><div class="wrap">
+<p>Every reusable building block on the site, with a live example and the line to copy. Paste a line into any page, then change the quoted text. This page is hidden from search engines.</p>
+
+<h2>Action card (<code>cta-card</code>)</h2>
+<div class="cta4">
+{% include cta-card.html color="pink" icon="👏" title="Volunteer" text="Help for 30 minutes or an hour." url="/get-involved/#volunteer" link_text="See opportunities →" %}
+{% include cta-card.html color="sky" icon="🧑‍🤝‍🧑" title="Join PTA" text="Be part of our community." url="https://jointotem.com/ca/vista/monte-vista-pta" link_text="Join today →" %}
+{% include cta-card.html color="butter" icon="💛" title="Donate" text="Fund events and programs." url="/give/" link_text="Make a gift →" %}
+{% include cta-card.html color="mint" icon="👕" title="Spirit Wear" text="Show your pride!" url="/give/#spirit" link_text="Shop now →" %}
+</div>
+<pre><code>{% raw %}{% include cta-card.html color="pink" icon="👏" title="Volunteer" text="Help for 30 minutes or an hour." url="/get-involved/#volunteer" link_text="See opportunities →" %}{% endraw %}</code></pre>
+<p class="note">color can be pink, sky, butter or mint. A url starting with https:// goes to another site; one starting with / stays on this site.</p>
+
+<h2>Icon feature (<code>feature-item</code>)</h2>
+<div class="diff-items">
+{% include feature-item.html icon="📚" title="Classroom Support" text="Teacher Appreciation and classroom needs" %}
+{% include feature-item.html icon="🎉" title="Enrichment & Events" text="Talent Show, Book Fair" %}
+</div>
+<pre><code>{% raw %}{% include feature-item.html icon="📚" title="Classroom Support" text="Teacher Appreciation" %}{% endraw %}</code></pre>
+
+<h2>Event card (<code>event-card</code>) and event list (<code>upcoming-events</code>)</h2>
+<p>Event cards are made from files in the <code>_events</code> folder (one file per event). To show the next few events anywhere:</p>
+<div class="hgrid">{% include upcoming-events.html limit=2 %}</div>
+<pre><code>{% raw %}{% include upcoming-events.html limit=3 %}{% endraw %}
+{% raw %}{% include upcoming-events.html grouped=true %}{% endraw %}</code></pre>
+<p class="note">limit = how many to show. grouped=true adds a month heading. Events dated before today are left out automatically when the site rebuilds.</p>
+
+<h2>Volunteer form (<code>volunteer-form</code>)</h2>
+<pre><code>{% raw %}{% include volunteer-form.html %}{% endraw %}</code></pre>
+<p class="note">Where the form sends its data is set once in <code>_data/site.yml</code> under <code>forms</code>.</p>
+
+<h2>Whole-page sections</h2>
+<p>The hero, the President's message and the "Why your PTA matters" band read their words from <code>_data/home.yml</code>, so edit the text there (or in the CMS) rather than in the page.</p>
+<pre><code>{% raw %}{% include hero.html %}{% endraw %}
+{% raw %}{% include president-card.html %}{% endraw %}</code></pre>
+</div></section>

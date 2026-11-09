@@ -1,0 +1,6 @@
+{% comment %}
+COMPONENT: icon + title + one-line caption (used in "Your PTA Makes a Difference").
+{% raw %}{% include feature-item.html icon="📚" title="Classroom Support" text="Teacher Appreciation" %}{% endraw %}
+{% endcomment %}
+{% assign feat = include.item %}
+<div><span class="ic" aria-hidden="true">{{ include.icon | default: feat.icon }}</span>{{ include.title | default: feat.title }}<small>{{ include.text | default: feat.text }}</small></div>

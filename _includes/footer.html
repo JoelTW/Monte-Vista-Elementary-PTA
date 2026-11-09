@@ -1,0 +1,11 @@
+{% assign s = site.data.site %}
+<footer class="site-footer"><div class="wrap">
+<p class="script">{{ s.tagline }} &#128062;</p>
+<div class="cols">
+<div><h2>{{ s.name }}</h2><p>{{ s.address }}<br><a href="mailto:{{ s.email }}">{{ s.email }}</a></p></div>
+<div><h2>Quick links</h2><ul><li><a href="{{ s.links.join }}">Join the PTA</a></li><li><a href="{{ s.links.donate }}">Donate</a></li><li><a href="{{ s.links.spirit }}">Shop Spirit Wear</a></li></ul></div>
+<div><h2>Stay connected</h2><ul><li><a href="{{ s.links.facebook }}">Facebook</a></li><li><a href="{{ s.links.instagram }}">Instagram</a></li><li><a href="mailto:{{ s.email }}">Email us</a></li></ul>
+<p><a class="btn btn-outline btn-sm" href="{{ s.links.school }}">Visit school website &rarr;</a></p></div>
+</div>
+<p class="fine">{{ s.nonprofit_note }}</p>
+</div></footer>
