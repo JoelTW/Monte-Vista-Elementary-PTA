@@ -13,7 +13,8 @@ A small static website built with Jekyll. There is no database and no server: ev
 |---|---|---|
 | Events | the PTA's Google Calendar (see `docs/events-and-calendar.md`) | (not in the editor; the calendar is the source) |
 | Home page words, action cards, sponsors, President's message | `_data/home.yml` | Home page text |
-| Text on Events, Get Involved, Give, Contact | `_data/pages.yml` | Page text |
+| Text on About, Events, Get Involved, Give, Contact | `_data/pages.yml` | Page text |
+| "Get to know your PTA" (board and chairs: names, photos, roles) | `_data/team.yml` | Get to know your PTA |
 | Email, address, Join / Donate / Spirit Wear / social links | `_data/site.yml` | Site settings |
 | Menu items | `_data/nav.yml` | (file only) |
 | Colours, fonts, spacing | `assets/css/styles.css` | (file only) |
@@ -22,7 +23,7 @@ A small static website built with Jekyll. There is no database and no server: ev
 The `/components/` page on the running site shows every component with its live example and the line to copy.
 
 ## Components (in `_includes/`)
-`hero`, `president-card`, `upcoming-events`, `event-card`, `calendar-grid`, `cta-card`, `feature-item`, `volunteer-form`, `header`, `footer`. Each file starts with a comment saying what it does and which options it takes.
+`hero`, `president-card`, `team-card`, `upcoming-events`, `event-card`, `calendar-grid`, `cta-card`, `feature-item`, `volunteer-form`, `header`, `footer`. Each file starts with a comment saying what it does and which options it takes.
 
 ## Editing without touching files (Pages CMS)
 Pages CMS (https://pagescms.org) gives editors a form instead of raw files. The configuration is in `.pages.yml`. Based on the Pages CMS quick start:

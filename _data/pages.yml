@@ -1,3 +1,20 @@
+about:
+  heading: About Monte Vista Parent Teacher Association
+  intro: "The Monte Vista Parent Teacher Association (PTA) is a dedicated group of parents, teachers and staff working together to build a strong and connected school community. We organize and support a variety of fun and enriching events throughout the school year, including:"
+  events:
+    - Talent Show
+    - Dine Out Nights
+    - Campout
+    - Movie Nights
+    - School Dances
+    - Book Fair
+    - Fall Festival
+    - Site Beautification
+    - Teacher Appreciation
+  closing: From family events to fundraising to volunteer opportunities, the PTA is at the heart of bringing Monte Vista families together.
+  team_heading: Get to know your PTA
+  open_heading: Want to be part of it?
+  open_text: Joining is easy, and it does not mean you are signing up to volunteer (unless you would like to). Members have a voice and a vote in how the PTA supports our school.
 events:
   note: Event dates and times are subject to change. Click a day to see its events.
   volunteer_line: "Want to help at an event?"

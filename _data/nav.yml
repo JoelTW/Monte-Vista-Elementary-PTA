@@ -1,11 +1,12 @@
 - label: Home
   url: /
 - label: About
-  url: /#about
+  url: /about/
   children:
-    - {label: Our PTA, url: "/#about"}
+    - {label: Our PTA, url: /about/}
+    - {label: Get to know your PTA, url: "/about/#team"}
     - {label: President's Message, url: "/#about"}
-    - {label: Board & Contact, url: /contact/}
+    - {label: Contact, url: /contact/}
 - label: Events
   url: /events/
 - label: Get Involved

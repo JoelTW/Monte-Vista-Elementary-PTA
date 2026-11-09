@@ -1,0 +1,25 @@
+---
+layout: page
+title: About the PTA
+permalink: /about/
+---
+{% assign t = site.data.pages.about %}
+{% assign team = site.data.team %}
+<section class="section"><div class="wrap two">
+<div><h2>{{ t.heading }}</h2>
+<p>{{ t.intro }}</p>
+<ul class="chips">{% for e in t.events %}<li>{{ e | escape }}</li>{% endfor %}</ul>
+<p>{{ t.closing }}</p>
+<p><a class="btn btn-gold" href="{{ site.data.site.links.join }}">Join the PTA</a> <a class="btn btn-soft" href="{{ site.data.site.links.spirit }}">Shop Spirit Wear</a></p></div>
+<div class="ph" role="img" aria-label="Placeholder for a photo of PTA families and staff" style="min-height:260px">Photo: PTA families and staff (placeholder)</div>
+</div></section>
+<section class="section sky" id="team"><div class="wrap">
+<h2>{{ t.team_heading }}</h2>
+<p>{{ team.intro }}</p>
+{% for g in team.groups %}
+<h3 class="month">{{ g.heading | escape }}</h3>
+<div class="team-grid">{% for member in g.members %}{% include team-card.html member=member %}{% endfor %}</div>
+{% endfor %}
+</div></section>
+<section class="section"><div class="wrap"><h2>{{ t.open_heading }}</h2><p>{{ t.open_text }}</p>
+<p><a class="btn btn-gold" href="{{ site.data.site.links.join }}">Join the PTA</a> <a class="btn btn-blue" href="{{ '/get-involved/#volunteer' | relative_url }}">Volunteer</a></p></div></section>

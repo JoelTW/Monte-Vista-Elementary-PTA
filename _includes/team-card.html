@@ -1,0 +1,15 @@
+{% comment %}
+COMPONENT: one person or role on the About page. Pass member=<an item from _data/team.yml>.
+Fields: role, name (empty shows "Name coming soon"), icon (emoji shown without a photo), photo, blurb, ask_me_about, email, open (true = open position).
+Everything is escaped.
+{% endcomment %}
+{% assign m = include.member %}
+<article class="person{% if m.open %} open{% endif %}">
+  <div class="avatar sm" role="img" aria-label="{% if m.photo and m.photo != '' %}Photo of {{ m.name | escape }}{% else %}{{ m.role | escape }}{% endif %}"{% if m.photo and m.photo != "" %} style="background:url('{{ m.photo | relative_url }}') center 35%/cover"{% endif %}>{% unless m.photo and m.photo != "" %}{{ m.icon | default: "🙂" }}{% endunless %}</div>
+  <p class="role">{{ m.role | escape }}</p>
+  {% if m.open %}<h3>Open position</h3>{% elsif m.name and m.name != "" %}<h3>{{ m.name | escape }}</h3>{% else %}<h3 class="muted">Name coming soon</h3>{% endif %}
+  <p>{{ m.blurb | escape }}</p>
+  {% if m.ask_me_about and m.ask_me_about != "" %}<p class="ask"><b>Ask me about:</b> {{ m.ask_me_about | escape }}</p>{% endif %}
+  {% if m.open %}<p><a class="btn btn-blue btn-sm" href="{{ '/get-involved/#volunteer' | relative_url }}">Could this be you?</a></p>
+  {% elsif m.email and m.email != "" %}<p><a href="mailto:{{ m.email | escape }}">{{ m.email | escape }}</a></p>{% endif %}
+</article>
