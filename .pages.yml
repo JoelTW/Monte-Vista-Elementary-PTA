@@ -5,35 +5,6 @@ media:
   output: /assets/images
 
 content:
-  - name: events
-    label: Events
-    type: collection
-    path: _events
-    filename: "{year}-{month}-{day}-{primary}.md"
-    format: yaml-frontmatter
-    view:
-      fields: [title, date, place]
-      primary: title
-      sort: [date, title]
-      default:
-        sort: date
-        order: desc
-    fields:
-      - {name: title, label: Event name, type: string, required: true}
-      - {name: date, label: Date, type: date, required: true}
-      - {name: end_date, label: Last day (only for events that run several days), type: date}
-      - {name: time, label: Time, type: string, description: "For example 5:00-8:00 PM"}
-      - {name: place, label: Place, type: string}
-      - {name: blurb, label: One-line description, type: text}
-      - {name: emoji, label: Emoji for the card, type: string, description: "Shown when there is no photo"}
-      - name: thumb
-        label: Card colour
-        type: select
-        description: "t1 = orange, t2 = pink, t3 = blue, t4 = green"
-        options:
-          values: [t1, t2, t3, t4]
-      - {name: image, label: Photo (optional), type: image}
-
   - name: home
     label: Home page text
     type: file
@@ -111,7 +82,6 @@ content:
           - {name: note, label: Note under the list, type: string}
           - {name: volunteer_line, label: Volunteer line (before the link), type: string}
           - {name: volunteer_link_text, label: Volunteer link text, type: string}
-          - {name: calendar_embed, label: Google Calendar embed code, type: text}
           - {name: reflections_heading, label: Reflections heading, type: string}
           - {name: reflections_text, label: Reflections text, type: text}
       - name: get_involved
@@ -146,6 +116,12 @@ content:
       - {name: email, label: PTA email, type: string}
       - {name: address, label: Address, type: string}
       - {name: president, label: President's name, type: string}
+      - name: calendar
+        label: Events calendar (where the events come from)
+        type: object
+        fields:
+          - {name: ical_url, label: Public iCal address of the PTA's Google Calendar (leave empty for sample events), type: string}
+          - {name: months_ahead, label: How many months ahead to show, type: number}
       - name: social
         label: Follow along (Facebook and Instagram)
         type: object

@@ -3,17 +3,17 @@ description: Monte Vista Elementary PTA, Vista, CA. Where Leaders Grow.
 url: "https://joeltw.github.io"   # becomes https://www.montevistapta.org after the domain move
 baseurl: "/Monte-Vista-Elementary-PTA"   # the repo name while on github.io; set to "" once a custom domain is used
 timezone: America/Los_Angeles
-future: true     # so events dated in the future are not hidden (see _events/)
 markdown: kramdown
-collections:
-  events:
-    output: false
 defaults:
   - scope:
       path: ""
     values:
       layout: default
 exclude:
+  - scripts
+  - tests
+  - calendar
+  - .pytest_cache
   - Gemfile
   - Gemfile.lock
   - vendor

@@ -1,0 +1,51 @@
+# Builds and publishes the site. It also pulls the latest events from the PTA's Google Calendar every few hours,
+# so the site follows the calendar. UNTESTED until it has run once on GitHub: check the Actions tab after the first push.
+#
+# One-time setup: repository Settings > Pages > Build and deployment > Source = "GitHub Actions".
+# To update the events right now: Actions tab > "Build and deploy site" > Run workflow.
+# Note: GitHub pauses scheduled workflows after 60 days with no activity in the repository. Any new commit wakes it up.
+name: Build and deploy site
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 */3 * * *"      # every 3 hours, at 17 minutes past
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: scripts/requirements.txt
+      - name: Install calendar tools
+        run: pip install -r scripts/requirements.txt
+      - name: Read the PTA calendar (fails loudly, and the site keeps its last good version)
+        run: python scripts/sync_calendar.py
+      - uses: actions/configure-pages@v5
+      - uses: actions/jekyll-build-pages@v1
+      - uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

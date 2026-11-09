@@ -1,28 +1,43 @@
 # Events and the calendar
 
-The site shows events in two ways, and they work together.
+The events on the site come from **one Google Calendar**. Anyone who can edit that calendar updates the whole site: the month calendar, the "Upcoming events" list on the Events page, and the "What's Happening" cards on the home page.
 
-## 1. Event cards (the small cards on the home page and the list on the Events page)
-Each event is one small file in `_events/` (or one entry in the Events form in the CMS). The home page shows the next 3 and the Events page shows all upcoming ones grouped by month. Fields: title, date, time, place, one-line description, emoji or photo, card colour.
+## How it works
+1. The PTA keeps a **public Google Calendar** ("Monte Vista PTA Events").
+2. Every few hours (and whenever the site is changed) a GitHub Action runs `scripts/sync_calendar.py`. It reads the calendar's public **iCal address**, works out every date (including repeating events, time zones and all-day ranges), and writes the event data.
+3. The site is rebuilt with that data. The month calendar is drawn in the browser; the lists are plain HTML.
 
-- **Several days in a row** (a book fair that runs all week): set `date` to the first day and `end_date` to the last day. The card stays on the list until the last day. Put the days in `time`, for example "Mon-Fri, 3:00-5:00 PM".
-- **Past events** drop off the list the next time the site rebuilds. See HOW-IT-WORKS.md for the nightly rebuild.
-- **A repeating series** (a monthly meeting): add one card for the next meeting. After it passes, change its date, or add the next one.
+An event added or changed in Google Calendar shows up on the site within a few hours. To update right now: GitHub > Actions > "Build and deploy site" > Run workflow.
 
-## 2. A month calendar (Google Calendar embed)
-Parents also like a month view and a "subscribe" link. Use a public Google Calendar for this.
+Until a real calendar is connected, the site shows **sample events** from `calendar/sample.ics` (the 2025-26 PTA calendar, moved forward 52 weeks so weekdays stay right).
 
+## Connect the real calendar (one time)
 1. Sign in to a PTA-owned Google account (not a personal one, so it survives board changes).
 2. Google Calendar > Other calendars (+) > Create new calendar, named "Monte Vista PTA Events", time zone Pacific Time - Los Angeles.
-3. Settings for that calendar > Access permissions > Make available to public (See all event details). Only put public events on it.
-4. Settings > Integrate calendar > the embed customizer: Mode = Month, height about 700. Copy the `<iframe>` code. Paste it into the CMS under **Page text > Events page > Google Calendar embed code** (or `calendar_embed` in `_data/pages.yml`).
-5. For phones, a second embed in **Agenda** mode reads better than a month grid.
-6. Add a link to the calendar's "Public address in iCal format" so parents can subscribe from their own phone calendars.
+3. Settings for that calendar > **Access permissions for events** > tick **Make available to public** (See all event details). Only put public events on it.
+4. Same settings page > **Integrate calendar** > copy **Public address in iCal format** (it ends in `basic.ics`).
+5. Paste it into `_data/site.yml` under `calendar > ical_url`, or in the editor under **Site settings > Events calendar**. Commit it.
+6. GitHub > Settings > Pages > Source = **GitHub Actions** (one time). Then run the workflow once and check the Events page.
+7. Add the PTA people who should edit events to the calendar: Settings > Share with specific people > "Make changes to events".
 
-## Repeating events in Google Calendar
-- **By hand (a few series):** create the event with its time, then set the repeat to Custom (every 1 week on Mon-Fri, ends on a date) or Monthly on the second Tuesday.
-- **Import many at once:** [events-import-template.csv](events-import-template.csv) (single events only; CSV can't repeat) or [events-import-template.ics](events-import-template.ics) (supports repeats). Import via Google Calendar > Settings > Import & export. Try a small file first.
-- Common repeat rules for the `.ics` file: `FREQ=DAILY;COUNT=5`, `FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;COUNT=5`, `FREQ=WEEKLY;BYDAY=TU;UNTIL=20270630T000000Z`, `FREQ=MONTHLY;BYDAY=2TU;UNTIL=20270630T000000Z`.
+## Putting the yearly Google Doc into the calendar
+The PTA writes a calendar document each year. `scripts/doc_to_ics.py` turns its text into a file Google Calendar can import:
+1. In the Google Doc: File > Download > Plain text (.txt). Delete the Spanish half, or leave it (the script stops at a line starting "Calendario").
+2. Run: `python scripts/doc_to_ics.py calendar.txt --year 2026 -o pta-calendar.ics` (the year the school year *starts*).
+3. Google Calendar > Settings > Import & export > Import, choose the file and the "Monte Vista PTA Events" calendar.
+4. **Check the result.** Times without AM/PM are guessed (1 to 6 = PM, 7 to 11 = AM). Items marked TBD, and "4/13 or 4/14" style dates, come in as *tentative* and show a "to be confirmed" label on the site. Fix dates in Google Calendar as they firm up.
 
-## Not built (an idea for later)
-Keeping two places up to date is the weak point. A small script or GitHub Action could read the Google Calendar's iCal feed and create the `_events/` files automatically, so the calendar is the only thing anyone edits. It isn't built, so today an event added to the calendar does not become a card until someone adds it.
+## Day-to-day
+- **Add an event:** create it in Google Calendar with a title, date, time and location. Put a short sentence on the first line of the description (it becomes the one-line blurb on the cards) and a link anywhere in it if you want a "More information" link.
+- **Several days in a row** (a book fair): make it an all-day event that spans the days.
+- **A repeating event** (a monthly meeting): use Google Calendar's repeat ("Monthly on the first Tuesday"). Each date appears separately on the site.
+- **Not sure of the date yet:** put TBD in the title, or set the event's status to Tentative. The site shows "Date or time to be confirmed".
+- **Cancelled:** delete the event, or set its status to cancelled.
+- **Emoji and card colour** come from words in the title. See `_data/event_icons.yml` to add or change them.
+
+## Good to know
+- **Everything in the calendar is public**, including descriptions, locations and links. Don't put anything private in it.
+- **The calendar's text is shown as plain text**, so a typo or odd character can't break the page.
+- **If the calendar can't be read** (it was made private, or the address changed), the workflow fails and the site keeps showing its last good version. Check the Actions tab.
+- **Scheduled runs pause after 60 days with no activity in the repository** (a GitHub rule). Any new commit starts them again.
+- **Past events** drop off the lists at the next rebuild (within a few hours). The month calendar starts at the current month.

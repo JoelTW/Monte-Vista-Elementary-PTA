@@ -4,11 +4,21 @@ title: Events
 permalink: /events/
 ---
 {% assign t = site.data.pages.events %}
-<section class="section"><div class="wrap two"><div>
-{% include upcoming-events.html grouped=true %}
+{% assign cal = site.data.site.calendar %}
+<section class="section"><div class="wrap">
+<h2>{{ t.calendar_heading }}</h2>
+<p class="note">{{ t.note }}</p>
+{% include calendar-grid.html %}
+{% if cal.ical_url and cal.ical_url != "" %}
+{% assign webcal = cal.ical_url | replace: "https://", "webcal://" %}
+<p><a class="btn btn-soft btn-sm" href="{{ webcal }}">Subscribe in your phone's calendar</a> <a class="btn btn-soft btn-sm" href="https://calendar.google.com/calendar/r?cid={{ webcal | uri_escape }}">Add to Google Calendar</a></p>
+{% endif %}
+</div></section>
+<section class="section sky"><div class="wrap upcoming">
+<h2>Upcoming events</h2>
+{% include upcoming-events.html grouped=true limit=12 %}
+<p class="note">Showing the next 12 events. Use the calendar above to see further ahead.</p>
 <p>{{ t.volunteer_line }} <a href="{{ '/get-involved/#volunteer' | relative_url }}">{{ t.volunteer_link_text }}</a>.</p>
-<p class="note">{{ t.note }}</p></div>
-<div><h2>{{ t.calendar_heading }}</h2>
-{% if t.calendar_embed and t.calendar_embed != "" %}{{ t.calendar_embed }}{% else %}<div class="ph" role="img" aria-label="Placeholder for embedded Google Calendar" style="min-height:320px">Google Calendar embed goes here</div>{% endif %}</div></div></section>
-<section class="section sky" id="reflections"><div class="wrap"><h2>{{ t.reflections_heading }}</h2><p>{{ t.reflections_text }}</p>
+</div></section>
+<section class="section" id="reflections"><div class="wrap"><h2>{{ t.reflections_heading }}</h2><p>{{ t.reflections_text }}</p>
 <p><a class="btn btn-blue" href="{{ '/contact/' | relative_url }}">Ask a question</a></p></div></section>

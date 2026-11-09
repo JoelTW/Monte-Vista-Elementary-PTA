@@ -1,0 +1,24 @@
+# The calendar has no pictures, so each event gets an emoji and a card colour from words in its title.
+# The first rule that matches wins. thumb: t1 orange, t2 pink, t3 blue, t4 green.
+- {words: ["book fair"], emoji: "📚", thumb: t4}
+- {words: ["fall festival", "festival"], emoji: "🎃", thumb: t1}
+- {words: ["halloween", "red ribbon"], emoji: "🎃", thumb: t1}
+- {words: ["dine out", "dine in"], emoji: "🍕", thumb: t2}
+- {words: ["family lunch"], emoji: "🥪", thumb: t2}
+- {words: ["glow dance", "dance"], emoji: "🪩", thumb: t3}
+- {words: ["movie"], emoji: "🎬", thumb: t3}
+- {words: ["talent show", "school play", "arts under the stars"], emoji: "🎭", thumb: t2}
+- {words: ["jog-a-thon", "jog a thon", "field day", "kickball"], emoji: "🏃", thumb: t4}
+- {words: ["campout"], emoji: "⛺", thumb: t4}
+- {words: ["flag friday"], emoji: "🇺🇸", thumb: t3}
+- {words: ["promotion", "graduation"], emoji: "🎓", thumb: t3}
+- {words: ["teacher meet", "back to school", "open house", "first day", "park meet"], emoji: "🎒", thumb: t3}
+- {words: ["staff appreciation", "teacher appreciation"], emoji: "🍎", thumb: t2}
+- {words: ["fundraiser", "candy", "penguin patch"], emoji: "🛍️", thumb: t1}
+- {words: ["craft", "art"], emoji: "🎨", thumb: t1}
+- {words: ["kindness"], emoji: "💛", thumb: t1}
+- {words: ["read across", "reading"], emoji: "📖", thumb: t4}
+- {words: ["no school", "break", "holiday", "veterans", "labor day", "memorial", "mlk", "martin luther"], emoji: "🏖️", thumb: t3}
+- {words: ["minimum day", "conference"], emoji: "🕐", thumb: t3}
+- {words: ["pta meeting", "meeting"], emoji: "🏫", thumb: t3}
+- {words: ["beautification"], emoji: "🌱", thumb: t4}

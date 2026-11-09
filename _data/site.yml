@@ -17,6 +17,9 @@ forms:                    # paste a Formspree (or similar) address to make forms
   volunteer: "#"
   contact: "#"
   newsletter: "#"
+calendar:
+  ical_url: ""        # the public iCal address of the PTA's Google Calendar (see docs/events-and-calendar.md). Empty = sample events.
+  months_ahead: 12
 social:
   heading: Follow along
   intro: Scan a code with your phone camera, or tap the button, to see our latest posts.

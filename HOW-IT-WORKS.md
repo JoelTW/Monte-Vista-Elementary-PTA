@@ -5,13 +5,13 @@ A small static website built with Jekyll. There is no database and no server: ev
 ## The idea
 - **Words live in data files**, not in the pages. Change the text, and every place that uses it updates.
 - **Pieces of the page are components** (small templates in `_includes/`). You bring one in with one line and change the quoted text.
-- **Events are one small file each** in `_events/`. The home page and the Events page both build their lists from these files, and events dated before today disappear on the next rebuild.
+- **Events come from the PTA's Google Calendar.** A script reads the calendar every few hours; the home page cards, the Events page list and the month calendar all follow it. Setup and day-to-day steps are in `docs/events-and-calendar.md`.
 
 ## Where to change things
 
 | To change... | Edit this file | In the CMS |
 |---|---|---|
-| An event (add, change, remove) | a file in `_events/` | Events |
+| Events | the PTA's Google Calendar (see `docs/events-and-calendar.md`) | (not in the editor; the calendar is the source) |
 | Home page words, action cards, sponsors, President's message | `_data/home.yml` | Home page text |
 | Text on Events, Get Involved, Give, Contact | `_data/pages.yml` | Page text |
 | Email, address, Join / Donate / Spirit Wear / social links | `_data/site.yml` | Site settings |
@@ -22,7 +22,7 @@ A small static website built with Jekyll. There is no database and no server: ev
 The `/components/` page on the running site shows every component with its live example and the line to copy.
 
 ## Components (in `_includes/`)
-`hero`, `president-card`, `upcoming-events`, `event-card`, `cta-card`, `feature-item`, `volunteer-form`, `header`, `footer`. Each file starts with a comment saying what it does and which options it takes.
+`hero`, `president-card`, `upcoming-events`, `event-card`, `calendar-grid`, `cta-card`, `feature-item`, `volunteer-form`, `header`, `footer`. Each file starts with a comment saying what it does and which options it takes.
 
 ## Editing without touching files (Pages CMS)
 Pages CMS (https://pagescms.org) gives editors a form instead of raw files. The configuration is in `.pages.yml`. Based on the Pages CMS quick start:
@@ -50,7 +50,7 @@ While the site is a draft, `hide_from_search_engines: true` in `_data/site.yml` 
 1. Make a repository (the free plan needs it to be **public**, so never commit anything private).
 2. Push this folder's contents. In the repository: Settings > Pages > deploy from the `main` branch.
 3. For the custom domain `www.montevistapta.org`, add it under Settings > Pages and point DNS at GitHub as GitHub's instructions say. Set `url:` in `_config.yml` to the real address.
-4. **Past events and rebuilds:** with "deploy from a branch", the site only rebuilds when something is pushed, so an event that has passed stays visible until the next change. To rebuild nightly, use the Actions workflow in `docs/deploy-workflow.example.yml` (untested example).
+4. **Events and rebuilds:** `.github/workflows/pages.yml` builds the site, reads the calendar every few hours and publishes. Set Pages > Source to **GitHub Actions** for it to take effect. It is untested until it has run once on GitHub.
 
 ## Facebook and Instagram ("Follow along")
 The site shows a QR code and a button for each page, with no scripts from Facebook or Instagram. The links are in `_data/site.yml` under `links`. The QR images in `assets/qr/` are made from those links by `scripts/make_qr.py`, so **if a link changes, the QR image has to be regenerated** (with the logo in the middle). Facebook's own embed shows only the page name for our page and Instagram has no free feed embed, so there is no automatic post feed. If someone with access to the accounts is found, a widget service could add one later.

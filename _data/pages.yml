@@ -1,9 +1,8 @@
 events:
-  note: Event dates and times are subject to change. Check the school newsletter for the latest.
+  note: Event dates and times are subject to change. Click a day to see its events.
   volunteer_line: "Want to help at an event?"
   volunteer_link_text: "Sign up to volunteer"
   calendar_heading: Calendar
-  calendar_embed: ""     # paste the Google Calendar iframe here; leave empty to show a placeholder
   reflections_heading: National PTA Reflections Art Competition
   reflections_text: "Students create original art, photography, music, writing and film around a yearly theme. (Placeholder: add the theme, grade categories, submission deadline and rules here as real text.)"
 get_involved:

@@ -1,20 +1,18 @@
 {% comment %}
-COMPONENT: list of upcoming events (events dated today or later, soonest first).
+COMPONENT: list of upcoming events, read from the calendar (_data/calendar.json, made by scripts/sync_calendar.py).
+Shows events that have not finished yet, soonest first.
 Options: limit=3 (max to show), grouped=true (month headings).
-An event with end_date stays listed until that day (for a fair that runs all week).
 {% endcomment %}
 {% assign today = site.time | date: "%Y-%m-%d" %}
-{% assign sorted = site.events | sort: "date" %}
 {% assign shown = 0 %}
 {% assign last_month = "" %}
-{% for e in sorted %}
+{% for e in site.data.calendar %}
   {% assign last_day = e.end_date | default: e.date %}
-  {% assign d = last_day | date: "%Y-%m-%d" %}
-  {% if d >= today %}
+  {% if last_day >= today %}
     {% if include.limit and shown >= include.limit %}{% break %}{% endif %}
-    {% if include.grouped %}{% assign m = e.date | date: "%B %Y" %}{% if m != last_month %}<h2 class="month">{{ m }}</h2>{% assign last_month = m %}{% endif %}{% endif %}
+    {% if include.grouped %}{% assign m = e.date | date: "%B %Y" %}{% if m != last_month %}<h3 class="month">{{ m }}</h3>{% assign last_month = m %}{% endif %}{% endif %}
     {% include event-card.html event=e %}
     {% assign shown = shown | plus: 1 %}
   {% endif %}
 {% endfor %}
-{% if shown == 0 %}<p>New events coming soon! Check back or follow us on social media.</p>{% endif %}
+{% if shown == 0 %}<p>New events coming soon! Check back, or follow us on social media.</p>{% endif %}

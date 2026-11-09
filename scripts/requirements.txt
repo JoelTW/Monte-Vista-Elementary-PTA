@@ -1,0 +1,4 @@
+icalendar>=6.0,<7
+recurring-ical-events>=3.3,<4
+PyYAML>=6
+tzdata

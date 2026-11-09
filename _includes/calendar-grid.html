@@ -1,0 +1,14 @@
+{% comment %}
+COMPONENT: month calendar. Built in the browser by assets/js/calendar.js from assets/data/events.json.
+Click a day to see its events. Without JavaScript the upcoming-events list below still works.
+{% endcomment %}
+<div class="cal" id="calendar" data-src="{{ '/assets/data/events.json' | relative_url }}">
+  <noscript><p>The month calendar needs JavaScript. The list of upcoming events is below.</p></noscript>
+</div>
+<dialog id="cal-dialog" class="dlg" aria-labelledby="cal-dialog-title">
+<div class="dlg-body">
+<button class="dlg-close" type="button" data-dialog-close aria-label="Close">&times;</button>
+<h2 id="cal-dialog-title"></h2>
+<div id="cal-dialog-body"></div>
+<p><button class="btn btn-gold btn-sm" type="button" data-dialog-close>Close</button></p>
+</div></dialog>
