@@ -52,7 +52,7 @@ Then open http://127.0.0.1:4000. To only build: `bundle exec jekyll build` (outp
 ## What this proof of concept does NOT include yet
 - Forms don't send anywhere (set up Formspree or similar and paste its address into `_data/site.yml`).
 - The Google Calendar embed is a placeholder (paste the embed code in the CMS, or `_data/pages.yml`).
-- Photos are placeholders (emoji and colour blocks). The curved-edge hero image has to be made in an image editor.
+- Most photos are still placeholders (emoji and colour blocks). The hero uses a normal rectangular photo (`assets/images/hero.jpg`); the site adds the curved gold edge, so no image editing is needed. To swap it, replace that file (a width of about 1400 to 1600 pixels is plenty) and adjust `photo_position` and `photo_alt` in `_data/home.yml`.
 - The search icon is a visual placeholder.
 - Pages CMS configuration and the nightly-rebuild workflow are untested against a live repository.
 - Accessibility has only been checked on the earlier static mockup, not re-audited on this version.

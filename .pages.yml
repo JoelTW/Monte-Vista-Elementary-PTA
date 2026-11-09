@@ -48,7 +48,8 @@ content:
           - {name: lead, label: Sentence under the headline, type: text}
           - {name: primary_button, label: Join button text, type: string}
           - {name: secondary_button, label: Events button text, type: string}
-          - {name: photo, label: Photo (curved edge already in the image), type: image}
+          - {name: photo, label: Hero photo (normal rectangular photo), type: image}
+          - {name: photo_position, label: Which part to keep in view when cropped (for example center 60%), type: string}
           - {name: photo_alt, label: Photo description (for screen readers), type: string}
       - name: president
         label: President's message

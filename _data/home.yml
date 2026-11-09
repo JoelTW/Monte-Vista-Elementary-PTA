@@ -4,8 +4,9 @@ hero:
   lead: A community of families, teachers and staff working together to support every Monte Vista student.
   primary_button: Join the PTA →
   secondary_button: View Upcoming Events
-  photo: ""            # e.g. /assets/images/hero.png (a photo with the curved gold edge already cut in)
-  photo_alt: Smiling Monte Vista students
+  photo: /assets/images/hero.jpg   # a normal rectangular photo; the curved edge is added by the site
+  photo_position: center 60%       # which part stays in view when the photo is cropped, e.g. "center top"
+  photo_alt: Monte Vista students and staff in blue shirts gathered on the blacktop, waving
 president:
   heading: Message from the President
   avatar: "🙂"
