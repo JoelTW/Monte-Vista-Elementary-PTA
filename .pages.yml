@@ -150,6 +150,15 @@ content:
     fields:
       - {name: hide_from_search_engines, label: Hide the site from Google and other search engines (turn OFF at launch), type: boolean}
       - {name: draft_banner, label: Draft banner text (clear it to hide), type: string}
+      - name: forms
+        label: Forms (where messages and sign-ups are sent)
+        type: object
+        fields:
+          - {name: service_name, label: Name of the form service (shown in the privacy note), type: string}
+          - {name: endpoint, label: Form address from the service (used by every form), type: string}
+          - {name: volunteer, label: Different address for the volunteer form (optional), type: string}
+          - {name: contact, label: Different address for the contact form (optional), type: string}
+          - {name: newsletter, label: Different address for the newsletter form (optional), type: string}
       - {name: email, label: PTA email, type: string}
       - {name: address, label: Address, type: string}
       - {name: president, label: President's name, type: string}

@@ -1,0 +1,7 @@
+{% comment %} COMPONENT: newsletter sign-up. It emails each address to the PTA; it is not a mailing-list tool. {% endcomment %}
+{% assign fs = site.data.site.forms %}
+{% assign endpoint = fs.newsletter | default: fs.endpoint %}
+<form class="pta-form" data-pta-form data-endpoint="{{ endpoint }}" data-mailto="{{ site.data.site.email }}" data-success="Thank you! You are on the list." action="{% if endpoint and endpoint != '' %}{{ endpoint }}{% else %}#{% endif %}" method="post">
+<label for="news-email">Email</label><input id="news-email" name="email" type="email" autocomplete="email" required>
+{% include form-extras.html type="newsletter" subject="Newsletter sign-up from the PTA website" %}
+<p><button class="btn btn-blue" type="submit">Subscribe</button></p></form>

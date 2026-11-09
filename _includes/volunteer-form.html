@@ -1,6 +1,11 @@
-{% comment %} COMPONENT: volunteer sign-up form. Set the destination in _data/site.yml > forms > volunteer. {% endcomment %}
-<form action="{{ site.data.site.forms.volunteer }}" method="post"><label for="vn">Name</label><input id="vn" name="name" required>
-<label for="ve">Email</label><input id="ve" name="email" type="email" required>
-<label for="vi">What would you like to help with?</label><select id="vi" name="interest"><option>Events</option><option>Fundraising</option><option>Yearbook</option><option>Teacher Appreciation</option><option>Anything!</option></select>
-<label for="vc">Comments</label><textarea id="vc" name="comment"></textarea>
+{% comment %} COMPONENT: volunteer sign-up form. Where it goes: _data/site.yml > forms (volunteer, or the shared endpoint). {% endcomment %}
+{% assign fs = site.data.site.forms %}
+{% assign endpoint = fs.volunteer | default: fs.endpoint %}
+<form class="pta-form" data-pta-form data-endpoint="{{ endpoint }}" data-mailto="{{ site.data.site.email }}" data-success="Thank you! A PTA volunteer will be in touch soon." action="{% if endpoint and endpoint != '' %}{{ endpoint }}{% else %}#{% endif %}" method="post">
+<label for="vol-name">Your name</label><input id="vol-name" name="name" autocomplete="name" required>
+<label for="vol-email">Email</label><input id="vol-email" name="email" type="email" autocomplete="email" required>
+<label for="vol-interest">What would you like to help with?</label>
+<select id="vol-interest" name="interest"><option>Events</option><option>Fundraising</option><option>Yearbook</option><option>Teacher Appreciation</option><option>Anything!</option></select>
+<label for="vol-comment">Anything else we should know? (optional)</label><textarea id="vol-comment" name="comment"></textarea>
+{% include form-extras.html type="volunteer" subject="Volunteer sign-up from the PTA website" %}
 <p><button class="btn btn-blue" type="submit">Sign me up</button></p></form>

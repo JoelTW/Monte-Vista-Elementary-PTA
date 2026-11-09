@@ -1,0 +1,13 @@
+{% comment %}
+Shared pieces inside every form: hidden details, the spam trap, the status line and the privacy note.
+Pass type="contact" subject="..." success="..."
+{% endcomment %}
+{% assign fs = site.data.site.forms %}
+{% for pair in fs.hidden_fields %}<input type="hidden" name="{{ pair[0] | escape }}" value="{{ pair[1] | escape }}">{% endfor %}
+<input type="hidden" name="_subject" value="{{ include.subject | escape }}">
+<input type="hidden" name="form_type" value="{{ include.type | escape }}">
+<input type="hidden" name="page" value="{{ page.url | escape }}">
+<div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+<p class="form-status" role="status" aria-live="polite"></p>
+<p class="form-note">{% if fs.service_name and fs.service_name != "" %}{{ fs.service_name | escape }} delivers this to the PTA.{% else %}A form service delivers this to the PTA.{% endif %} Please do not include students' full names or other private details.</p>
+{% unless endpoint != "" %}<noscript><p class="form-status error">This form needs JavaScript. Please email <a href="mailto:{{ site.data.site.email }}">{{ site.data.site.email }}</a> instead.</p></noscript>{% endunless %}

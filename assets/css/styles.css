@@ -205,3 +205,11 @@ h3.month{margin:24px 0 10px;text-transform:uppercase;color:var(--blue);font-size
 .person.open{border:2px dashed var(--blue);background:var(--cream);box-shadow:none}
 .person .avatar.sm{border-radius:50%;background-color:var(--butter);border:4px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .person.open .avatar.sm{background-color:#fff}
+
+/* forms */
+.hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.form-status{min-height:1.4em;margin:.8em 0 0;font-weight:700}
+.form-status.ok{color:#1b6b34}.form-status.error{color:#a3001d}.form-status.info{color:#4a5670}
+.form-note{font-size:.85rem;color:#4a5670;margin:.4em 0 0}
+.btn:disabled{opacity:.65;cursor:wait}
+.pta-form{max-width:560px}

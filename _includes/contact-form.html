@@ -1,0 +1,9 @@
+{% comment %} COMPONENT: contact form. Where it goes: _data/site.yml > forms (contact, or the shared endpoint). {% endcomment %}
+{% assign fs = site.data.site.forms %}
+{% assign endpoint = fs.contact | default: fs.endpoint %}
+<form class="pta-form" data-pta-form data-endpoint="{{ endpoint }}" data-mailto="{{ site.data.site.email }}" data-success="Thank you! We got your message and will reply soon." action="{% if endpoint and endpoint != '' %}{{ endpoint }}{% else %}#{% endif %}" method="post">
+<label for="con-name">Your name</label><input id="con-name" name="name" autocomplete="name" required>
+<label for="con-email">Email</label><input id="con-email" name="email" type="email" autocomplete="email" required>
+<label for="con-message">Message</label><textarea id="con-message" name="message" required></textarea>
+{% include form-extras.html type="contact" subject="Message from the PTA website" %}
+<p><button class="btn btn-blue" type="submit">Send message</button></p></form>

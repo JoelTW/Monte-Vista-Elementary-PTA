@@ -56,8 +56,25 @@ While the site is a draft, `hide_from_search_engines: true` in `_data/site.yml` 
 ## Facebook and Instagram ("Follow along")
 The site shows a QR code and a button for each page, with no scripts from Facebook or Instagram. The links are in `_data/site.yml` under `links`. The QR images in `assets/qr/` are made from those links by `scripts/make_qr.py`, so **if a link changes, the QR image has to be regenerated** (with the logo in the middle). Facebook's own embed shows only the page name for our page and Instagram has no free feed embed, so there is no automatic post feed. If someone with access to the accounts is found, a widget service could add one later.
 
+## Forms (volunteer, contact, newsletter)
+GitHub Pages has no server, so a form service receives the messages and emails them to the PTA. The site's forms send in the background, show a clear thank-you or error message, keep what the person typed if something fails, block double-sends, catch simple spam bots with a hidden field, and always show the PTA email as a fallback.
+
+**Connect a service (one time).** Formspree is the one the site is built and tested for; any service that accepts a normal form post and answers JSON should work.
+1. Create an account at formspree.io with a PTA-owned email (so it survives board changes), and create a form. Formspree gives you an address like `https://formspree.io/f/xxxxxxxx`.
+2. Paste it into `_data/site.yml` under `forms > endpoint` (or in the editor under Site settings > Forms), and put `Formspree` in `service_name`. One address serves all three forms; each message says which form it came from (the subject line and a `form_type` field).
+3. Confirm the notification email address in Formspree, then submit each form once on the live site and check the email arrives.
+4. In Formspree, turn on its spam filtering, and consider its reCAPTCHA option.
+
+**Limits and costs.** Formspree's free plan has a monthly cap on submissions (third-party reviews say 50; check their pricing page) and a rate limit (their help centre says 20 posts a minute per form). Over the cap, messages are held rather than emailed. A PTA site is unlikely to hit it, but watch it around membership drives.
+
+**The newsletter box** only emails each address to the PTA. It is not a mailing-list tool: someone has to add the addresses to wherever newsletters are sent from. If the PTA picks a newsletter tool (Mailchimp, Buttondown and so on), the form can be pointed at it instead.
+
+**Privacy.** Each form says that a form service delivers the message and asks people not to include students' full names. Don't collect anything more sensitive than a name, an email address and a short note.
+
+Until an address is entered, each form tells the visitor it is not connected yet and shows the PTA email.
+
 ## What this proof of concept does NOT include yet
-- Forms don't send anywhere (set up Formspree or similar and paste its address into `_data/site.yml`).
+- The forms are built and tested against a fake form server, but not yet connected to a real service (see Forms above).
 - The Google Calendar embed is a placeholder (paste the embed code in the CMS, or `_data/pages.yml`).
 - Most photos are still placeholders (emoji and colour blocks). The hero uses a normal rectangular photo (`assets/images/hero.jpg`); the site adds the curved gold edge, so no image editing is needed. To swap it, replace that file (a width of about 1400 to 1600 pixels is plenty) and adjust `photo_position` and `photo_alt` in `_data/home.yml`.
 - The search icon is a visual placeholder.
