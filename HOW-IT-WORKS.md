@@ -43,6 +43,9 @@ BUNDLE_PATH=vendor/bundle bundle exec jekyll serve --baseurl ""
 (`--baseurl ""` makes the local copy work at the top of the address. `baseurl` in `_config.yml` is the repository name while the site lives at github.io, and must be set back to `""` when the custom domain is switched on.)
 Then open http://127.0.0.1:4000. To only build: `bundle exec jekyll build` (output goes in `_site/`, which isn't committed).
 
+## Hiding the site from search engines (until launch)
+While the site is a draft, `hide_from_search_engines: true` in `_data/site.yml` adds a `noindex, nofollow` tag to every page, asking Google and others not to list it or follow its links. **When the site goes live on montevistapta.org, set it to `false`** (or the site will never appear in search). This is a request that search engines honour, not a lock: anyone with the address can still open the site, and the public GitHub repo is still readable. Pages already crawled can take a while to drop out.
+
 ## Publishing with GitHub Pages
 1. Make a repository (the free plan needs it to be **public**, so never commit anything private).
 2. Push this folder's contents. In the repository: Settings > Pages > deploy from the `main` branch.
