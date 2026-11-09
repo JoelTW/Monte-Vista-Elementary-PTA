@@ -1,0 +1,7 @@
+# only needed to remake the QR codes (not for building the site)
+qrcode[pil]
+pillow
+opencv-python-headless
+numpy
+zxing-cpp
+pytest
