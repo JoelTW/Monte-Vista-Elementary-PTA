@@ -1,0 +1,107 @@
+sections:
+  - tint: ''
+    anchor: ''
+    extra_class: ''
+    wrapper: ''
+    columns:
+      - kind: plain
+        anchor: ''
+        blocks:
+          - type: heading
+            text: About Monte Vista Parent Teacher Association
+            level: 2
+          - type: paragraph
+            text: 'The Monte Vista Parent Teacher Association (PTA) is a dedicated group of parents, teachers and staff working together to build a strong and connected school community. We organize and support a variety of fun and enriching events throughout the school year, including:'
+            space_above: false
+          - type: chips
+            items:
+              - Talent Show
+              - Dine Out Nights
+              - Campout
+              - Movie Nights
+              - School Dances
+              - Book Fair
+              - Fall Festival
+              - Site Beautification
+              - Teacher Appreciation
+          - type: paragraph
+            text: From family events to fundraising to volunteer opportunities, the PTA is at the heart of bringing Monte Vista families together.
+            space_above: false
+          - type: buttons
+            layout: row
+            items:
+              - label: Join the PTA
+                kind: link
+                url: '@join'
+                to: ''
+                subject: ''
+                body: ''
+                style: gold
+                new_tab: false
+                download: ''
+              - label: Shop Spirit Wear
+                kind: link
+                url: '@spirit'
+                to: ''
+                subject: ''
+                body: ''
+                style: soft
+                new_tab: false
+                download: ''
+      - kind: bare
+        anchor: ''
+        blocks:
+          - type: placeholder
+            text: 'Photo: PTA families and staff (placeholder)'
+            label: Placeholder for a photo of PTA families and staff
+            min_height: 260
+  - tint: sky
+    anchor: team
+    extra_class: ''
+    wrapper: ''
+    columns:
+      - kind: bare
+        anchor: ''
+        blocks:
+          - type: heading
+            text: Get to know your PTA
+            level: 2
+          - type: team
+            note: ''
+          - type: placeholder_grid
+            text: Board Member
+  - tint: ''
+    anchor: ''
+    extra_class: ''
+    wrapper: ''
+    columns:
+      - kind: bare
+        anchor: ''
+        blocks:
+          - type: heading
+            text: Want to be part of it?
+            level: 2
+          - type: paragraph
+            text: Joining is easy, and it does not mean you are signing up to volunteer (unless you would like to). Members have a voice and a vote in how the PTA supports our school.
+            space_above: false
+          - type: buttons
+            layout: row
+            items:
+              - label: Join the PTA
+                kind: link
+                url: '@join'
+                to: ''
+                subject: ''
+                body: ''
+                style: gold
+                new_tab: false
+                download: ''
+              - label: Volunteer
+                kind: link
+                url: /get-involved/#volunteer
+                to: ''
+                subject: ''
+                body: ''
+                style: blue
+                new_tab: false
+                download: ''

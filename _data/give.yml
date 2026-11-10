@@ -1,0 +1,59 @@
+sections:
+- tint: ''
+  anchor: ''
+  columns:
+  - kind: plain
+    blocks:
+    - type: heading
+      level: 2
+      text: Support Monte Vista
+    - type: paragraph
+      text: We are a 501(c)(3) nonprofit, so donations are tax-deductible. Your gift funds events, classroom support and campus improvements.
+    - type: buttons
+      layout: row
+      items:
+      - label: Donate online
+        url: '@donate'
+        style: gold
+    - type: paragraph
+      text: Prefer to mail a check? Make it payable to "Monte Vista PTA" and send it to the address in the footer.
+  - kind: card
+    blocks:
+    - type: heading
+      level: 3
+      text: Scan to donate
+    - type: image
+      style: plain
+      image: /assets/qr/donate.png
+      width: 220
+      alt: QR code to donate to the Monte Vista PTA
+- tint: sky
+  anchor: spirit
+  columns:
+  - kind: bare
+    blocks:
+    - type: heading
+      level: 2
+      text: Spirit Wear
+    - type: paragraph
+      text: 'Show your Bobcat pride! Order from our SpiritHero store, or visit us at Back to School Night and Dine Outs. (Order deadline: placeholder.)'
+    - type: placeholder_grid
+      text: Product photo
+    - type: buttons
+      layout: row
+      items:
+      - label: Shop Spirit Wear
+        url: '@spirit'
+        style: blue
+- tint: ''
+  anchor: sponsor
+  columns:
+  - kind: bare
+    blocks:
+    - type: heading
+      level: 2
+      text: Become a sponsor
+    - type: paragraph
+      text: Local businesses help make our events possible. Interested in sponsoring? Email us using the address in the footer.
+    - type: email_link
+      which: pta

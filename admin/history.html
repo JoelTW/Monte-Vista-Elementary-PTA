@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Change history, Monte Vista PTA site</title>
+  <style>
+    :root { --blue:#174A98; --deep:#102F63; --ink:#1d2433; --line:#d9e1ef; --sky:#E8F1FC; --butter:#FFF0C7; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--ink); background: #fff; }
+    main { max-width: 860px; margin: 0 auto; padding: 24px 16px 64px; }
+    h1 { color: var(--deep); margin: 8px 0 4px; }
+    h2 { color: var(--deep); margin: 32px 0 8px; font-size: 1.25rem; }
+    a { color: var(--blue); }
+    .top { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: baseline; }
+    .lead, .empty, .err { color: #4a5568; margin: 4px 0 0; }
+    .err { background: var(--butter); padding: 12px 16px; border-radius: 12px; color: var(--ink); }
+    ul { list-style: none; margin: 0; padding: 0; }
+    li { display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--line); }
+    li img { width: 36px; height: 36px; border-radius: 50%; background: var(--sky); flex: none; }
+    .what { font-weight: 600; word-break: break-word; }
+    .meta { color: #4a5568; font-size: .9rem; }
+    .pill { display: inline-block; background: var(--sky); color: var(--deep); border-radius: 999px; padding: 0 10px; font-size: .8rem; font-weight: 600; }
+    .tip { background: var(--sky); border-radius: 12px; padding: 12px 16px; margin-top: 24px; }
+  </style>
+</head>
+<body>
+<main>
+  <div class="top"><a href="./">&larr; Back to the editor</a></div>
+  <h1>Change history</h1>
+  <p class="lead">Who changed the website, and when. Every published change is listed, newest first.</p>
+
+  <h2>Drafts waiting to be published</h2>
+  <p class="meta">A draft is a saved change that is not live yet. An approver publishes it.</p>
+  <ul id="drafts"><li class="empty">Loading&hellip;</li></ul>
+
+  <h2>Published changes</h2>
+  <ul id="published"><li class="empty">Loading&hellip;</li></ul>
+
+  <p class="tip">To see exactly what changed, or to undo a change, open the link on that line (it goes to GitHub). Ask the website admin if you need help putting something back.</p>
+</main>
+<script>
+(function () {
+  var REPO = 'JoelTW/Monte-Vista-Elementary-PTA', BRANCH = 'main';
+  var API = 'https://api.github.com/repos/' + REPO;
+
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function when(iso) {
+    var d = new Date(iso);
+    return d.toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' });
+  }
+  function row(avatar, title, who, iso, url, pill) {
+    var li = el('li');
+    var img = el('img'); img.alt = ''; if (avatar) img.src = avatar; li.appendChild(img);
+    var box = el('div');
+    var a = el('a', 'what', title); a.href = url; a.target = '_blank'; a.rel = 'noopener'; box.appendChild(a);
+    var meta = el('div', 'meta', who + ' · ' + when(iso) + ' ');
+    if (pill) meta.appendChild(el('span', 'pill', pill));
+    box.appendChild(meta); li.appendChild(box);
+    return li;
+  }
+  function fill(id, items, emptyText) {
+    var ul = document.getElementById(id); ul.textContent = '';
+    if (!items.length) { ul.appendChild(el('li', 'empty', emptyText)); return; }
+    items.forEach(function (i) { ul.appendChild(i); });
+  }
+  function fail(id, status) {
+    var ul = document.getElementById(id); ul.textContent = '';
+    var li = el('li'); li.appendChild(el('p', 'err', status === 403
+      ? 'GitHub is limiting how often this list can be loaded. Try again in a few minutes, or open the history on GitHub.'
+      : 'The list could not be loaded. Check your connection, or open the history on GitHub.'));
+    ul.appendChild(li);
+  }
+  function get(path) {
+    return fetch(API + path, { headers: { Accept: 'application/vnd.github+json' } }).then(function (r) {
+      if (!r.ok) { var e = new Error('HTTP ' + r.status); e.status = r.status; throw e; }
+      return r.json();
+    });
+  }
+
+  get('/pulls?state=open&per_page=30').then(function (list) {
+    fill('drafts', list.map(function (p) {
+      return row(p.user.avatar_url, p.title, p.user.login, p.updated_at, p.html_url, 'draft');
+    }), 'No drafts waiting.');
+  }).catch(function (e) { fail('drafts', e.status); });
+
+  get('/commits?sha=' + BRANCH + '&per_page=50').then(function (list) {
+    fill('published', list.map(function (c) {
+      var who = c.author ? c.author.login : c.commit.author.name;
+      var title = c.commit.message.split('\n')[0];
+      return row(c.author ? c.author.avatar_url : '', title, who, c.commit.author.date, c.html_url);
+    }), 'Nothing published yet.');
+  }).catch(function (e) { fail('published', e.status); });
+})();
+</script>
+</body>
+</html>

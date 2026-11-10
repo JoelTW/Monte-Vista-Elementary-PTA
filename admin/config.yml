@@ -1,0 +1,427 @@
+# Visual editor (Sveltia CMS). Pages are lists of sections; system settings are separate. See docs/editor-setup.md.
+backend: {name: github, repo: JoelTW/Monte-Vista-Elementary-PTA, branch: main}
+publish_mode: editorial_workflow
+media_folder: assets/images
+public_folder: /assets/images
+collections:
+- name: pages
+  label: Pages
+  files:
+  - name: home
+    label: Home page
+    file: _data/home.yml
+    fields:
+    - name: hero
+      label: Top banner
+      widget: object
+      fields:
+      - {name: line1, label: Headline line 1, widget: string}
+      - {name: line2, label: Headline line 2 (gold), widget: string}
+      - {name: lead, label: Sentence under the headline, widget: text}
+      - {name: primary_button, label: Join button text, widget: string}
+      - {name: secondary_button, label: Events button text, widget: string}
+      - {name: photo, label: Hero photo (normal rectangular photo), widget: image}
+      - {name: photo_position, label: Which part to keep in view when cropped (for example center 60%), widget: string}
+      - {name: photo_alt, label: Photo description (for screen readers), widget: string}
+    - name: president
+      label: President's message
+      widget: object
+      fields:
+      - {name: heading, label: Heading, widget: string}
+      - {name: message, label: Full message, hint: 'Blank line between paragraphs; start a line with * for a bullet; put [[photo]] on its own line where the photo
+          should go', widget: text}
+      - {name: preview_words, label: Words shown before Read more, widget: number, value_type: int}
+      - {name: tagline, label: Handwritten tagline, widget: string}
+      - {name: photo, label: Photo, widget: image}
+      - {name: photo_alt, label: Photo description (for screen readers), widget: string}
+    - name: cards
+      label: Action cards
+      widget: list
+      fields:
+      - name: color
+        label: Colour
+        widget: select
+        options: [pink, sky, butter, mint]
+      - {name: icon, label: Emoji, widget: string}
+      - {name: title, label: Title, widget: string}
+      - {name: text, label: Text, widget: text}
+      - {name: url, label: Link (start with / for pages on this site), widget: string}
+      - {name: link_text, label: Link text, widget: string}
+    - name: difference
+      label: Your PTA Makes a Difference
+      widget: object
+      fields:
+      - {name: heading, label: Heading, widget: string}
+      - {name: text, label: Sentence, widget: text}
+      - name: items
+        label: Three highlights
+        widget: list
+        fields:
+        - {name: icon, label: Emoji, widget: string}
+        - {name: title, label: Title, widget: string}
+        - {name: text, label: Caption, widget: string}
+    - name: sponsors
+      label: Sponsors
+      widget: list
+      fields:
+      - {name: name, label: Business name, widget: string}
+      - {name: url, label: Website, widget: string}
+      - {name: logo, label: Logo, widget: image}
+  - name: about
+    label: About page
+    file: _data/about.yml
+    fields:
+    - &id002
+      name: sections
+      label: Sections of the page, top to bottom
+      widget: list
+      fields:
+      - name: tint
+        label: Background
+        widget: select
+        options:
+        - {label: White, value: ''}
+        - {label: Light blue, value: sky}
+        default: ''
+        required: false
+      - {name: anchor, label: 'Link name (used for #links to this section)', widget: string, required: false}
+      - {name: extra_class, label: Special style name (leave empty), widget: string, required: false}
+      - name: wrapper
+        label: Section box
+        widget: select
+        options:
+        - {label: Normal, value: ''}
+        - {label: None (for the social links), value: none}
+        default: ''
+        required: false
+      - name: columns
+        label: Columns (one or two side by side)
+        widget: list
+        fields:
+        - name: kind
+          label: Box style
+          widget: select
+          options:
+          - {label: Plain, value: plain}
+          - {label: White card, value: card}
+          - {label: Picture frame, value: poster}
+          - {label: No box, value: bare}
+          default: plain
+        - {name: anchor, label: 'Link name (used for #links to this spot)', widget: string, required: false}
+        - name: blocks
+          label: Content, top to bottom
+          widget: list
+          typeKey: type
+          types:
+          - name: heading
+            label: Heading
+            widget: object
+            fields:
+            - {name: text, label: Heading, widget: string}
+            - name: level
+              label: Size
+              widget: select
+              options:
+              - {label: Big (section heading), value: 2}
+              - {label: Smaller, value: 3}
+              default: 2
+              value_type: int
+          - name: paragraph
+            label: Paragraph
+            widget: object
+            fields:
+            - {name: text, label: Text, widget: text}
+            - {name: space_above, label: Extra space above, widget: boolean, required: false}
+          - name: buttons
+            label: Buttons
+            widget: object
+            fields:
+            - name: layout
+              label: Layout
+              widget: select
+              options:
+              - {label: Side by side, value: row}
+              - {label: One under the other, value: stacked}
+              default: row
+            - name: items
+              label: Buttons
+              widget: list
+              fields:
+              - {name: label, label: Button text, widget: string}
+              - name: kind
+                label: What it does
+                widget: select
+                options:
+                - {label: Opens a link, value: link}
+                - {label: Starts an email, value: email}
+                default: link
+                required: false
+              - {name: url, label: 'Link (start with / for pages on this site, # for a spot on this page, or @join, @donate, @spirit for the saved links)', widget: string,
+                required: false}
+              - {name: to, label: Email to (@email or @yearbook_email), widget: string, required: false}
+              - {name: subject, label: Email subject, widget: string, required: false}
+              - {name: body, label: Email message already filled in, widget: text, required: false}
+              - name: style
+                label: Look
+                widget: select
+                options: [gold, soft, blue]
+                default: gold
+                required: false
+              - {name: new_tab, label: Open in a new tab, widget: boolean, required: false}
+              - {name: download, label: Download file name (fill in to make this a download button), widget: string, required: false}
+          - name: image
+            label: Picture
+            widget: object
+            fields:
+            - name: style
+              label: Style
+              widget: select
+              options:
+              - {label: Poster (large), value: poster}
+              - {label: Plain, value: plain}
+              default: plain
+            - {name: image, label: Picture, widget: image}
+            - {name: alt, label: Picture description (for screen readers), widget: text}
+            - {name: opens_full_size, label: Click to open full size (poster only), widget: boolean, required: false}
+            - {name: width, label: Width in pixels (optional), widget: number, value_type: int, required: false}
+            - {name: height, label: Height in pixels (optional), widget: number, value_type: int, required: false}
+          - name: chips
+            label: Tag list
+            widget: object
+            fields:
+            - name: items
+              label: Items
+              widget: list
+              field: {name: item, label: Item, widget: string}
+          - name: steps
+            label: Numbered steps
+            widget: object
+            fields:
+            - name: items
+              label: Steps
+              widget: list
+              field: {name: item, label: Item, widget: string}
+          - name: tips
+            label: Bullet list
+            widget: object
+            fields:
+            - name: items
+              label: Items
+              widget: list
+              field: {name: item, label: Item, widget: string}
+          - name: note
+            label: Small print
+            widget: object
+            fields:
+            - {name: text, label: 'Text (use [email] or [yearbook_email] for the saved addresses)', widget: string}
+          - name: email_note
+            label: Small print with an email link
+            widget: object
+            fields:
+            - {name: text, label: Words before the email address, widget: string}
+            - name: which
+              label: Which email
+              widget: select
+              options: &id001
+              - {label: PTA email, value: pta}
+              - {label: Yearbook email, value: yearbook}
+              default: pta
+          - name: email_link
+            label: Email link
+            widget: object
+            fields:
+            - name: which
+              label: Which email
+              widget: select
+              options: *id001
+              default: pta
+          - name: link_paragraph
+            label: Sentence ending in a link
+            widget: object
+            fields:
+            - {name: text, label: Sentence, widget: string}
+            - {name: link_text, label: Link text, widget: string}
+            - {name: url, label: Link, widget: string}
+          - name: role_cards
+            label: Coloured cards
+            widget: object
+            fields:
+            - name: items
+              label: Cards
+              widget: list
+              fields:
+              - {name: icon, label: Emoji, widget: string}
+              - {name: title, label: Title, widget: string}
+              - {name: text, label: Description, widget: text}
+              - name: color
+                label: Colour
+                widget: select
+                options: [pink, sky, butter, mint]
+                default: sky
+          - name: placeholder
+            label: Photo placeholder
+            widget: object
+            fields:
+            - {name: text, label: Words shown in the box, widget: string}
+            - {name: label, label: Description (for screen readers), widget: string}
+            - {name: min_height, label: Height in pixels, widget: number, value_type: int, required: false}
+          - name: placeholder_grid
+            label: Three photo placeholders
+            widget: object
+            fields:
+            - {name: text, label: Words shown in each box, widget: string}
+          - name: form
+            label: Sign-up or message form
+            widget: object
+            fields:
+            - name: form
+              label: Which form
+              widget: select
+              options:
+              - {label: Volunteer form, value: volunteer}
+              - {label: Contact form, value: contact}
+              - {label: Newsletter sign-up, value: newsletter}
+          - name: team
+            label: Board and chairs (from Get to know your PTA)
+            widget: object
+            fields:
+            - {name: note, label: 'Nothing to fill in: the people come from the ''Get to know your PTA'' page', widget: hidden, default: ''}
+          - name: contact_details
+            label: Contact details
+            widget: object
+            fields:
+            - {name: heading, label: Heading, widget: string}
+            - {name: school_text, label: School website link text, widget: string}
+            - {name: board_heading, label: Board heading, widget: string}
+            - {name: board_text, label: Board names, widget: text}
+          - name: calendar
+            label: Month calendar and subscribe buttons
+            widget: object
+            fields:
+            - {name: note, label: 'Nothing to fill in: events come from the Google Calendar', widget: hidden, default: ''}
+          - name: upcoming
+            label: List of upcoming events
+            widget: object
+            fields:
+            - {name: limit, label: How many events to show, widget: number, value_type: int, required: false}
+            - {name: note, label: Sentence under the list, widget: string}
+          - name: social_feed
+            label: Follow us on Facebook and Instagram
+            widget: object
+            fields:
+            - {name: note, label: 'Nothing to fill in: the links are in Site settings', widget: hidden, default: ''}
+  - name: events
+    label: Events page
+    file: _data/events.yml
+    fields:
+    - name: banner
+      label: Big banner at the top
+      widget: object
+      fields:
+      - {name: title_before, label: Headline, widget: string}
+      - {name: title_highlight, label: Headline words with the gold underline, widget: string}
+      - {name: title_after, label: Headline ending (such as a question mark), widget: string, required: false}
+      - {name: text, label: Sentence under the headline, widget: text}
+    - *id002
+  - name: get_involved
+    label: Get Involved page
+    file: _data/get_involved.yml
+    fields:
+    - *id002
+  - name: give
+    label: Give page
+    file: _data/give.yml
+    fields:
+    - *id002
+  - name: yearbook
+    label: Yearbook page
+    file: _data/yearbook.yml
+    fields:
+    - *id002
+  - name: contact
+    label: Contact page
+    file: _data/contact.yml
+    fields:
+    - *id002
+  - name: team
+    label: Get to know your PTA (board and chairs)
+    file: _data/team.yml
+    fields:
+    - {name: intro, label: Sentence under the heading, widget: text}
+    - name: groups
+      label: Groups
+      widget: list
+      fields:
+      - {name: heading, label: Group heading (for example Executive board), widget: string}
+      - name: members
+        label: People and roles
+        widget: list
+        fields:
+        - {name: role, label: Role, widget: string}
+        - {name: name, label: Name (leave empty for "Name coming soon"), widget: string}
+        - {name: icon, label: Emoji shown when there is no photo, widget: string}
+        - {name: photo, label: Photo (only with their permission), widget: image}
+        - {name: blurb, label: What they do, widget: text}
+        - {name: ask_me_about, label: Ask me about (optional), widget: string}
+        - {name: email, label: Email (optional), widget: string}
+        - {name: open, label: Show as an open position, widget: boolean}
+- name: system_settings
+  label: System settings
+  files:
+  - name: site
+    label: Site settings (email, address, links)
+    file: _data/site.yml
+    fields:
+    - {name: hide_from_search_engines, label: Hide the site from Google and other search engines (turn OFF at launch), widget: boolean}
+    - {name: draft_banner, label: Draft banner text (clear it to hide), widget: string}
+    - name: forms
+      label: Forms (where messages and sign-ups are sent)
+      widget: object
+      fields:
+      - {name: service_name, label: Name of the form service (shown in the privacy note), widget: string}
+      - {name: endpoint, label: Form address from the service (used by every form), widget: string}
+      - {name: volunteer, label: Different address for the volunteer form (optional), widget: string}
+      - {name: contact, label: Different address for the contact form (optional), widget: string}
+      - {name: newsletter, label: Different address for the newsletter form (optional), widget: string}
+    - {name: email, label: PTA email, widget: string}
+    - {name: yearbook_email, label: Yearbook email, widget: string}
+    - {name: address, label: Address, widget: string}
+    - {name: president, label: President's name, widget: string}
+    - name: calendar
+      label: Events calendar (where the events come from)
+      widget: object
+      fields:
+      - {name: ical_url, label: Public iCal address of the PTA's Google Calendar (leave empty for sample events), widget: string}
+      - {name: months_ahead, label: How many months ahead to show, widget: number, value_type: int}
+      - {name: doc_url, label: Link to the yearly calendar Google Doc (clear to hide), widget: string}
+      - {name: doc_label, label: Text of that link, widget: string}
+    - name: social
+      label: Follow along (Facebook and Instagram)
+      widget: object
+      fields:
+      - {name: heading, label: Heading, widget: string}
+      - {name: intro, label: Sentence under the heading, widget: text}
+    - name: links
+      label: Links
+      widget: object
+      fields:
+      - {name: join, label: Join link, widget: string}
+      - {name: donate, label: Donate link, widget: string}
+      - {name: spirit, label: Spirit Wear link, widget: string}
+      - {name: school, label: School website, widget: string}
+      - {name: facebook, label: Facebook, widget: string}
+      - {name: instagram, label: Instagram, widget: string}
+  - name: event_categories
+    label: Event categories (the tag and picture on each event pop-up)
+    file: _data/event_categories.yml
+    fields:
+    - name: categories
+      label: Categories (an event gets the FIRST one whose words appear in its title, so the order matters)
+      widget: list
+      fields:
+      - {name: name, label: Name shown on the tag, widget: string}
+      - {name: slug, label: Picture name (leave as is), widget: string}
+      - name: words
+        label: Words in an event title that put it in this category
+        widget: list
+        field: {name: words, label: Words in an event title that put it in this category, widget: string}

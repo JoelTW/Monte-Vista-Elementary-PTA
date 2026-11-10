@@ -1,0 +1,7 @@
+{% comment %} Sets button_html for btn=<button>. kind "email" builds a mailto: link (to: @email or @yearbook_email, subject, body). new_tab and download are optional. {% endcomment %}
+{% assign btn = include.btn %}
+{% if btn.kind == "email" %}
+  {% assign addr = site.data.site.email %}{% if btn.to == "@yearbook_email" %}{% assign addr = site.data.site.yearbook_email %}{% endif %}
+  {% capture href %}mailto:{{ addr }}?subject={{ btn.subject | uri_escape }}{% if btn.body and btn.body != "" %}&body={{ btn.body | uri_escape }}{% endif %}{% endcapture %}
+{% else %}{% include link-url.html url=btn.url %}{% endif %}
+{% capture button_html %}<a class="btn btn-{{ btn.style | default: 'gold' }}" href="{{ href }}"{% if btn.new_tab %} target="_blank" rel="noopener"{% endif %}{% if btn.download and btn.download != "" %} download="{{ btn.download }}"{% endif %}>{{ btn.label }}</a>{% endcapture %}

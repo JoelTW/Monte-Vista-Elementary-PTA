@@ -1,0 +1,8 @@
+{% comment %} COMPONENT: one column of a section. Pass c=<column>. kind: plain (a div, optional anchor), card (white card), poster (picture frame), bare (no box). {% endcomment %}
+{% assign kind = include.c.kind | default: "plain" %}
+{% case kind %}
+{% when "card" %}<div class="card"><div class="pad">{% for b in include.c.blocks %}{% include block.html b=b %}{% endfor %}</div></div>
+{% when "poster" %}<div class="poster-box">{% for b in include.c.blocks %}{% include block.html b=b %}{% endfor %}</div>
+{% when "bare" %}{% for b in include.c.blocks %}{% include block.html b=b %}{% endfor %}
+{% else %}<div{% if include.c.anchor and include.c.anchor != "" %} id="{{ include.c.anchor }}"{% endif %}>{% for b in include.c.blocks %}{% include block.html b=b %}{% endfor %}</div>
+{% endcase %}

@@ -1,0 +1,88 @@
+sections:
+- tint: ''
+  anchor: ''
+  columns:
+  - kind: plain
+    blocks:
+    - type: heading
+      level: 2
+      text: Join the PTA
+    - type: paragraph
+      text: Your membership supports every Monte Vista student. It takes about two minutes.
+    - type: buttons
+      layout: row
+      items:
+      - label: Join the PTA
+        url: '@join'
+        style: gold
+  - kind: card
+    blocks:
+    - type: heading
+      level: 3
+      text: Scan to join
+    - type: image
+      style: plain
+      image: /assets/qr/join.png
+      width: 220
+      alt: QR code to join the Monte Vista PTA
+- tint: sky
+  anchor: poster
+  columns:
+  - kind: poster
+    blocks:
+    - type: image
+      style: poster
+      image: /assets/images/join-poster.jpg
+      alt: 'Join Our PTA poster: Support, connect, make a difference. Fun school events and activities, enrichment programs, school upgrades and the Reflections arts
+        program. Scan the QR code to join today.'
+      width: 543
+      height: 724
+      opens_full_size: true
+  - kind: plain
+    blocks:
+    - type: heading
+      level: 2
+      text: Share the Join Our PTA poster
+    - type: paragraph
+      text: Help more Monte Vista families find us. Print the poster and put it up where families will see it, or share the picture with a friend. The QR code goes
+        straight to our membership page on Totem.
+    - type: buttons
+      layout: stacked
+      items:
+      - label: Download the print-quality poster
+        url: /assets/downloads/join-poster-print.jpg
+        style: gold
+        download: Monte-Vista-PTA-join-poster.jpg
+      - label: View it full size
+        url: /assets/images/join-poster.jpg
+        style: soft
+        new_tab: true
+    - type: note
+      text: For printing, use the print-quality file and choose "fit to page". It has a sharper QR code.
+- tint: ''
+  anchor: volunteer
+  columns:
+  - kind: plain
+    blocks:
+    - type: heading
+      level: 2
+      text: Volunteer
+    - type: paragraph
+      text: We're always looking for helping hands. No experience needed!
+    - type: form
+      form: volunteer
+  - kind: plain
+    anchor: yearbook
+    blocks:
+    - type: heading
+      level: 2
+      text: Yearbook
+    - type: paragraph
+      text: We are collecting photos from school events all year for the Monte Vits yearbook, and we need volunteers to help make it. Send photos or join the team
+        on the Yearbook page.
+    - type: buttons
+      layout: row
+      items:
+      - label: See the Yearbook page
+        url: /yearbook/
+        style: gold

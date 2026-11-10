@@ -1,0 +1,39 @@
+sections:
+- tint: ''
+  anchor: ''
+  columns:
+  - kind: plain
+    blocks:
+    - type: heading
+      level: 2
+      text: We'd love to hear from you
+    - type: form
+      form: contact
+  - kind: plain
+    blocks:
+    - type: contact_details
+      heading: Reach us
+      school_text: Visit the Monte Vista Elementary school website
+      board_heading: PTA board
+      board_text: 'Other officers: placeholder'
+- tint: sky
+  anchor: news
+  columns:
+  - kind: bare
+    blocks:
+    - type: heading
+      level: 2
+      text: News & Photos
+    - type: paragraph
+      text: Newsletter archive and photo gallery (placeholder). Sign up to get the newsletter in your inbox.
+    - type: form
+      form: newsletter
+    - type: placeholder_grid
+      text: Photo album
+- tint: ''
+  anchor: ''
+  wrapper: none
+  columns:
+  - kind: bare
+    blocks:
+    - type: social_feed

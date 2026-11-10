@@ -3,14 +3,5 @@ layout: page
 title: Give
 permalink: /give/
 ---
-{% assign t = site.data.pages.give %}
-<section class="section"><div class="wrap two"><div>
-<h2>{{ t.donate_heading }}</h2><p>{{ t.donate_text }}</p>
-<p><a class="btn btn-gold" href="{{ site.data.site.links.donate }}">Donate online</a></p>
-<p>{{ t.mail_text }}</p></div>
-<div class="card"><div class="pad"><h3>Scan to donate</h3><img src="{{ '/assets/qr/donate.png' | relative_url }}" width="220" alt="QR code to donate to the Monte Vista PTA"></div></div></div></section>
-<section class="section sky" id="spirit"><div class="wrap"><h2>{{ t.spirit_heading }}</h2><p>{{ t.spirit_text }}</p>
-<div class="grid3"><div class="ph">Product photo</div><div class="ph">Product photo</div><div class="ph">Product photo</div></div>
-<p><a class="btn btn-blue" href="{{ site.data.site.links.spirit }}">Shop Spirit Wear</a></p></div></section>
-<section class="section" id="sponsor"><div class="wrap"><h2>{{ t.sponsor_heading }}</h2><p>{{ t.sponsor_text }}</p>
-<p><a href="mailto:{{ site.data.site.email }}">{{ site.data.site.email }}</a></p></div></section>
+{% comment %} Sections come from _data/give.yml (see _includes/sections.html). {% endcomment %}
+{% include sections.html sections=site.data.give.sections %}

@@ -3,16 +3,5 @@ layout: page
 title: Contact Us
 permalink: /contact/
 ---
-{% assign t = site.data.pages.contact %}
-{% assign s = site.data.site %}
-<section class="section"><div class="wrap two"><div>
-<h2>{{ t.heading }}</h2>
-{% include contact-form.html %}</div>
-<div><h2>Reach us</h2><p>Email: <a href="mailto:{{ s.email }}">{{ s.email }}</a><br>{{ s.address }}</p>
-<p><a href="{{ s.links.school }}">Visit the Monte Vista Elementary school website</a></p>
-<h3>{{ t.board_heading }}</h3><p>President: {{ s.president }}<br>{{ t.board_text }}</p>
-<p><a href="{{ s.links.facebook }}">Facebook</a> &middot; <a href="{{ s.links.instagram }}">Instagram</a></p></div></div></section>
-<section class="section sky" id="news"><div class="wrap"><h2>{{ t.news_heading }}</h2><p>{{ t.news_text }}</p>
-{% include newsletter-form.html %}
-<div class="grid3"><div class="ph">Photo album</div><div class="ph">Photo album</div><div class="ph">Photo album</div></div></div></section>
-{% include social-feed.html %}
+{% comment %} Sections come from _data/contact.yml (see _includes/sections.html). {% endcomment %}
+{% include sections.html sections=site.data.contact.sections %}
