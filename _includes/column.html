@@ -1,0 +1,12 @@
+{% comment %} COMPONENT: column. One column inside a page section. Pass c=<column from a page's sections list>. Types: text, image, card. {% endcomment %}
+{% case include.c.type %}
+{% when "text" %}
+<div{% if include.c.anchor and include.c.anchor != "" %} id="{{ include.c.anchor }}"{% endif %}><h2>{{ include.c.heading }}</h2><p>{{ include.c.text }}</p>
+{% if include.c.form == "volunteer" %}{% include volunteer-form.html %}{% endif %}
+{% for b in include.c.buttons %}{% if b.url == "@join" %}{% assign href = site.data.site.links.join %}{% elsif b.url contains "://" %}{% assign href = b.url %}{% else %}{% assign href = b.url | relative_url %}{% endif %}<p><a class="btn btn-{{ b.style | default: 'gold' }}" href="{{ href }}"{% if b.new_tab %} target="_blank" rel="noopener"{% endif %}{% if b.download and b.download != "" %} download="{{ b.download }}"{% endif %}>{{ b.label }}</a></p>{% endfor %}
+{% if include.c.note and include.c.note != "" %}<p class="note">{{ include.c.note }}</p>{% endif %}</div>
+{% when "image" %}
+<div class="poster-box">{% if include.c.opens_full_size %}<a href="{{ include.c.image | relative_url }}" target="_blank" rel="noopener">{% endif %}<img class="poster-img" src="{{ include.c.image | relative_url }}"{% if include.c.width %} width="{{ include.c.width }}"{% endif %}{% if include.c.height %} height="{{ include.c.height }}"{% endif %} loading="lazy" alt="{{ include.c.alt | escape }}">{% if include.c.opens_full_size %}</a>{% endif %}</div>
+{% when "card" %}
+<div class="card"><div class="pad"><h3>{{ include.c.title }}</h3><img src="{{ include.c.image | relative_url }}"{% if include.c.width %} width="{{ include.c.width }}"{% endif %} alt="{{ include.c.alt | escape }}"></div></div>
+{% endcase %}

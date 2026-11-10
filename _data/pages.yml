@@ -62,17 +62,6 @@ events:
   calendar_heading: Calendar
   reflections_heading: National PTA Reflections Art Competition
   reflections_text: "Students create original art, photography, music, writing and film around a yearly theme. (Placeholder: add the theme, grade categories, submission deadline and rules here as real text.)"
-get_involved:
-  join_heading: Join the PTA
-  join_text: Your membership supports every Monte Vista student. It takes about two minutes.
-  poster_heading: Share the Join Our PTA poster
-  poster_text: "Help more Monte Vista families find us. Print the poster and put it up where families will see it, or share the picture with a friend. The QR code goes straight to our membership page on Totem."
-  poster_print_tip: "For printing, use the print-quality file and choose \"fit to page\". It has a sharper QR code."
-  poster_alt: "Join Our PTA poster: Support, connect, make a difference. Fun school events and activities, enrichment programs, school upgrades and the Reflections arts program. Scan the QR code to join today."
-  volunteer_heading: Volunteer
-  volunteer_text: We're always looking for helping hands. No experience needed!
-  yearbook_heading: Yearbook
-  yearbook_text: "We are collecting photos from school events all year for the Monte Vits yearbook, and we need volunteers to help make it. Send photos or join the team on the Yearbook page."
 give:
   donate_heading: Support Monte Vista
   donate_text: "We are a 501(c)(3) nonprofit, so donations are tax-deductible. Your gift funds events, classroom support and campus improvements."

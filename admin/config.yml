@@ -1,0 +1,302 @@
+# Visual editor (Sveltia CMS). One form per data file in _data/. See docs/editor-setup.md.
+backend: {name: github, repo: JoelTW/Monte-Vista-Elementary-PTA, branch: main}
+publish_mode: editorial_workflow
+media_folder: assets/images
+public_folder: /assets/images
+collections:
+- name: site_content
+  label: Site content
+  files:
+  - name: home
+    label: Home page text
+    file: _data/home.yml
+    fields:
+    - name: hero
+      label: Top banner
+      widget: object
+      fields:
+      - {name: line1, label: Headline line 1, widget: string}
+      - {name: line2, label: Headline line 2 (gold), widget: string}
+      - {name: lead, label: Sentence under the headline, widget: text}
+      - {name: primary_button, label: Join button text, widget: string}
+      - {name: secondary_button, label: Events button text, widget: string}
+      - {name: photo, label: Hero photo (normal rectangular photo), widget: image}
+      - {name: photo_position, label: Which part to keep in view when cropped (for example center 60%), widget: string}
+      - {name: photo_alt, label: Photo description (for screen readers), widget: string}
+    - name: president
+      label: President's message
+      widget: object
+      fields:
+      - {name: heading, label: Heading, widget: string}
+      - {name: message, label: Full message, hint: 'Blank line between paragraphs; start a line with * for a bullet; put [[photo]]
+          on its own line where the photo should go', widget: text}
+      - {name: preview_words, label: Words shown before Read more, widget: number, value_type: int}
+      - {name: tagline, label: Handwritten tagline, widget: string}
+      - {name: photo, label: Photo, widget: image}
+      - {name: photo_alt, label: Photo description (for screen readers), widget: string}
+    - name: cards
+      label: Action cards
+      widget: list
+      fields:
+      - name: color
+        label: Colour
+        widget: select
+        options: [pink, sky, butter, mint]
+      - {name: icon, label: Emoji, widget: string}
+      - {name: title, label: Title, widget: string}
+      - {name: text, label: Text, widget: text}
+      - {name: url, label: Link (start with / for pages on this site), widget: string}
+      - {name: link_text, label: Link text, widget: string}
+    - name: difference
+      label: Your PTA Makes a Difference
+      widget: object
+      fields:
+      - {name: heading, label: Heading, widget: string}
+      - {name: text, label: Sentence, widget: text}
+      - name: items
+        label: Three highlights
+        widget: list
+        fields:
+        - {name: icon, label: Emoji, widget: string}
+        - {name: title, label: Title, widget: string}
+        - {name: text, label: Caption, widget: string}
+    - name: sponsors
+      label: Sponsors
+      widget: list
+      fields:
+      - {name: name, label: Business name, widget: string}
+      - {name: url, label: Website, widget: string}
+      - {name: logo, label: Logo, widget: image}
+  - name: get_involved
+    label: Get Involved page (sections)
+    file: _data/get_involved.yml
+    fields:
+    - name: sections
+      label: Sections of the page, top to bottom
+      widget: list
+      fields:
+      - name: tint
+        label: Background
+        widget: select
+        options:
+        - {label: White, value: ''}
+        - {label: Light blue, value: sky}
+        default: ''
+        required: false
+      - {name: anchor, label: 'Link name (used for #links to this section)', widget: string, required: false}
+      - name: columns
+        label: Columns (one or two side by side)
+        widget: list
+        typeKey: type
+        types:
+        - name: text
+          label: Text with buttons
+          widget: object
+          fields:
+          - {name: heading, label: Heading, widget: string}
+          - {name: text, label: Text, widget: text}
+          - name: buttons
+            label: Buttons
+            widget: list
+            required: false
+            fields:
+            - {name: label, label: Button text, widget: string}
+            - {name: url, label: 'Link (start with / for pages on this site, or @join for the Join link)', widget: string}
+            - name: style
+              label: Look
+              widget: select
+              options: [gold, soft]
+              default: gold
+            - {name: new_tab, label: Open in a new tab, widget: boolean, required: false}
+            - {name: download, label: Download file name (fill in to make this a download button), widget: string, required: false}
+          - {name: note, label: Small print under the buttons, widget: string, required: false}
+          - name: form
+            label: Sign-up form under the text
+            widget: select
+            options:
+            - {label: None, value: ''}
+            - {label: Volunteer form, value: volunteer}
+            default: ''
+            required: false
+          - {name: anchor, label: 'Link name (used for #links to this spot)', widget: string, required: false}
+        - name: image
+          label: Picture
+          widget: object
+          fields:
+          - {name: image, label: Picture, widget: image}
+          - {name: alt, label: Picture description (for screen readers), widget: text}
+          - {name: opens_full_size, label: Click to open full size, widget: boolean, required: false}
+          - {name: width, label: Width in pixels (optional), widget: number, value_type: int, required: false}
+          - {name: height, label: Height in pixels (optional), widget: number, value_type: int, required: false}
+        - name: card
+          label: Card with a picture
+          widget: object
+          fields:
+          - {name: title, label: Title, widget: string}
+          - {name: image, label: Picture, widget: image}
+          - {name: alt, label: Picture description (for screen readers), widget: string}
+          - {name: width, label: Width in pixels (optional), widget: number, value_type: int, required: false}
+  - name: pages
+    label: Page text (Events, Get Involved, Give, Contact)
+    file: _data/pages.yml
+    fields:
+    - name: about
+      label: About page
+      widget: object
+      fields:
+      - {name: heading, label: Heading, widget: string}
+      - {name: intro, label: Introduction, widget: text}
+      - name: events
+        label: Events we run
+        widget: list
+        field: {name: events, label: Events we run, widget: string}
+      - {name: closing, label: Closing sentence, widget: text}
+      - {name: team_heading, label: Team section heading, widget: string}
+      - {name: open_heading, label: Bottom section heading, widget: string}
+      - {name: open_text, label: Bottom section text, widget: text}
+    - name: yearbook
+      label: Yearbook page
+      widget: object
+      fields:
+      - {name: tagline, label: Heading, widget: string}
+      - {name: intro, label: Introduction, widget: text}
+      - name: looking_for
+        label: Events we want photos from
+        widget: list
+        field: {name: looking_for, label: Events we want photos from, widget: string}
+      - {name: send_heading, label: Send-photos heading, widget: string}
+      - name: steps
+        label: Steps for sending photos
+        widget: list
+        field: {name: steps, label: Steps for sending photos, widget: string}
+      - {name: tips_heading, label: Tips heading, widget: string}
+      - name: tips
+        label: Photo tips
+        widget: list
+        field: {name: tips, label: Photo tips, widget: string}
+      - {name: help_heading, label: Volunteer heading, widget: string}
+      - {name: help_intro, label: Volunteer introduction, widget: text}
+      - name: roles
+        label: Ways to help
+        widget: list
+        fields:
+        - {name: icon, label: Emoji, widget: string}
+        - {name: title, label: Title, widget: string}
+        - {name: text, label: Description, widget: text}
+        - name: color
+          label: Colour
+          widget: select
+          options: [pink, sky, butter, mint]
+      - {name: join_text, label: Sentence before the email buttons, widget: text}
+      - {name: order_heading, label: Ordering heading, widget: string}
+      - {name: order_text, label: Ordering details (price, widget: text}
+    - name: events
+      label: Events page
+      widget: object
+      fields:
+      - name: banner
+        label: Big banner at the top
+        widget: object
+        fields:
+        - {name: title_before, label: Headline, widget: string}
+        - {name: title_highlight, label: Headline words with the gold underline, widget: string}
+        - {name: title_after, label: Headline ending (such as a question mark), widget: string}
+        - {name: text, label: Sentence under the headline, widget: text}
+      - {name: note, label: Note under the list, widget: string}
+      - {name: volunteer_line, label: Volunteer line (before the link), widget: string}
+      - {name: volunteer_link_text, label: Volunteer link text, widget: string}
+      - {name: reflections_heading, label: Reflections heading, widget: string}
+      - {name: reflections_text, label: Reflections text, widget: text}
+    - name: give
+      label: Give page
+      widget: object
+      fields:
+      - {name: donate_text, label: Donate text, widget: text}
+      - {name: mail_text, label: Mail-a-check text, widget: text}
+      - {name: spirit_text, label: Spirit Wear text, widget: text}
+      - {name: sponsor_text, label: Sponsor text, widget: text}
+    - name: contact
+      label: Contact page
+      widget: object
+      fields:
+      - {name: board_text, label: Board names, widget: text}
+      - {name: news_text, label: Newsletter text, widget: text}
+  - name: event_categories
+    label: Event categories (the tag and picture on each event pop-up)
+    file: _data/event_categories.yml
+    fields:
+    - name: categories
+      label: Categories (an event gets the FIRST one whose words appear in its title, so the order matters)
+      widget: list
+      fields:
+      - {name: name, label: Name shown on the tag, widget: string}
+      - {name: slug, label: Picture name (leave as is), widget: string}
+      - name: words
+        label: Words in an event title that put it in this category
+        widget: list
+        field: {name: words, label: Words in an event title that put it in this category, widget: string}
+  - name: team
+    label: Get to know your PTA (board and chairs)
+    file: _data/team.yml
+    fields:
+    - {name: intro, label: Sentence under the heading, widget: text}
+    - name: groups
+      label: Groups
+      widget: list
+      fields:
+      - {name: heading, label: Group heading (for example Executive board), widget: string}
+      - name: members
+        label: People and roles
+        widget: list
+        fields:
+        - {name: role, label: Role, widget: string}
+        - {name: name, label: Name (leave empty for "Name coming soon"), widget: string}
+        - {name: icon, label: Emoji shown when there is no photo, widget: string}
+        - {name: photo, label: Photo (only with their permission), widget: image}
+        - {name: blurb, label: What they do, widget: text}
+        - {name: ask_me_about, label: Ask me about (optional), widget: string}
+        - {name: email, label: Email (optional), widget: string}
+        - {name: open, label: Show as an open position, widget: boolean}
+  - name: site
+    label: Site settings (email, address, links)
+    file: _data/site.yml
+    fields:
+    - {name: hide_from_search_engines, label: Hide the site from Google and other search engines (turn OFF at launch), widget: boolean}
+    - {name: draft_banner, label: Draft banner text (clear it to hide), widget: string}
+    - name: forms
+      label: Forms (where messages and sign-ups are sent)
+      widget: object
+      fields:
+      - {name: service_name, label: Name of the form service (shown in the privacy note), widget: string}
+      - {name: endpoint, label: Form address from the service (used by every form), widget: string}
+      - {name: volunteer, label: Different address for the volunteer form (optional), widget: string}
+      - {name: contact, label: Different address for the contact form (optional), widget: string}
+      - {name: newsletter, label: Different address for the newsletter form (optional), widget: string}
+    - {name: email, label: PTA email, widget: string}
+    - {name: yearbook_email, label: Yearbook email, widget: string}
+    - {name: address, label: Address, widget: string}
+    - {name: president, label: President's name, widget: string}
+    - name: calendar
+      label: Events calendar (where the events come from)
+      widget: object
+      fields:
+      - {name: ical_url, label: Public iCal address of the PTA's Google Calendar (leave empty for sample events), widget: string}
+      - {name: months_ahead, label: How many months ahead to show, widget: number, value_type: int}
+      - {name: doc_url, label: Link to the yearly calendar Google Doc (clear to hide), widget: string}
+      - {name: doc_label, label: Text of that link, widget: string}
+    - name: social
+      label: Follow along (Facebook and Instagram)
+      widget: object
+      fields:
+      - {name: heading, label: Heading, widget: string}
+      - {name: intro, label: Sentence under the heading, widget: text}
+    - name: links
+      label: Links
+      widget: object
+      fields:
+      - {name: join, label: Join link, widget: string}
+      - {name: donate, label: Donate link, widget: string}
+      - {name: spirit, label: Spirit Wear link, widget: string}
+      - {name: school, label: School website, widget: string}
+      - {name: facebook, label: Facebook, widget: string}
+      - {name: instagram, label: Instagram, widget: string}

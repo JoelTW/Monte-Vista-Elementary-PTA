@@ -132,17 +132,6 @@ content:
           - {name: volunteer_link_text, label: Volunteer link text, type: string}
           - {name: reflections_heading, label: Reflections heading, type: string}
           - {name: reflections_text, label: Reflections text, type: text}
-      - name: get_involved
-        label: Get Involved page
-        type: object
-        fields:
-          - {name: join_text, label: Join text, type: text}
-          - {name: poster_heading, label: Poster section heading, type: string}
-          - {name: poster_text, label: Poster section text, type: text}
-          - {name: poster_print_tip, label: Printing tip, type: string}
-          - {name: poster_alt, label: Description of the poster for screen readers, type: text}
-          - {name: volunteer_text, label: Volunteer text, type: text}
-          - {name: yearbook_text, label: Yearbook text, type: text}
       - name: give
         label: Give page
         type: object
