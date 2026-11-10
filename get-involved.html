@@ -3,9 +3,5 @@ layout: page
 title: Get Involved
 permalink: /get-involved/
 ---
-{% comment %} Sections come from _data/get_involved.yml. Each section holds one or two columns (see _includes/column.html). {% endcomment %}
-{% for s in site.data.get_involved.sections %}
-<section class="section{% if s.tint and s.tint != "" %} {{ s.tint }}{% endif %}"{% if s.anchor and s.anchor != "" %} id="{{ s.anchor }}"{% endif %}><div class="wrap{% if s.columns.size == 2 %} two{% endif %}">
-{% for c in s.columns %}{% include column.html c=c %}{% endfor %}
-</div></section>
-{% endfor %}
+{% comment %} Sections come from _data/get_involved.yml (see _includes/sections.html). {% endcomment %}
+{% include sections.html sections=site.data.get_involved.sections %}

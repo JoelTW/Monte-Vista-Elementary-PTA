@@ -1,0 +1,50 @@
+banner:
+  title_before: What's happening at
+  title_highlight: Monte Vista
+  title_after: '?'
+  text: PTA events, school programs, and important dates for our Bobcat community.
+sections:
+- tint: ''
+  anchor: ''
+  columns:
+  - kind: bare
+    blocks:
+    - type: heading
+      level: 2
+      text: Calendar
+    - type: note
+      text: Event dates and times are subject to change. Click a day to see its events.
+    - type: calendar
+- tint: sky
+  anchor: ''
+  extra_class: upcoming
+  columns:
+  - kind: bare
+    blocks:
+    - type: heading
+      level: 2
+      text: Upcoming events
+    - type: upcoming
+      limit: 12
+      note: Showing the next 12 events. Use the calendar above to see further ahead.
+    - type: link_paragraph
+      text: Want to help at an event?
+      link_text: Sign up to volunteer
+      url: /get-involved/#volunteer
+- tint: ''
+  anchor: reflections
+  columns:
+  - kind: bare
+    blocks:
+    - type: heading
+      level: 2
+      text: National PTA Reflections Art Competition
+    - type: paragraph
+      text: 'Students create original art, photography, music, writing and film around a yearly theme. (Placeholder: add the theme, grade categories, submission deadline
+        and rules here as real text.)'
+    - type: buttons
+      layout: row
+      items:
+      - label: Ask a question
+        url: /contact/
+        style: blue

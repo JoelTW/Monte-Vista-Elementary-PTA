@@ -1,0 +1,158 @@
+sections:
+  - tint: ''
+    anchor: ''
+    extra_class: ''
+    wrapper: ''
+    columns:
+      - kind: plain
+        anchor: ''
+        blocks:
+          - type: heading
+            text: Capture the Memories!
+            level: 2
+          - type: paragraph
+            text: We are collecting photos from school events throughout the year to help create a fun and memorable Monte Vits yearbook, and we need your help! If you snapped pictures at events like Fall Festival, Talent Show, or Camp Out, or at any other school function, please send them our way and be part of preserving this year's special moments.
+            space_above: false
+          - type: heading
+            text: Photos we would love
+            level: 3
+          - type: chips
+            items:
+              - Fall Festival
+              - Talent Show
+              - Camp Out
+              - Book Fair
+              - Halloween Parade
+              - Field Day
+              - Promotions
+              - Everyday school moments
+          - type: buttons
+            layout: row
+            items:
+              - label: Email your photos
+                kind: email
+                url: ''
+                to: '@yearbook_email'
+                subject: Yearbook photos
+                body: |-
+                  Event:
+                  Date:
+                  Photographer (for credit):
+                style: gold
+                new_tab: false
+                download: ''
+              - label: Join the yearbook team
+                kind: link
+                url: '#help'
+                to: ''
+                subject: ''
+                body: ''
+                style: soft
+                new_tab: false
+                download: ''
+      - kind: bare
+        anchor: ''
+        blocks:
+          - type: placeholder
+            text: 'Photo: a yearbook page (placeholder)'
+            label: Placeholder for a photo of a yearbook page
+            min_height: 260
+  - tint: sky
+    anchor: send
+    extra_class: ''
+    wrapper: ''
+    columns:
+      - kind: plain
+        anchor: ''
+        blocks:
+          - type: heading
+            text: Send us your photos
+            level: 2
+          - type: steps
+            items:
+              - Pick your best shots from the event.
+              - Email them to the yearbook team. The button below starts the email for you.
+              - Tell us the event and the date so we can place them in the book.
+          - type: buttons
+            layout: row
+            items:
+              - label: Email your photos
+                kind: email
+                url: ''
+                to: '@yearbook_email'
+                subject: Yearbook photos
+                body: |-
+                  Event:
+                  Date:
+                  Photographer (for credit):
+                style: blue
+                new_tab: false
+                download: ''
+      - kind: card
+        anchor: ''
+        blocks:
+          - type: heading
+            text: Tips for great yearbook photos
+            level: 3
+          - type: tips
+            items:
+              - Send the original, full-size photos, not screenshots or tiny copies.
+              - Tell us the event, the date, and who took the photo.
+              - Group shots, action shots and candid moments all work well.
+              - Only send photos you took or have permission to share.
+              - Too many photos for one email? Send a few emails, or share a link from Google Photos, Google Drive or iCloud.
+  - tint: ''
+    anchor: help
+    extra_class: ''
+    wrapper: ''
+    columns:
+      - kind: bare
+        anchor: ''
+        blocks:
+          - type: heading
+            text: Help us create the yearbook!
+            level: 2
+          - type: paragraph
+            text: Love photos, story telling, or design? We need you! We are looking for volunteers to help gather pictures, design pages, and bring our Monte Vista memories to life. No experience needed, just creativity and a willingness to pitch in. Whether you can help a little or a lot, we would love to have you on the team.
+            space_above: false
+          - type: role_cards
+            items:
+              - icon: 📸
+                title: Photo collectors
+                text: Gather pictures from school events and from families
+                color: sky
+                and keep them organized.: null
+              - icon: 🎨
+                title: Page designers
+                text: Lay out pages and make them look great. No design experience needed.
+                color: pink
+              - icon: ✍️
+                title: Storytellers
+                text: Write captions and short stories that capture what made the year special.
+                color: butter
+          - type: paragraph
+            text: Interested? Email us, or use the volunteer form and choose Yearbook.
+            space_above: true
+          - type: buttons
+            layout: row
+            items:
+              - label: Email the yearbook team
+                kind: email
+                url: ''
+                to: '@yearbook_email'
+                subject: I would like to help with the yearbook
+                body: ''
+                style: gold
+                new_tab: false
+                download: ''
+              - label: Use the volunteer form
+                kind: link
+                url: /get-involved/#volunteer
+                to: ''
+                subject: ''
+                body: ''
+                style: blue
+                new_tab: false
+                download: ''
+          - type: note
+            text: '[yearbook_email]'

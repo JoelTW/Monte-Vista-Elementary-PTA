@@ -1,0 +1,11 @@
+{% comment %}
+COMPONENT: page sections. Pass sections=<a page's list from _data/<page>.yml>.
+Each section has columns; each column has blocks (see _includes/block.html).
+Section: tint ("" or sky), anchor (id for #links), extra_class, wrapper ("none" = blocks drawn without the section box).
+{% endcomment %}
+{% for sec in include.sections %}
+{% if sec.wrapper == "none" %}{% for c in sec.columns %}{% for b in c.blocks %}{% include block.html b=b %}{% endfor %}{% endfor %}
+{% else %}<section class="section{% if sec.tint and sec.tint != "" %} {{ sec.tint }}{% endif %}"{% if sec.anchor and sec.anchor != "" %} id="{{ sec.anchor }}"{% endif %}><div class="wrap{% if sec.columns.size == 2 %} two{% endif %}{% if sec.extra_class and sec.extra_class != "" %} {{ sec.extra_class }}{% endif %}">
+{% for c in sec.columns %}{% include column.html c=c %}{% endfor %}
+</div></section>{% endif %}
+{% endfor %}

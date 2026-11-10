@@ -1,0 +1,5 @@
+{% comment %} Sets href from url=<text>. @join, @donate, @spirit, @school, @facebook, @instagram use the links in _data/site.yml; # and full addresses are used as they are; /paths get the site prefix. {% endcomment %}
+{% assign u = include.url %}{% assign first = u | slice: 0 %}
+{% if first == "@" %}{% assign tok = u | remove_first: "@" %}{% assign href = site.data.site.links[tok] %}
+{% elsif first == "#" or u contains "://" or u contains "mailto:" %}{% assign href = u %}
+{% else %}{% assign href = u | relative_url %}{% endif %}

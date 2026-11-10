@@ -13,8 +13,8 @@ A small static website built with Jekyll. There is no database and no server: ev
 |---|---|---|
 | Events | the PTA's Google Calendar (see `docs/events-and-calendar.md`) | (not in the editor; the calendar is the source) |
 | Home page words, action cards, sponsors, President's message | `_data/home.yml` | Home page text |
-| Text on About, Events, Get Involved, Give, Contact | `_data/pages.yml` | Page text |
-| Yearbook page (photo steps, tips, ways to help, ordering details) and the yearbook email | `_data/pages.yml` (yearbook) and `_data/site.yml` (yearbook_email) | Page text, Site settings |
+| Words, buttons and pictures on About, Events, Get Involved, Give, Yearbook, Contact (each page is a list of sections) | `_data/about.yml`, `events.yml`, `get_involved.yml`, `give.yml`, `yearbook.yml`, `contact.yml` | Pages |
+| The yearbook email | `_data/site.yml` (yearbook_email) | System settings > Site settings |
 | "Get to know your PTA" (board and chairs: names, photos, roles) | `_data/team.yml` | Get to know your PTA |
 | Email, address, Join / Donate / Spirit Wear / social links | `_data/site.yml` | Site settings |
 | Menu items | `_data/nav.yml` | (file only) |
@@ -26,14 +26,8 @@ The `/components/` page on the running site shows every component with its live 
 ## Components (in `_includes/`)
 `hero`, `president-card`, `team-card`, `upcoming-events`, `event-card`, `calendar-grid`, `cta-card`, `feature-item`, `volunteer-form`, `header`, `footer`. Each file starts with a comment saying what it does and which options it takes.
 
-## Editing without touching files (Pages CMS)
-Pages CMS (https://pagescms.org) gives editors a form instead of raw files. The configuration is in `.pages.yml`. Based on the Pages CMS quick start:
-1. Go to app.pagescms.org and sign in with GitHub.
-2. Install the Pages CMS GitHub app on the account that owns the repository.
-3. Open the repository. Events, Home page text, Page text and Site settings appear on the left.
-4. Saving makes a change in the repository, and the site rebuilds (usually within a minute or two).
-
-Each editor needs a free GitHub account and access to the repository. **Not yet tested:** the `.pages.yml` file hasn't been tried against a real repository, so expect small label or field tweaks after the first login.
+## Editing without touching files (the visual editor)
+Editors use a form with a live preview instead of raw files, at `/admin/` on the site (Sveltia CMS). Each page is a list of sections made of content blocks. Saving makes a draft that an approver publishes. How to use it is in `docs/editor-guide.md`, and how it is set up is in `docs/editor-setup.md`. The older Pages CMS config (`.pages.yml`) is kept only as a fallback and no longer covers the page text.
 
 ## Running it on your computer
 You need Ruby. This project pins Jekyll 3.10, the same version GitHub Pages runs.
@@ -79,7 +73,7 @@ The Get Involved page shows the poster (`assets/images/join-poster.jpg`) with a 
 
 ## What this proof of concept does NOT include yet
 - The forms are built and tested against a fake form server, but not yet connected to a real service (see Forms above).
-- The Google Calendar embed is a placeholder (paste the embed code in the CMS, or `_data/pages.yml`).
+- The Google Calendar embed is a placeholder (paste the embed code in the editor).
 - Most photos are still placeholders (emoji and colour blocks). The hero uses a normal rectangular photo (`assets/images/hero.jpg`); the site adds the curved gold edge, so no image editing is needed. To swap it, replace that file (a width of about 1400 to 1600 pixels is plenty) and adjust `photo_position` and `photo_alt` in `_data/home.yml`.
 - The search icon is a visual placeholder.
 - Pages CMS configuration and the nightly-rebuild workflow are untested against a live repository.
