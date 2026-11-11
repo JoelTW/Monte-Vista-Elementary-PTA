@@ -68,8 +68,6 @@ sections:
             level: 2
           - type: team
             note: ''
-          - type: placeholder_grid
-            text: Board Member
   - tint: ''
     anchor: ''
     extra_class: ''
