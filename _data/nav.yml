@@ -24,6 +24,12 @@
 - label: Translate
   languages:
     - {code: es, label: Español}
-    - {code: zh-CN, label: 中文}
-    - {code: vi, label: Tiếng Việt}
     - {code: tl, label: Tagalog}
+    - {code: ar, label: العربية}
+    - {code: vi, label: Tiếng Việt}
+    - {code: zh-CN, label: 中文}
+    - {code: ko, label: 한국어}
+    - {code: fa, label: فارسی}
+    - {code: ja, label: 日本語}
+    - {code: ru, label: Русский}
+    - {code: hi, label: हिन्दी}
