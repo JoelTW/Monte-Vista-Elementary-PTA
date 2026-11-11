@@ -21,3 +21,9 @@
   url: "/contact/#news"
 - label: Contact
   url: /contact/
+- label: Translate
+  languages:
+    - {code: es, label: Español}
+    - {code: zh-CN, label: 中文}
+    - {code: vi, label: Tiếng Việt}
+    - {code: tl, label: Tagalog}
