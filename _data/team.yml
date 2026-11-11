@@ -7,9 +7,9 @@ groups:
   - heading: Executive board
     members:
       - role: President
-        name: Jennifer Neville
+        name: ""
         icon: "🌟"
-        photo: /assets/images/president.jpg
+        photo: ""
         blurb: Leads the board and PTA meetings, and is the PTA's voice with the school.
         ask_me_about: ""
         email: ""
