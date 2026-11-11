@@ -15,25 +15,27 @@ collections:
       label: Top banner
       widget: object
       fields:
-      - {name: line1, label: Headline line 1, widget: string}
-      - {name: line2, label: Headline line 2 (gold), widget: string}
-      - {name: lead, label: Sentence under the headline, widget: text}
-      - {name: primary_button, label: Join button text, widget: string}
-      - {name: secondary_button, label: Events button text, widget: string}
-      - {name: photo, label: Hero photo (normal rectangular photo), widget: image}
-      - {name: photo_position, label: Which part to keep in view when cropped (for example center 60%), widget: string}
-      - {name: photo_alt, label: Photo description (for screen readers), widget: string}
+      - {name: line1, label: Headline line 1, widget: string, required: false}
+      - {name: line2, label: Headline line 2 (gold), widget: string, required: false}
+      - {name: lead, label: Sentence under the headline, widget: text, required: false}
+      - {name: primary_button, label: Join button text, widget: string, required: false}
+      - {name: secondary_button, label: Events button text, widget: string, required: false}
+      - {name: photo, label: Hero photo (normal rectangular photo), widget: image, required: false}
+      - {name: photo_position, label: Which part to keep in view when cropped (for example center 60%), widget: string, required: false}
+      - {name: photo_alt, label: Photo description (for screen readers), widget: string, required: false}
+      required: false
     - name: president
       label: President's message
       widget: object
       fields:
-      - {name: heading, label: Heading, widget: string}
+      - {name: heading, label: Heading, widget: string, required: false}
       - {name: message, label: Full message, hint: 'Blank line between paragraphs; start a line with * for a bullet; put [[photo]] on its own line where the photo
-          should go', widget: text}
-      - {name: preview_words, label: Words shown before Read more, widget: number, value_type: int}
-      - {name: tagline, label: Handwritten tagline, widget: string}
-      - {name: photo, label: Photo, widget: image}
-      - {name: photo_alt, label: Photo description (for screen readers), widget: string}
+          should go', widget: text, required: false}
+      - {name: preview_words, label: Words shown before Read more, widget: number, value_type: int, required: false}
+      - {name: tagline, label: Handwritten tagline, widget: string, required: false}
+      - {name: photo, label: Photo, widget: image, required: false}
+      - {name: photo_alt, label: Photo description (for screen readers), widget: string, required: false}
+      required: false
     - name: cards
       label: Action cards
       widget: list
@@ -42,31 +44,36 @@ collections:
         label: Colour
         widget: select
         options: [pink, sky, butter, mint]
-      - {name: icon, label: Emoji, widget: string}
-      - {name: title, label: Title, widget: string}
-      - {name: text, label: Text, widget: text}
-      - {name: url, label: Link (start with / for pages on this site), widget: string}
-      - {name: link_text, label: Link text, widget: string}
+        required: false
+      - {name: icon, label: Emoji, widget: string, required: false}
+      - {name: title, label: Title, widget: string, required: false}
+      - {name: text, label: Text, widget: text, required: false}
+      - {name: url, label: Link (start with / for pages on this site), widget: string, required: false}
+      - {name: link_text, label: Link text, widget: string, required: false}
+      required: false
     - name: difference
       label: Your PTA Makes a Difference
       widget: object
       fields:
-      - {name: heading, label: Heading, widget: string}
-      - {name: text, label: Sentence, widget: text}
+      - {name: heading, label: Heading, widget: string, required: false}
+      - {name: text, label: Sentence, widget: text, required: false}
       - name: items
         label: Three highlights
         widget: list
         fields:
-        - {name: icon, label: Emoji, widget: string}
-        - {name: title, label: Title, widget: string}
-        - {name: text, label: Caption, widget: string}
+        - {name: icon, label: Emoji, widget: string, required: false}
+        - {name: title, label: Title, widget: string, required: false}
+        - {name: text, label: Caption, widget: string, required: false}
+        required: false
+      required: false
     - name: sponsors
       label: Sponsors
       widget: list
       fields:
-      - {name: name, label: Business name, widget: string}
-      - {name: url, label: Website, widget: string}
-      - {name: logo, label: Logo, widget: image}
+      - {name: name, label: Business name, widget: string, required: false}
+      - {name: url, label: Website, widget: string, required: false}
+      - {name: logo, label: Logo, widget: image, required: false}
+      required: false
   - name: about
     label: About page
     file: _data/about.yml
@@ -107,6 +114,7 @@ collections:
           - {label: Picture frame, value: poster}
           - {label: No box, value: bare}
           default: plain
+          required: false
         - {name: anchor, label: 'Link name (used for #links to this spot)', widget: string, required: false}
         - name: blocks
           label: Content, top to bottom
@@ -117,7 +125,7 @@ collections:
             label: Heading
             widget: object
             fields:
-            - {name: text, label: Heading, widget: string}
+            - {name: text, label: Heading, widget: string, required: false}
             - name: level
               label: Size
               widget: select
@@ -126,12 +134,15 @@ collections:
               - {label: Smaller, value: 3}
               default: 2
               value_type: int
+              required: false
+            required: false
           - name: paragraph
             label: Paragraph
             widget: object
             fields:
-            - {name: text, label: Text, widget: text}
+            - {name: text, label: Text, widget: text, required: false}
             - {name: space_above, label: Extra space above, widget: boolean, required: false}
+            required: false
           - name: buttons
             label: Buttons
             widget: object
@@ -143,11 +154,12 @@ collections:
               - {label: Side by side, value: row}
               - {label: One under the other, value: stacked}
               default: row
+              required: false
             - name: items
               label: Buttons
               widget: list
               fields:
-              - {name: label, label: Button text, widget: string}
+              - {name: label, label: Button text, widget: string, required: false}
               - name: kind
                 label: What it does
                 widget: select
@@ -169,6 +181,8 @@ collections:
                 required: false
               - {name: new_tab, label: Open in a new tab, widget: boolean, required: false}
               - {name: download, label: Download file name (fill in to make this a download button), widget: string, required: false}
+              required: false
+            required: false
           - name: image
             label: Picture
             widget: object
@@ -180,11 +194,13 @@ collections:
               - {label: Poster (large), value: poster}
               - {label: Plain, value: plain}
               default: plain
-            - {name: image, label: Picture, widget: image}
-            - {name: alt, label: Picture description (for screen readers), widget: text}
+              required: false
+            - {name: image, label: Picture, widget: image, required: false}
+            - {name: alt, label: Picture description (for screen readers), widget: text, required: false}
             - {name: opens_full_size, label: Click to open full size (poster only), widget: boolean, required: false}
             - {name: width, label: Width in pixels (optional), widget: number, value_type: int, required: false}
             - {name: height, label: Height in pixels (optional), widget: number, value_type: int, required: false}
+            required: false
           - name: chips
             label: Tag list
             widget: object
@@ -192,7 +208,9 @@ collections:
             - name: items
               label: Items
               widget: list
-              field: {name: item, label: Item, widget: string}
+              field: {name: item, label: Item, widget: string, required: false}
+              required: false
+            required: false
           - name: steps
             label: Numbered steps
             widget: object
@@ -200,7 +218,9 @@ collections:
             - name: items
               label: Steps
               widget: list
-              field: {name: item, label: Item, widget: string}
+              field: {name: item, label: Item, widget: string, required: false}
+              required: false
+            required: false
           - name: tips
             label: Bullet list
             widget: object
@@ -208,17 +228,20 @@ collections:
             - name: items
               label: Items
               widget: list
-              field: {name: item, label: Item, widget: string}
+              field: {name: item, label: Item, widget: string, required: false}
+              required: false
+            required: false
           - name: note
             label: Small print
             widget: object
             fields:
-            - {name: text, label: 'Text (use [email] or [yearbook_email] for the saved addresses)', widget: string}
+            - {name: text, label: 'Text (use [email] or [yearbook_email] for the saved addresses)', widget: string, required: false}
+            required: false
           - name: email_note
             label: Small print with an email link
             widget: object
             fields:
-            - {name: text, label: Words before the email address, widget: string}
+            - {name: text, label: Words before the email address, widget: string, required: false}
             - name: which
               label: Which email
               widget: select
@@ -226,6 +249,8 @@ collections:
               - {label: PTA email, value: pta}
               - {label: Yearbook email, value: yearbook}
               default: pta
+              required: false
+            required: false
           - name: email_link
             label: Email link
             widget: object
@@ -235,13 +260,16 @@ collections:
               widget: select
               options: *id001
               default: pta
+              required: false
+            required: false
           - name: link_paragraph
             label: Sentence ending in a link
             widget: object
             fields:
-            - {name: text, label: Sentence, widget: string}
-            - {name: link_text, label: Link text, widget: string}
-            - {name: url, label: Link, widget: string}
+            - {name: text, label: Sentence, widget: string, required: false}
+            - {name: link_text, label: Link text, widget: string, required: false}
+            - {name: url, label: Link, widget: string, required: false}
+            required: false
           - name: role_cards
             label: Coloured cards
             widget: object
@@ -250,26 +278,31 @@ collections:
               label: Cards
               widget: list
               fields:
-              - {name: icon, label: Emoji, widget: string}
-              - {name: title, label: Title, widget: string}
-              - {name: text, label: Description, widget: text}
+              - {name: icon, label: Emoji, widget: string, required: false}
+              - {name: title, label: Title, widget: string, required: false}
+              - {name: text, label: Description, widget: text, required: false}
               - name: color
                 label: Colour
                 widget: select
                 options: [pink, sky, butter, mint]
                 default: sky
+                required: false
+              required: false
+            required: false
           - name: placeholder
             label: Photo placeholder
             widget: object
             fields:
-            - {name: text, label: Words shown in the box, widget: string}
-            - {name: label, label: Description (for screen readers), widget: string}
+            - {name: text, label: Words shown in the box, widget: string, required: false}
+            - {name: label, label: Description (for screen readers), widget: string, required: false}
             - {name: min_height, label: Height in pixels, widget: number, value_type: int, required: false}
+            required: false
           - name: placeholder_grid
             label: Three photo placeholders
             widget: object
             fields:
-            - {name: text, label: Words shown in each box, widget: string}
+            - {name: text, label: Words shown in each box, widget: string, required: false}
+            required: false
           - name: form
             label: Sign-up or message form
             widget: object
@@ -281,35 +314,45 @@ collections:
               - {label: Volunteer form, value: volunteer}
               - {label: Contact form, value: contact}
               - {label: Newsletter sign-up, value: newsletter}
+              required: false
+            required: false
           - name: team
             label: Board and chairs (from Get to know your PTA)
             widget: object
             fields:
-            - {name: note, label: 'Nothing to fill in: the people come from the ''Get to know your PTA'' page', widget: hidden, default: ''}
+            - {name: note, label: 'Nothing to fill in: the people come from the ''Get to know your PTA'' page', widget: hidden, default: '', required: false}
+            required: false
           - name: contact_details
             label: Contact details
             widget: object
             fields:
-            - {name: heading, label: Heading, widget: string}
-            - {name: school_text, label: School website link text, widget: string}
-            - {name: board_heading, label: Board heading, widget: string}
-            - {name: board_text, label: Board names, widget: text}
+            - {name: heading, label: Heading, widget: string, required: false}
+            - {name: school_text, label: School website link text, widget: string, required: false}
+            - {name: board_heading, label: Board heading, widget: string, required: false}
+            - {name: board_text, label: Board names, widget: text, required: false}
+            required: false
           - name: calendar
             label: Month calendar and subscribe buttons
             widget: object
             fields:
-            - {name: note, label: 'Nothing to fill in: events come from the Google Calendar', widget: hidden, default: ''}
+            - {name: note, label: 'Nothing to fill in: events come from the Google Calendar', widget: hidden, default: '', required: false}
+            required: false
           - name: upcoming
             label: List of upcoming events
             widget: object
             fields:
             - {name: limit, label: How many events to show, widget: number, value_type: int, required: false}
-            - {name: note, label: Sentence under the list, widget: string}
+            - {name: note, label: Sentence under the list, widget: string, required: false}
+            required: false
           - name: social_feed
             label: Follow us on Facebook and Instagram
             widget: object
             fields:
-            - {name: note, label: 'Nothing to fill in: the links are in Site settings', widget: hidden, default: ''}
+            - {name: note, label: 'Nothing to fill in: the links are in Site settings', widget: hidden, default: '', required: false}
+            required: false
+          required: false
+        required: false
+      required: false
   - name: events
     label: Events page
     file: _data/events.yml
@@ -318,10 +361,11 @@ collections:
       label: Big banner at the top
       widget: object
       fields:
-      - {name: title_before, label: Headline, widget: string}
-      - {name: title_highlight, label: Headline words with the gold underline, widget: string}
+      - {name: title_before, label: Headline, widget: string, required: false}
+      - {name: title_highlight, label: Headline words with the gold underline, widget: string, required: false}
       - {name: title_after, label: Headline ending (such as a question mark), widget: string, required: false}
-      - {name: text, label: Sentence under the headline, widget: text}
+      - {name: text, label: Sentence under the headline, widget: text, required: false}
+      required: false
     - *id002
   - name: get_involved
     label: Get Involved page
@@ -347,24 +391,26 @@ collections:
     label: Get to know your PTA (board and chairs)
     file: _data/team.yml
     fields:
-    - {name: intro, label: Sentence under the heading, widget: text}
+    - {name: intro, label: Sentence under the heading, widget: text, required: false}
     - name: groups
       label: Groups
       widget: list
       fields:
-      - {name: heading, label: Group heading (for example Executive board), widget: string}
+      - {name: heading, label: Group heading (for example Executive board), widget: string, required: false}
       - name: members
         label: People and roles
         widget: list
         fields:
-        - {name: role, label: Role, widget: string}
-        - {name: name, label: Name (leave empty for "Name coming soon"), widget: string}
-        - {name: icon, label: Emoji shown when there is no photo, widget: string}
-        - {name: photo, label: Photo (only with their permission), widget: image}
-        - {name: blurb, label: What they do, widget: text}
-        - {name: ask_me_about, label: Ask me about (optional), widget: string}
-        - {name: email, label: Email (optional), widget: string}
-        - {name: open, label: Show as an open position, widget: boolean}
+        - {name: role, label: Role, widget: string, required: false}
+        - {name: name, label: Name (leave empty for "Name coming soon"), widget: string, required: false}
+        - {name: icon, label: Emoji shown when there is no photo, widget: string, required: false}
+        - {name: photo, label: Photo (only with their permission), widget: image, required: false}
+        - {name: blurb, label: What they do, widget: text, required: false}
+        - {name: ask_me_about, label: Ask me about (optional), widget: string, required: false}
+        - {name: email, label: Email (optional), widget: string, required: false}
+        - {name: open, label: Show as an open position, widget: boolean, required: false}
+        required: false
+      required: false
 - name: system_settings
   label: System settings
   files:
@@ -372,45 +418,49 @@ collections:
     label: Site settings (email, address, links)
     file: _data/site.yml
     fields:
-    - {name: hide_from_search_engines, label: Hide the site from Google and other search engines (turn OFF at launch), widget: boolean}
-    - {name: draft_banner, label: Draft banner text (clear it to hide), widget: string}
+    - {name: hide_from_search_engines, label: Hide the site from Google and other search engines (turn OFF at launch), widget: boolean, required: false}
+    - {name: draft_banner, label: Draft banner text (clear it to hide), widget: string, required: false}
     - name: forms
       label: Forms (where messages and sign-ups are sent)
       widget: object
       fields:
-      - {name: service_name, label: Name of the form service (shown in the privacy note), widget: string}
-      - {name: endpoint, label: Form address from the service (used by every form), widget: string}
-      - {name: volunteer, label: Different address for the volunteer form (optional), widget: string}
-      - {name: contact, label: Different address for the contact form (optional), widget: string}
-      - {name: newsletter, label: Different address for the newsletter form (optional), widget: string}
-    - {name: email, label: PTA email, widget: string}
-    - {name: yearbook_email, label: Yearbook email, widget: string}
-    - {name: address, label: Address, widget: string}
-    - {name: president, label: President's name, widget: string}
+      - {name: service_name, label: Name of the form service (shown in the privacy note), widget: string, required: false}
+      - {name: endpoint, label: Form address from the service (used by every form), widget: string, required: false}
+      - {name: volunteer, label: Different address for the volunteer form (optional), widget: string, required: false}
+      - {name: contact, label: Different address for the contact form (optional), widget: string, required: false}
+      - {name: newsletter, label: Different address for the newsletter form (optional), widget: string, required: false}
+      required: false
+    - {name: email, label: PTA email, widget: string, required: false}
+    - {name: yearbook_email, label: Yearbook email, widget: string, required: false}
+    - {name: address, label: Address, widget: string, required: false}
+    - {name: president, label: President's name, widget: string, required: false}
     - name: calendar
       label: Events calendar (where the events come from)
       widget: object
       fields:
-      - {name: ical_url, label: Public iCal address of the PTA's Google Calendar (leave empty for sample events), widget: string}
-      - {name: months_ahead, label: How many months ahead to show, widget: number, value_type: int}
-      - {name: doc_url, label: Link to the yearly calendar Google Doc (clear to hide), widget: string}
-      - {name: doc_label, label: Text of that link, widget: string}
+      - {name: ical_url, label: Public iCal address of the PTA's Google Calendar (leave empty for sample events), widget: string, required: false}
+      - {name: months_ahead, label: How many months ahead to show, widget: number, value_type: int, required: false}
+      - {name: doc_url, label: Link to the yearly calendar Google Doc (clear to hide), widget: string, required: false}
+      - {name: doc_label, label: Text of that link, widget: string, required: false}
+      required: false
     - name: social
       label: Follow along (Facebook and Instagram)
       widget: object
       fields:
-      - {name: heading, label: Heading, widget: string}
-      - {name: intro, label: Sentence under the heading, widget: text}
+      - {name: heading, label: Heading, widget: string, required: false}
+      - {name: intro, label: Sentence under the heading, widget: text, required: false}
+      required: false
     - name: links
       label: Links
       widget: object
       fields:
-      - {name: join, label: Join link, widget: string}
-      - {name: donate, label: Donate link, widget: string}
-      - {name: spirit, label: Spirit Wear link, widget: string}
-      - {name: school, label: School website, widget: string}
-      - {name: facebook, label: Facebook, widget: string}
-      - {name: instagram, label: Instagram, widget: string}
+      - {name: join, label: Join link, widget: string, required: false}
+      - {name: donate, label: Donate link, widget: string, required: false}
+      - {name: spirit, label: Spirit Wear link, widget: string, required: false}
+      - {name: school, label: School website, widget: string, required: false}
+      - {name: facebook, label: Facebook, widget: string, required: false}
+      - {name: instagram, label: Instagram, widget: string, required: false}
+      required: false
   - name: event_categories
     label: Event categories (the tag and picture on each event pop-up)
     file: _data/event_categories.yml
@@ -419,9 +469,11 @@ collections:
       label: Categories (an event gets the FIRST one whose words appear in its title, so the order matters)
       widget: list
       fields:
-      - {name: name, label: Name shown on the tag, widget: string}
-      - {name: slug, label: Picture name (leave as is), widget: string}
+      - {name: name, label: Name shown on the tag, widget: string, required: false}
+      - {name: slug, label: Picture name (leave as is), widget: string, required: false}
       - name: words
         label: Words in an event title that put it in this category
         widget: list
-        field: {name: words, label: Words in an event title that put it in this category, widget: string}
+        field: {name: words, label: Words in an event title that put it in this category, widget: string, required: false}
+        required: false
+      required: false

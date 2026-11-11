@@ -84,6 +84,8 @@ Each field has a `name` (must match the key in the data file exactly), a `label`
 
 `hint:` adds help text under a label.
 
+`required: false` makes a field optional. The editor treats every field as required unless told otherwise, so every field in `admin/config.yml` has `required: false`: a blank box saves as blank and the site leaves that part out. Add it to any new field you create.
+
 ## Common changes
 **Change the words or buttons on a page:** open the page in the editor and edit the block. To do it in the file, edit the matching entry under `sections:` in `_data/<page>.yml`.
 
