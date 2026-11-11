@@ -29,6 +29,23 @@ The PTA writes a calendar document each year. `scripts/doc_to_ics.py` turns its 
 5. **Check the result.** Times without AM/PM are guessed (1 to 6 = PM, 7 to 11 = AM; a trailing p as in "4:00p" is believed). Items marked TBD, and "4/13 or 4/14" style dates, come in as *tentative* and show a "to be confirmed" label on the site. Dates may be written "10/13: ...", "10/13 ..." or "10/13- ...". Fix dates in Google Calendar as they firm up.
 6. **The doc itself** is linked from the Events page. The link and its wording are settings (`calendar > doc_url` and `doc_label` in `_data/site.yml`); change them each school year, or clear the link to hide it.
 
+## Getting told when the yearly Google Doc changes
+The yearly calendar document is edited by hand, so a GitHub workflow (`.github/workflows/calendar-doc-watch.yml`, using `scripts/doc_watch.py`) checks it every 6 hours and tells the website admin when something changed. It never edits the calendar itself: a person updates the Google Calendar.
+
+1. It downloads the doc's text, reads the events the same way `doc_to_ics.py` does, and compares them with the events as they were at the last review.
+2. If anything is new, changed or removed, it **opens an issue assigned to the repository owner**, listing every difference (and any new lines it had to guess about). GitHub emails the assignee, and sends a phone notification if the GitHub mobile app is installed. If the doc changes again before the issue is closed, the issue is updated and gets a new comment, so you are told again.
+3. Update the Google Calendar to match the lists, then **close the issue**. That records the doc as reviewed. The next change opens a new issue.
+4. If the doc is edited back to the reviewed version, the issue closes itself.
+5. If the check cannot read the doc (for example it stopped being shared by link, or its layout changed), a separate "check is failing" issue is opened the same way and closes itself when a check works again.
+
+**Setup.** The doc must stay shared as "Anyone with the link can view" (it already is, because the Events page links to it). The address and the school year come from `calendar > doc_url` in `_data/site.yml`; the school year is worked out from today's date, or set `calendar > doc_school_year` (the year the school year starts in, for example 2026) to fix it. The first run only saves a starting point and reports nothing, so existing differences between the doc and the calendar are not reported.
+
+**To be told.** Make sure GitHub notifications are on for the account that owns the repository (GitHub > Settings > Notifications): email for "Participating", which covers assigned issues. Add the GitHub mobile app for phone alerts.
+
+**Run it now:** GitHub > Actions > "Watch the calendar doc" > Run workflow. To test on a computer: `python scripts/doc_watch.py check --state /tmp/state --report report.md` (the first run saves a baseline; change a copy of the doc and run again with `--source copy.txt`).
+
+**Limits.** A moved or renamed event is reported as "changed" only when the title or the date stays the same; anything else shows as one removed plus one new. The saved state lives on a branch named `calendar-doc-state`; do not delete it, or the next run starts over with a new baseline. GitHub pauses scheduled workflows after 60 days with no repository activity.
+
 ## Day-to-day
 - **Add an event:** create it in Google Calendar with a title, date, time and location. Put a short sentence on the first line of the description (it becomes the one-line blurb on the cards) and a link anywhere in it if you want a "More information" link.
 - **Several days in a row** (a book fair): make it an all-day event that spans the days.
