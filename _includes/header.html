@@ -5,7 +5,9 @@
 <a class="brand" href="{{ '/' | relative_url }}"><img src="{{ '/assets/images/logo-header.png' | relative_url }}" width="50" height="50" alt="Monte Vista Bobcats logo"><span>{{ s.name | upcase }}<small>{{ s.tagline }}</small></span></a>
 <nav class="nav" id="nav" aria-label="Main"><ul>
 {% for item in site.data.nav %}
-  {% if item.children %}
+  {% if item.languages %}
+  <li class="has-dd"><button class="dd-btn" aria-expanded="false"><span aria-hidden="true">&#127760; </span>{{ item.label | escape }}</button><div class="dd">{% for l in item.languages %}<a lang="{{ l.code }}" hreflang="{{ l.code }}" href="https://translate.google.com/translate?sl=en&amp;tl={{ l.code }}&amp;u={{ page.url | absolute_url | cgi_escape }}">{{ l.label | escape }}</a>{% endfor %}</div></li>
+  {% elsif item.children %}
   <li class="has-dd"><button class="dd-btn" aria-expanded="false">{{ item.label | escape }}</button><div class="dd">{% for c in item.children %}<a href="{{ c.url | relative_url }}">{{ c.label | escape }}</a>{% endfor %}</div></li>
   {% else %}
   {% assign item_path = item.url | split: "#" | first %}
