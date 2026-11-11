@@ -37,7 +37,6 @@ sections:
                 body: |-
                   Event:
                   Date:
-                  Photographer (for credit):
                 style: gold
                 new_tab: false
                 download: ''
@@ -84,7 +83,6 @@ sections:
                 body: |-
                   Event:
                   Date:
-                  Photographer (for credit):
                 style: blue
                 new_tab: false
                 download: ''
@@ -97,7 +95,7 @@ sections:
           - type: tips
             items:
               - Send the original, full-size photos, not screenshots or tiny copies.
-              - Tell us the event, the date, and who took the photo.
+              - Tell us the event and the date of the photo
               - Group shots, action shots and candid moments all work well.
               - Only send photos you took or have permission to share.
               - Too many photos for one email? Send a few emails, or share a link from Google Photos, Google Drive or iCloud.
