@@ -1,0 +1,802 @@
+{
+ "events": [
+  {
+   "title": "TK/K Park Meet Up",
+   "start": "2026-08-10T15:00:00",
+   "end": "2026-08-10T17:00:00",
+   "all_day": false,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "f9094276c0307d1b0e50"
+  },
+  {
+   "title": "TK/K Teacher Meet & Greet",
+   "start": "2026-08-11T16:00:00",
+   "end": null,
+   "all_day": false,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "ad6971b7f271e3d8c894"
+  },
+  {
+   "title": "First Day of School & Boo-Hoo or Woo-Hoo Party",
+   "start": "2026-08-12T08:15:00",
+   "end": null,
+   "all_day": false,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "febc5e71ecd7553835da"
+  },
+  {
+   "title": "Donate today, Inspire Tomorrow! Fundraiser starts!",
+   "start": "2026-08-20",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "87899ead283d325d3885"
+  },
+  {
+   "title": "Back to School Night",
+   "start": "2026-08-20T17:30:00",
+   "end": "2026-08-20T19:00:00",
+   "all_day": false,
+   "tentative": false,
+   "location": "",
+   "description": "Date assumed from the line above (8/20). Please check it.\nPTA/Title I Presentation 5:30 - 6:00",
+   "id": "695209e1fec83ea223f9"
+  },
+  {
+   "title": "PTA Dine Out - Tony Pepperoni",
+   "start": "2026-08-27",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "1e72e8edb6ff5fa66aa7"
+  },
+  {
+   "title": "Flag Friday",
+   "start": "2026-08-28",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "dc0b7036dda4adcb940f"
+  },
+  {
+   "title": "PTA Meeting on Zoom",
+   "start": "2026-09-01T16:00:00",
+   "end": null,
+   "all_day": false,
+   "tentative": false,
+   "location": "Zoom",
+   "description": "",
+   "id": "96a5ddf0adb15710c122"
+  },
+  {
+   "title": "No School - Labor Day",
+   "start": "2026-09-07",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "6e38de53ff1d69627f98"
+  },
+  {
+   "title": "PTA Family Lunch",
+   "start": "2026-09-11",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "cc9dfe164e614370c34d"
+  },
+  {
+   "title": "Minimum Day",
+   "start": "2026-09-16",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "864813482194a01aad30"
+  },
+  {
+   "title": "PTA Dine Out - Islands",
+   "start": "2026-09-16",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "64516788f2f0302d192a"
+  },
+  {
+   "title": "Campout",
+   "start": "2026-09-25",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "6fde55fb0c94ecf4a99d"
+  },
+  {
+   "title": "Catalog Fundraiser",
+   "start": "2026-09-25",
+   "end": "2026-10-07",
+   "all_day": true,
+   "tentative": true,
+   "location": "",
+   "description": "Date or time to be confirmed.",
+   "id": "a5a7b541ef04a47719b6"
+  },
+  {
+   "title": "Friday Flag",
+   "start": "2026-09-25",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "d178a23720205e5f8d61"
+  },
+  {
+   "title": "PTA Meeting on Zoom",
+   "start": "2026-10-06T16:00:00",
+   "end": null,
+   "all_day": false,
+   "tentative": false,
+   "location": "Zoom",
+   "description": "",
+   "id": "ea038753513b6d6a1ace"
+  },
+  {
+   "title": "Dine-Out Night - Chipotle",
+   "start": "2026-10-13",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "c8706383a53308af11fe"
+  },
+  {
+   "title": "Book Fair",
+   "start": "2026-10-19",
+   "end": "2026-10-23",
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "a4e4221e80c1a8b53d9a"
+  },
+  {
+   "title": "Fall Festival",
+   "start": "2026-10-23",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "Book Fair will be open",
+   "id": "9e2fe91d18e070cbd1ed"
+  },
+  {
+   "title": "Red Ribbon Week",
+   "start": "2026-10-26",
+   "end": "2026-10-30",
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "86063997866110e238ce"
+  },
+  {
+   "title": "Flag Friday/ Halloween Parade/ Halloween",
+   "start": "2026-10-30",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "062ab610d25ca8bc043a"
+  },
+  {
+   "title": "Halloween",
+   "start": "2026-10-31",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "c6a5558d1ab19f92ca59"
+  },
+  {
+   "title": "PTA Meeting on Zoom",
+   "start": "2026-11-03T16:00:00",
+   "end": null,
+   "all_day": false,
+   "tentative": false,
+   "location": "Zoom",
+   "description": "",
+   "id": "7c497a1afc2ccef99f85"
+  },
+  {
+   "title": "Family Lunch",
+   "start": "2026-11-06",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "193fd1a51cff767a8516"
+  },
+  {
+   "title": "Sees Candy Fundraiser",
+   "start": "2026-11-09",
+   "end": "2026-11-20",
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "7ab4d3284c834a5f7aac"
+  },
+  {
+   "title": "No School - Veterans Day",
+   "start": "2026-11-11",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "a4866a58d2d28ef2255a"
+  },
+  {
+   "title": "Parent Teacher Conference Week (Minimum Days)",
+   "start": "2026-11-16",
+   "end": "2026-11-20",
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "73a85be0741c30dae4a1"
+  },
+  {
+   "title": "PTA Dine Out - Burger Bench",
+   "start": "2026-11-19",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "16969b848b4a66a9e4b1"
+  },
+  {
+   "title": "Friday Flag",
+   "start": "2026-11-20",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "dafcc088e9938913a8ba"
+  },
+  {
+   "title": "Fall Break",
+   "start": "2026-11-23",
+   "end": "2026-11-27",
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "a46180da797899edc3e9"
+  },
+  {
+   "title": "Penguin Patch in MPR: Set Up",
+   "start": "2026-11-30",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "MPR",
+   "description": "",
+   "id": "d27034994c468cae523b"
+  },
+  {
+   "title": "Penguin Patch in MPR",
+   "start": "2026-12-01",
+   "end": "2026-12-07",
+   "all_day": true,
+   "tentative": false,
+   "location": "MPR",
+   "description": "",
+   "id": "126053a0a236e8fddb46"
+  },
+  {
+   "title": "Penguin Patch in MPR: Grade Level Sales",
+   "start": "2026-12-01",
+   "end": "2026-12-07",
+   "all_day": true,
+   "tentative": false,
+   "location": "MPR",
+   "description": "",
+   "id": "28a074c58e2965f56388"
+  },
+  {
+   "title": "PTA Meeting Zoom",
+   "start": "2026-12-01T16:00:00",
+   "end": null,
+   "all_day": false,
+   "tentative": false,
+   "location": "Zoom",
+   "description": "",
+   "id": "3012c197c81e4cd6b51b"
+  },
+  {
+   "title": "City of Vista Tree Lighting",
+   "start": "2026-12-06",
+   "end": null,
+   "all_day": true,
+   "tentative": true,
+   "location": "",
+   "description": "Date or time to be confirmed.",
+   "id": "ef60b5efb0dfb120a1a5"
+  },
+  {
+   "title": "Winter Craft Night & Makers Market",
+   "start": "2026-12-17T17:00:00",
+   "end": "2026-12-17T19:00:00",
+   "all_day": false,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "4b29f4c0df5a915e79b1"
+  },
+  {
+   "title": "Flag Friday",
+   "start": "2026-12-18",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "5827cc3677ad530c3025"
+  },
+  {
+   "title": "Winter Break",
+   "start": "2026-12-21",
+   "end": "2027-01-06",
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "85182b033d3210015c23"
+  },
+  {
+   "title": "Students return from Winter Break",
+   "start": "2027-01-06",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "33205bdcb85bea2eca44"
+  },
+  {
+   "title": "Book Fair",
+   "start": "2027-01-11",
+   "end": "2027-01-15",
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "8e2c9ddf585d44e04cfd"
+  },
+  {
+   "title": "PTA Meeting Zoom",
+   "start": "2027-01-12T16:00:00",
+   "end": null,
+   "all_day": false,
+   "tentative": false,
+   "location": "Zoom",
+   "description": "",
+   "id": "72efeceda960e9e83f4c"
+  },
+  {
+   "title": "Glow Dance in MPR",
+   "start": "2027-01-15",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "MPR",
+   "description": "",
+   "id": "6fdbc17644fdace8186a"
+  },
+  {
+   "title": "No School - MLK Jr. Day",
+   "start": "2027-01-18",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "280efa5a5e5a2a8ba043"
+  },
+  {
+   "title": "Great Kindness Challenge",
+   "start": "2027-01-25",
+   "end": "2027-01-29",
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "0166ee663a8f076a5f51"
+  },
+  {
+   "title": "PTA Dine Out - Tony Peperoni",
+   "start": "2027-01-28",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "b235b80f7039dfefcca3"
+  },
+  {
+   "title": "Friday Flag & Jog-a-Thon Launch/ Family Lunch",
+   "start": "2027-01-29",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "1fd33f047e895c1d092a"
+  },
+  {
+   "title": "PTA Meeting Zoom",
+   "start": "2027-02-02T16:00:00",
+   "end": null,
+   "all_day": false,
+   "tentative": false,
+   "location": "Zoom",
+   "description": "",
+   "id": "f00b7e84f7d9eed78513"
+  },
+  {
+   "title": "Family Valentine's Dance",
+   "start": "2027-02-11T17:00:00",
+   "end": "2027-02-11T19:00:00",
+   "all_day": false,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "d4cb061ae28d30ab1e31"
+  },
+  {
+   "title": "No School - Presidents' Week",
+   "start": "2027-02-15",
+   "end": "2027-02-19",
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "80a0d98c113811dd3c0b"
+  },
+  {
+   "title": "Jog-a-Thon & Minimum Day",
+   "start": "2027-02-24",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "b1721d3e393a53a7eefe"
+  },
+  {
+   "title": "Friday Flag",
+   "start": "2027-02-26",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "e4f3e8135782733aab94"
+  },
+  {
+   "title": "Read Across America Week",
+   "start": "2027-03-01",
+   "end": "2027-03-05",
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "46919d7dc79b095dfbd1"
+  },
+  {
+   "title": "Spring Sees Candy Fundraiser",
+   "start": "2027-03-01",
+   "end": "2027-03-12",
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "d8c55a95b52f377fd3c9"
+  },
+  {
+   "title": "PTA Meeting Zoom",
+   "start": "2027-03-02T16:00:00",
+   "end": null,
+   "all_day": false,
+   "tentative": false,
+   "location": "Zoom",
+   "description": "",
+   "id": "b9b7b6372dad816b341d"
+  },
+  {
+   "title": "PTA Dine Out- Best Pizza",
+   "start": "2027-03-09",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "4f3b98fee2ba5b904dad"
+  },
+  {
+   "title": "Family Lunch",
+   "start": "2027-03-12",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "6bcefb3e2b3dad6f7cbf"
+  },
+  {
+   "title": "Order Delivery",
+   "start": "2027-03-15",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "0627edc1b9677e0dab33"
+  },
+  {
+   "title": "School Play",
+   "start": "2027-03-18",
+   "end": "2027-03-19",
+   "all_day": true,
+   "tentative": true,
+   "location": "",
+   "description": "Date or time to be confirmed.",
+   "id": "dfcb7fce3f0a7b8fddf4"
+  },
+  {
+   "title": "Flag Friday & Jog-A-Thon Awards",
+   "start": "2027-03-19",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "c49ad1d7eaa52613bd7a"
+  },
+  {
+   "title": "Spring Break",
+   "start": "2027-03-26",
+   "end": "2027-04-02",
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "e8773e5c06ae26c9a761"
+  },
+  {
+   "title": "PTA Meeting on Zoom",
+   "start": "2027-04-05T16:00:00",
+   "end": null,
+   "all_day": false,
+   "tentative": false,
+   "location": "Zoom",
+   "description": "",
+   "id": "39950042a274ed59de49"
+  },
+  {
+   "title": "Arts Under the Stars",
+   "start": "2027-04-06",
+   "end": "2027-04-09",
+   "all_day": true,
+   "tentative": true,
+   "location": "",
+   "description": "Date or time to be confirmed.",
+   "id": "c0d85fa1392287006ef0"
+  },
+  {
+   "title": "Site Beautification",
+   "start": "2027-04-10T08:00:00",
+   "end": "2027-04-10T12:00:00",
+   "all_day": false,
+   "tentative": true,
+   "location": "",
+   "description": "Date or time to be confirmed.",
+   "id": "779fa59a7fb426b2d877"
+  },
+  {
+   "title": "Open House & Leadership Day",
+   "start": "2027-04-15",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "d2b6e1b406f87c2a8340"
+  },
+  {
+   "title": "Dine Out",
+   "start": "2027-04-22",
+   "end": null,
+   "all_day": true,
+   "tentative": true,
+   "location": "",
+   "description": "Date or time to be confirmed.",
+   "id": "c2ded7c829e9f5e3a1e0"
+  },
+  {
+   "title": "Talent Show Auditions in MPR",
+   "start": "2027-04-27",
+   "end": "2027-04-28",
+   "all_day": true,
+   "tentative": false,
+   "location": "MPR",
+   "description": "",
+   "id": "4fa12508189f3394310d"
+  },
+  {
+   "title": "Friday Flag",
+   "start": "2027-04-30",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "d7a47034bf052356b573"
+  },
+  {
+   "title": "Staff Appreciation Week",
+   "start": "2027-05-03",
+   "end": "2027-05-07",
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "76f8b9c4d22e58ad7e3d"
+  },
+  {
+   "title": "PTA meeting Zoom",
+   "start": "2027-05-04T16:00:00",
+   "end": null,
+   "all_day": false,
+   "tentative": false,
+   "location": "Zoom",
+   "description": "",
+   "id": "1c4137daf3c2b16ee444"
+  },
+  {
+   "title": "Book Fair",
+   "start": "2027-05-17",
+   "end": "2027-05-21",
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "595eb819860193307385"
+  },
+  {
+   "title": "Talent Show Dress Rehearsal in MPR",
+   "start": "2027-05-18",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "MPR",
+   "description": "",
+   "id": "7fe30c12bc3ebd5ad867"
+  },
+  {
+   "title": "Talent Show Day & Night Performance in MPR",
+   "start": "2027-05-19",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "MPR",
+   "description": "",
+   "id": "914c34c16e05c11a8298"
+  },
+  {
+   "title": "Field Day",
+   "start": "2027-05-27",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "a192b5f432c943fb6e06"
+  },
+  {
+   "title": "Friday Flag & 5th Grade BIztown Study Trip",
+   "start": "2027-05-28",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "26eca44af20c17983d52"
+  },
+  {
+   "title": "No School - Memorial Day",
+   "start": "2027-05-31",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "3d8013f3026125f9dfca"
+  },
+  {
+   "title": "Class of 2027 Senior Clap Out & 5th Grade vs. Staff Kickball",
+   "start": "2027-06-01",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "903b29ff2741e3d94b52"
+  },
+  {
+   "title": "TK Promotion",
+   "start": "2027-06-01",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "4f26d4aca79a9a0513aa"
+  },
+  {
+   "title": "5th Grade Promotion",
+   "start": "2027-06-02",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "",
+   "id": "98f7774d8f5adb932128"
+  },
+  {
+   "title": "K Promotion - Minimum Day",
+   "start": "2027-06-03",
+   "end": null,
+   "all_day": true,
+   "tentative": false,
+   "location": "",
+   "description": "LAST DAY OF SCHOOL",
+   "id": "3506e61d1b0378978548"
+  }
+ ],
+ "warnings": [
+  "Line 12: \"Back to School Night\" had no date, so it was put on 8/20 (the line above it). Check the date.",
+  "Line 13: \"PTA/Title I Presentation 5:30 - 6:00\" has no date, so it was added as a note on \"Back to School Night\" (2026-08-20). If it is its own event, add it by hand.",
+  "Line 54: \"1130- Penguin Patch Set-up\" was not understood and was left out. If it is an event, add it by hand.",
+  "Line 59: \"Set Up\" is indented, so it was named \"Penguin Patch in MPR: Set Up\" after the event above it.",
+  "Line 60: \"Grade Level Sales\" is indented, so it was named \"Penguin Patch in MPR: Grade Level Sales\" after the event above it.",
+  "Line 136: \"LAST DAY OF SCHOOL\" has no date, so it was added as a note on \"K Promotion - Minimum Day\" (2027-06-03). If it is its own event, add it by hand."
+ ]
+}
