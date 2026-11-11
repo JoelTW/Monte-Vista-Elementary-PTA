@@ -1,47 +1,111 @@
-# "Get to know your PTA": the roles shown on the About page. These are COMMON PTA ROLES used as placeholders;
-# change them to match your actual board. Leave `name` empty to show "Name coming soon".
-# Set open: true to show a role as an open position with a "could this be you?" button.
-# Photos: put a square-ish photo in assets/images/team/ and set photo: /assets/images/team/name.jpg (only with the person's OK).
 intro: "Meet the volunteers who keep Monte Vista's PTA running. (Placeholder roles: replace them with your board.)"
 groups:
   - heading: Executive board
     members:
       - role: President
-        name: Jennifer Neville
-        icon: "🌟"
-        photo: /assets/images/president.jpg
+        name: ''
+        icon: 🌟
+        photo: ''
         blurb: Leads the board and PTA meetings, and is the PTA's voice with the school.
-        ask_me_about: ""
-        email: ""
+        ask_me_about: ''
+        email: ''
+        open: false
       - role: Vice President
-        name: ""
-        icon: "🤝"
-        photo: ""
+        name: ''
+        icon: 🤝
+        photo: ''
         blurb: Supports the President, helps lead committees, and steps in when needed.
-        ask_me_about: ""
-        email: ""
+        ask_me_about: ''
+        email: ''
+        open: false
       - role: Secretary
-        name: ""
-        icon: "📝"
-        photo: ""
+        name: ''
+        icon: 📝
+        photo: ''
         blurb: Takes the meeting minutes and keeps the PTA's records.
-        ask_me_about: ""
-        email: ""
+        ask_me_about: ''
+        email: ''
+        open: false
       - role: Treasurer
-        name: ""
-        icon: "💵"
-        photo: ""
+        name: ''
+        icon: 💵
+        photo: ''
         blurb: Tracks the PTA's money, including the budget, deposits and reports to the board.
-        ask_me_about: ""
-        email: ""
+        ask_me_about: ''
+        email: ''
+        open: false
   - heading: Chairs and coordinators
     members:
-      - {role: Membership Chair, name: "", icon: "🎟️", photo: "", blurb: Runs the member drive and welcomes new families., ask_me_about: "", email: ""}
-      - {role: Fundraising Chair, name: "", icon: "🛍️", photo: "", blurb: "Plans fundraisers like Dine Out Nights and the Jog-A-Thon.", ask_me_about: "", email: ""}
-      - {role: Volunteer Coordinator, name: "", icon: "🙋", photo: "", blurb: Matches families with ways to help and keeps sign-ups organized., ask_me_about: "", email: ""}
-      - {role: Events and Hospitality Chair, name: "", icon: "🎉", photo: "", blurb: "Plans community events such as Movie Nights, Fall Festival and the Campout.", ask_me_about: "", email: ""}
-      - {role: Communications Chair, name: "", icon: "📣", photo: "", blurb: "Keeps families informed through the newsletter, website and social media.", ask_me_about: "", email: ""}
-      - {role: Teacher and Staff Appreciation Chair, name: "", icon: "🍎", photo: "", blurb: Plans ways to thank our teachers and staff, including Staff Appreciation Week., ask_me_about: "", email: ""}
-      - {role: Reflections Arts Chair, name: "", icon: "🎨", photo: "", blurb: Runs the National PTA Reflections arts program at Monte Vista., ask_me_about: "", email: ""}
-      - {role: Yearbook Coordinator, name: "", icon: "📸", photo: "", blurb: Collects photos from school events and designs the yearbook., ask_me_about: "", email: ""}
-      - {role: "Your role could be here", name: "", icon: "✋", photo: "", blurb: "We always have room for helping hands, and no experience is needed.", ask_me_about: "", email: "", open: true}
+      - role: Membership Chair
+        name: ''
+        icon: 🎟️
+        photo: ''
+        blurb: Runs the member drive and welcomes new families.
+        ask_me_about: ''
+        email: ''
+        open: false
+      - role: Fundraising Chair
+        name: ''
+        icon: 🛍️
+        photo: ''
+        blurb: Plans fundraisers like Dine Out Nights and the Jog-A-Thon.
+        ask_me_about: ''
+        email: ''
+        open: false
+      - role: Volunteer Coordinator
+        name: ''
+        icon: 🙋
+        photo: ''
+        blurb: Matches families with ways to help and keeps sign-ups organized.
+        ask_me_about: ''
+        email: ''
+        open: false
+      - role: Events and Hospitality Chair
+        name: ''
+        icon: 🎉
+        photo: ''
+        blurb: Plans community events such as Movie Nights, Fall Festival and the Campout.
+        ask_me_about: ''
+        email: ''
+        open: false
+      - role: Communications Chair
+        name: ''
+        icon: 📣
+        photo: ''
+        blurb: Keeps families informed through the newsletter, website and social media.
+        ask_me_about: ''
+        email: ''
+        open: false
+      - role: Teacher and Staff Appreciation Chair
+        name: ''
+        icon: 🍎
+        photo: ''
+        blurb: Plans ways to thank our teachers and staff
+        ask_me_about: ''
+        email: ''
+        open: false
+        including Staff Appreciation Week.: null
+      - role: Reflections Arts Chair
+        name: ''
+        icon: 🎨
+        photo: ''
+        blurb: Runs the National PTA Reflections arts program at Monte Vista.
+        ask_me_about: ''
+        email: ''
+        open: false
+      - role: Yearbook Coordinator
+        name: ''
+        icon: 📸
+        photo: ''
+        blurb: Collects photos from school events and designs the yearbook.
+        ask_me_about: ''
+        email: ''
+        open: false
+      - role: Your role could be here
+        name: ''
+        icon: ✋
+        photo: ''
+        blurb: We always have room for helping hands, and no experience is needed.
+        ask_me_about: ''
+        email: ''
+        open: true
